@@ -10,7 +10,7 @@ navbar:
   - text: License
     href: license.html
   - text: Resources
-    href: Resources.html
+    href: resources.html
 output:
   workflowr::wflow_html:
     toc: yes
