@@ -11,6 +11,8 @@ navbar:
     href: license.html
   - text: Resources
     href: resources.html
+  - text: Home
+    href: index.html
 output:
   workflowr::wflow_html:
     toc: yes
