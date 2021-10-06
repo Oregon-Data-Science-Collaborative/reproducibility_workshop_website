@@ -11,7 +11,7 @@
 
 
 
-<title>About</title>
+<title>Shell Intro</title>
 
 <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -351,7 +351,7 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">About</h1>
+<h1 class="title toc-ignore">Shell Intro</h1>
 
 </div>
 
@@ -379,7 +379,7 @@ div.tocify {
 <strong>Last updated:</strong> 2021-10-06
 </p>
 <p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 1 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
+<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
 </p>
 <p>
 <strong>Knit directory:</strong> <code>workshop_website/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
@@ -400,7 +400,67 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 </div>
 <div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
+<p>The R Markdown is untracked by Git. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
+</p>
+</div>
+<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! The global environment was empty. Objects defined in the global environment can affect the analysis in your R Markdown file in unknown ways. For reproduciblity it’s best to always run the code in an empty environment.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed20211006code"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Seed:</strong> <code>set.seed(20211006)</code> </a>
+</p>
+</div>
+<div id="strongSeedstrongcodesetseed20211006code" class="panel-collapse collapse">
+<div class="panel-body">
+<p>The command <code>set.seed(20211006)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Session information:</strong> recorded </a>
+</p>
+</div>
+<div id="strongSessioninformationstrongrecorded" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Recording the operating system, R version, and package versions is critical for reproducibility.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Cache:</strong> none </a>
+</p>
+</div>
+<div id="strongCachestrongnone" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Nice! There were no cached chunks for this analysis, so you can be confident that you successfully produced the results during this run.</p>
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+<div class="panel-heading">
+<p class="panel-title">
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongrelative"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>File paths:</strong> relative </a>
+</p>
+</div>
+<div id="strongFilepathsstrongrelative" class="panel-collapse collapse">
+<div class="panel-body">
+<p>Great job! Using relative paths to the files within your workflowr project makes it easier to run your code on other machines.</p>
 </div>
 </div>
 </div>
@@ -426,6 +486,9 @@ Ignored files:
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
 
+Untracked files:
+    Untracked:  analysis/shell_intro.Rmd
+
 Unstaged changes:
     Modified:   analysis/about.Rmd
 
@@ -440,108 +503,61 @@ Note that any generated files, e.g. HTML, png, CSS, etc., are not included in t
 <hr>
 </div>
 <div id="versions" class="tab-pane fade">
-
 <p>
-These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/about.Rmd</code>) and HTML (<code>docs/about.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
+There are no past versions. Publish this analysis with <code>wflow_publish()</code> to start tracking its development.
 </p>
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-File
-</th>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-<th>
-Message
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/lillian-aoki/workshop_website/72b1d7ba18621e84ee043ccbf3f3f554220c9a35/docs/about.html" target="_blank">72b1d7b</a>
-</td>
-<td>
-Lillian Aoki
-</td>
-<td>
-2021-10-06
-</td>
-<td>
-build with workflowr
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/lillian-aoki/workshop_website/blob/a6aa426ac4cb8de00840982ca44b492855a6501f/analysis/about.Rmd" target="_blank">a6aa426</a>
-</td>
-<td>
-GitHub
-</td>
-<td>
-2021-10-06
-</td>
-<td>
-Update about.Rmd
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/lillian-aoki/workshop_website/5759dbe5ea3670c2983f221c6fea3d2203b77e5f/docs/about.html" target="_blank">5759dbe</a>
-</td>
-<td>
-Lillian Aoki
-</td>
-<td>
-2021-10-06
-</td>
-<td>
-add auto generated files
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/lillian-aoki/workshop_website/blob/0e5dc5953f179d89ee41b3dd010a1a96cc6e1d10/analysis/about.Rmd" target="_blank">0e5dc59</a>
-</td>
-<td>
-Lillian Aoki
-</td>
-<td>
-2021-10-06
-</td>
-<td>
-Start workflowr project.
-</td>
-</tr>
-</tbody>
-</table>
-</div>
 <hr>
 </div>
 </div>
 </div>
-<p>A demo website for a workshop series on reproducible research.</p>
+<div id="working-in-the-shell" class="section level2">
+<h2>Working in the shell</h2>
+<p>This is a brief introduction to working in the shell, to supplement the live-coding during the workshop.</p>
+<p>This guide is derived in part from the <a href="https://swcarpentry.github.io/shell-novice/">Sofware Carprentries</a> and <a href="https://datacarpentry.org/shell-genomics/">Data Carpentries</a> lessons on using the shell.</p>
+<div id="getting-started" class="section level3">
+<h3>Getting started</h3>
+<p>When you open the shell, you will see some <strong>text</strong> followed by a <strong>prompt symbol</strong> and a <strong>text cursor</strong>.</p>
+<p>The text indicates your user name and the working directory (the folder you are working in).</p>
+<p>The prompt symbol is often a <code>$</code> but may also be a <code>%</code> depending on the shell you are using.</p>
+<p>The cursor indicates where you can begin typing commands.</p>
+<p>After you type a command, hit the <kbd>Enter</kbd> key to run the command.</p>
+<p>The command <code>echo</code> will display a line of text. If you type the following and hit enter<br />
+<code>$ echo hello!</code><br />
+you should see the <strong>output</strong> on the next line as<br />
+‘hello!’</p>
+<br>
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
+<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Session information
+</button>
+</p>
+<div id="workflowr-sessioninfo" class="collapse">
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>R version 4.1.1 (2021-08-10)
+Platform: x86_64-apple-darwin17.0 (64-bit)
+Running under: macOS Big Sur 10.16
+
+Matrix products: default
+BLAS:   /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRblas.0.dylib
+LAPACK: /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRlapack.dylib
+
+locale:
+[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+loaded via a namespace (and not attached):
+ [1] workflowr_1.6.2  Rcpp_1.0.7       rprojroot_2.0.2  digest_0.6.28   
+ [5] later_1.3.0      R6_2.5.1         git2r_0.28.0     magrittr_2.0.1  
+ [9] evaluate_0.14    stringi_1.7.4    rlang_0.4.11     fs_1.5.0        
+[13] promises_1.2.0.1 jquerylib_0.1.4  rmarkdown_2.11   tools_4.1.1     
+[17] stringr_1.4.0    glue_1.4.2       httpuv_1.6.3     xfun_0.26       
+[21] yaml_2.2.1       fastmap_1.1.0    compiler_4.1.1   htmltools_0.5.2 
+[25] knitr_1.36      </code></pre>
+</div>
+</div>
+</div>
 
 
 <!-- Adjust MathJax settings so that all math formulae are shown using

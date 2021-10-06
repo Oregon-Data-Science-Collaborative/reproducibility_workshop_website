@@ -1,0 +1,31 @@
+---
+title: "Shell Intro"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Working in the shell
+
+This is a brief introduction to working in the shell, to supplement the live-coding during the workshop. 
+
+This guide is derived in part from the [Sofware Carprentries](https://swcarpentry.github.io/shell-novice/) and [Data Carpentries](https://datacarpentry.org/shell-genomics/) lessons on using the shell.
+
+### Getting started
+
+When you open the shell, you will see some **text** followed by a **prompt symbol** and a **text cursor**.  
+
+The text indicates your user name and the working directory (the folder you are working in).  
+
+The prompt symbol is often a `$` but may also be a `%` depending on the shell you are using.  
+
+The cursor indicates where you can begin typing commands.  
+
+After you type a command, hit the <kbd>Enter</kbd> key to run the command.  
+
+The command `echo` will display a line of text. If you type the following and hit enter  
+`$ echo hello!`  
+you should see the **output** on the next line as  
+'hello!'
