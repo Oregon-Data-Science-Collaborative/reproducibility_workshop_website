@@ -1,7 +1,7 @@
 name: "workshop_website"
 output_dir: ../docs
 navbar:
-  title: "workshop_website"
+  title: "Reproducible Research"
   left:
   - text: Home
     href: index.html
@@ -9,6 +9,8 @@ navbar:
     href: about.html
   - text: License
     href: license.html
+  - text: Resources
+    href: Resources.html
 output:
   workflowr::wflow_html:
     toc: yes
