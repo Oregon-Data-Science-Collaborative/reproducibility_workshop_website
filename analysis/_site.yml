@@ -3,7 +3,7 @@ output_dir: ../docs
 navbar:
   title: "Reproducible Research"
   left:
-   - text: About
+  - text: About
     href: about.html
   - text: License
     href: license.html
