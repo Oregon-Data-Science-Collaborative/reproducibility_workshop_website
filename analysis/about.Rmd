@@ -1,5 +1,4 @@
 ---
-title: "About"
 output:
   html_document:
     toc: false
@@ -7,4 +6,12 @@ editor_options:
   chunk_output_type: console
 ---
 
-A demo website for a workshop series on reproducible research.
+Demo text
+
+This website accompanies a series of workshops that introduce tools and practices
+for conducting reproducible research with quantitative data. Topics covered 
+include principles of reproducible workflows, using Git for version control and
+GitHub for collaboration, and best practices for project management. Researchers
+at any level are welcome; no programming experience is needed but basic familiarity
+with a coding environment (R, Pyton, Matlab) will be helpful. The workshops are 
+presented in sequence but can be attended independently.

@@ -63,6 +63,7 @@ gives as output the manual for the `ls` command.
 
 You can navigate through the manual using the <kbd>&#x2191;</kbd> and <kbd>&#x2193;</kbd>
 arrow keys, <kbd>page up</kbd> and <kbd>page down</kbd>, or <kbd>space</kbd> and <kbd>B</kbd>.  
+
 Type <kbd>Q</kbd> to quit the manual.
 
 Note, on a Windows machine running Git Bash, you may need to use the `--help` option 
@@ -85,7 +86,7 @@ environment variables using `export`.
 `$ export greeting=hello`
 
 returns no output to the console but saves the variable value. Access the new value 
-with the 'echo' command:
+with the `echo` command:
 
 `$ echo $greeting`
 
