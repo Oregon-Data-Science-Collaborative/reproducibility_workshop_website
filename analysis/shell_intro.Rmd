@@ -32,8 +32,9 @@ you should see the **output** on the next line as
 
 `hello!`
 
-<p class="text-primary">In this documentation, the `$` prompt is included but you
-don't need to type the prompt itself, just the commands that follow it.</p>
+<p class="text-success">
+In this documentation, the `$` prompt is included but you don't need to type the
+prompt itself, just the commands that follow it.</p>
 
 Some other basic commands:
 
@@ -71,7 +72,7 @@ instead of `man` to access documentation.
 
 ### Environment variables
 
-Environment variables are pieces of information that are stored in your shell session.
+**Environment variables** are pieces of information that are stored in your shell session.
 Variables start with `$`, e.g. the variable `$USER` identifies the user (you).  
 
 Access variables individually using the echo command:

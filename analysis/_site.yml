@@ -18,6 +18,10 @@ navbar:
     href: resources.html
   - text: License
     href: license.html
+  right:
+  - icon: fa-github
+    text: Source code
+    href: https://github.com/lillian-aoki/workshop_website
 output:
   workflowr::wflow_html:
     toc: yes
