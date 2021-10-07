@@ -11,12 +11,12 @@
 
 
 
-<title>Shell Intro</title>
+<title>shell_intro.knit.md</title>
 
 <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
@@ -351,7 +351,6 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Shell Intro</h1>
 
 </div>
 
@@ -376,7 +375,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2021-10-06
+<strong>Last updated:</strong> 2021-10-07
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
@@ -400,7 +399,7 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 </div>
 <div id="strongRMarkdownfilestronguncommittedchanges" class="panel-collapse collapse">
 <div class="panel-body">
-<p>The R Markdown is untracked by Git. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
+<p>The R Markdown file has unstaged changes. To know which version of the R Markdown file created these results, you’ll want to first commit it to the Git repo. If you’re still working on the analysis, you can ignore this warning. When you’re finished, you can run <code>wflow_publish</code> to commit the R Markdown file and build the HTML.</p>
 </div>
 </div>
 </div>
@@ -467,16 +466,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomlillianaokiworkshopwebsitetree72b1d7ba18621e84ee043ccbf3f3f554220c9a35targetblank72b1d7ba"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/lillian-aoki/workshop_website/tree/72b1d7ba18621e84ee043ccbf3f3f554220c9a35" target="_blank">72b1d7b</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomlillianaokiworkshopwebsitetree4dbec6c2a44f9c151058fcf7d0695be96d537f25targetblank4dbec6ca"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/lillian-aoki/workshop_website/tree/4dbec6c2a44f9c151058fcf7d0695be96d537f25" target="_blank">4dbec6c</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomlillianaokiworkshopwebsitetree72b1d7ba18621e84ee043ccbf3f3f554220c9a35targetblank72b1d7ba" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomlillianaokiworkshopwebsitetree4dbec6c2a44f9c151058fcf7d0695be96d537f25targetblank4dbec6ca" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/lillian-aoki/workshop_website/tree/72b1d7ba18621e84ee043ccbf3f3f554220c9a35" target="_blank">72b1d7b</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/lillian-aoki/workshop_website/tree/4dbec6c2a44f9c151058fcf7d0695be96d537f25" target="_blank">4dbec6c</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -486,11 +485,8 @@ Ignored files:
     Ignored:    .Rhistory
     Ignored:    .Rproj.user/
 
-Untracked files:
-    Untracked:  analysis/shell_intro.Rmd
-
 Unstaged changes:
-    Modified:   analysis/about.Rmd
+    Modified:   analysis/shell_intro.Rmd
 
 </code></pre>
 <p>
@@ -503,9 +499,69 @@ Note that any generated files, e.g. HTML, png, CSS, etc., are not included in t
 <hr>
 </div>
 <div id="versions" class="tab-pane fade">
+
 <p>
-There are no past versions. Publish this analysis with <code>wflow_publish()</code> to start tracking its development.
+These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/shell_intro.Rmd</code>) and HTML (<code>docs/shell_intro.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
 </p>
+<div class="table-responsive">
+<table class="table table-condensed table-hover">
+<thead>
+<tr>
+<th>
+File
+</th>
+<th>
+Version
+</th>
+<th>
+Author
+</th>
+<th>
+Date
+</th>
+<th>
+Message
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/lillian-aoki/workshop_website/blob/9670fede682f731467dbc37c0905f30ff0bffd8d/analysis/shell_intro.Rmd" target="_blank">9670fed</a>
+</td>
+<td>
+Lillian Aoki
+</td>
+<td>
+2021-10-06
+</td>
+<td>
+add shell intro
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/lillian-aoki/workshop_website/9670fede682f731467dbc37c0905f30ff0bffd8d/docs/shell_intro.html" target="_blank">9670fed</a>
+</td>
+<td>
+Lillian Aoki
+</td>
+<td>
+2021-10-06
+</td>
+<td>
+add shell intro
+</td>
+</tr>
+</tbody>
+</table>
+</div>
 <hr>
 </div>
 </div>
@@ -516,15 +572,51 @@ There are no past versions. Publish this analysis with <code>wflow_publish()</co
 <p>This guide is derived in part from the <a href="https://swcarpentry.github.io/shell-novice/">Sofware Carprentries</a> and <a href="https://datacarpentry.org/shell-genomics/">Data Carpentries</a> lessons on using the shell.</p>
 <div id="getting-started" class="section level3">
 <h3>Getting started</h3>
-<p>When you open the shell, you will see some <strong>text</strong> followed by a <strong>prompt symbol</strong> and a <strong>text cursor</strong>.</p>
+<p>When you open the shell, you will see some <strong>text</strong> followed by a <strong>prompt symbol</strong> and a <strong>cursor</strong>.</p>
 <p>The text indicates your user name and the working directory (the folder you are working in).</p>
 <p>The prompt symbol is often a <code>$</code> but may also be a <code>%</code> depending on the shell you are using.</p>
 <p>The cursor indicates where you can begin typing commands.</p>
 <p>After you type a command, hit the <kbd>Enter</kbd> key to run the command.</p>
-<p>The command <code>echo</code> will display a line of text. If you type the following and hit enter<br />
-<code>$ echo hello!</code><br />
-you should see the <strong>output</strong> on the next line as<br />
-‘hello!’</p>
+<p>The command <code>echo</code> will display a line of text. If you type the following and hit enter</p>
+<p><code>$ echo hello!</code></p>
+<p>you should see the <strong>output</strong> on the next line as</p>
+<p><code>hello!</code></p>
+<p class="text-primary">
+In this documentation, the <code>$</code> prompt is included but you don’t need to type the prompt itself, just the commands that follow it.
+</p>
+<p>Some other basic commands:</p>
+<p><code>pwd</code> prints the working directory (the folder you are working in)</p>
+<p><code>ls</code> returns a list of files in the current (working) directory</p>
+<p><code>clear</code> will scroll up your screen to give you a clean space to work it. This makes it easier to read, but you can still scroll up to see your previous work.</p>
+<p>Try running <code>ls</code> to see the files in your directory.</p>
+</div>
+<div id="options-and-documentation" class="section level3">
+<h3>Options and documentation</h3>
+<p>When you run a command, you can add <strong>options</strong> (also known as <strong>flags</strong>) to modify the output.</p>
+<p>For example, use the option <code>-l</code> for the command <code>ls</code> to display more information.</p>
+<p><code>$ ls -l</code></p>
+<p>To find out what options are available for a command, access the manual (i.e. the documentation) by running <code>man</code> and the command:</p>
+<p><code>$ man ls</code></p>
+<p>gives as output the manual for the <code>ls</code> command.</p>
+<p>You can navigate through the manual using the <kbd>↑</kbd> and <kbd>↓</kbd> arrow keys, <kbd>page up</kbd> and <kbd>page down</kbd>, or <kbd>space</kbd> and <kbd>B</kbd>.<br />
+Type <kbd>Q</kbd> to quit the manual.</p>
+<p>Note, on a Windows machine running Git Bash, you may need to use the <code>--help</code> option instead of <code>man</code> to access documentation.</p>
+</div>
+<div id="environment-variables" class="section level3">
+<h3>Environment variables</h3>
+<p>Environment variables are pieces of information that are stored in your shell session. Variables start with <code>$</code>, e.g. the variable <code>$USER</code> identifies the user (you).</p>
+<p>Access variables individually using the echo command:</p>
+<p><code>$ echo $USER</code></p>
+<p>returns your username.</p>
+<p>You can access all environment variables using <code>env</code> and you can set environment variables using <code>export</code>.</p>
+<p><code>$ export greeting=hello</code></p>
+<p>returns no output to the console but saves the variable value. Access the new value with the ‘echo’ command:</p>
+<p><code>$ echo $greeting</code></p>
+<p>Exiting and opening a new session of the shell will reset the variables.</p>
+</div>
+<div id="navigating-files-and-directories" class="section level3">
+<h3>Navigating files and directories</h3>
+<p>You may be used to navigating the file system using Finder or Windows Explorer.</p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -551,10 +643,10 @@ loaded via a namespace (and not attached):
  [1] workflowr_1.6.2  Rcpp_1.0.7       rprojroot_2.0.2  digest_0.6.28   
  [5] later_1.3.0      R6_2.5.1         git2r_0.28.0     magrittr_2.0.1  
  [9] evaluate_0.14    stringi_1.7.4    rlang_0.4.11     fs_1.5.0        
-[13] promises_1.2.0.1 jquerylib_0.1.4  rmarkdown_2.11   tools_4.1.1     
-[17] stringr_1.4.0    glue_1.4.2       httpuv_1.6.3     xfun_0.26       
-[21] yaml_2.2.1       fastmap_1.1.0    compiler_4.1.1   htmltools_0.5.2 
-[25] knitr_1.36      </code></pre>
+[13] promises_1.2.0.1 whisker_0.4      jquerylib_0.1.4  rmarkdown_2.11  
+[17] tools_4.1.1      stringr_1.4.0    glue_1.4.2       httpuv_1.6.3    
+[21] xfun_0.26        yaml_2.2.1       fastmap_1.1.0    compiler_4.1.1  
+[25] htmltools_0.5.2  knitr_1.36      </code></pre>
 </div>
 </div>
 </div>

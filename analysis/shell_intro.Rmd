@@ -1,5 +1,4 @@
 ---
-title: "Shell Intro"
 output: html_document
 ---
 
@@ -15,7 +14,7 @@ This guide is derived in part from the [Sofware Carprentries](https://swcarpentr
 
 ### Getting started
 
-When you open the shell, you will see some **text** followed by a **prompt symbol** and a **text cursor**.  
+When you open the shell, you will see some **text** followed by a **prompt symbol** and a **cursor**.  
 
 The text indicates your user name and the working directory (the folder you are working in).  
 
@@ -26,6 +25,74 @@ The cursor indicates where you can begin typing commands.
 After you type a command, hit the <kbd>Enter</kbd> key to run the command.  
 
 The command `echo` will display a line of text. If you type the following and hit enter  
+
 `$ echo hello!`  
+
 you should see the **output** on the next line as  
-'hello!'
+
+`hello!`
+
+<p class="text-primary">In this documentation, the `$` prompt is included but you
+don't need to type the prompt itself, just the commands that follow it.</p>
+
+Some other basic commands:
+
+`pwd` prints the working directory (the folder you are working in)  
+
+`ls` returns a list of files in the current (working) directory  
+
+`clear` will scroll up your screen to give you a clean space to work it. This makes it easier to read, 
+but you can still scroll up to see your previous work.
+
+Try running `ls` to see the files in your directory.
+
+### Options and documentation
+
+When you run a command, you can add **options** (also known as **flags**) to modify the output.  
+
+For example, use the option `-l`  for the command `ls` to display more information.
+
+`$ ls -l` 
+
+To find out what options are available for a command, access the manual (i.e. the documentation) 
+by running `man` and the command:  
+
+`$ man ls`
+
+gives as output the manual for the `ls` command. 
+
+You can navigate through the manual using the <kbd>&#x2191;</kbd> and <kbd>&#x2193;</kbd>
+arrow keys, <kbd>page up</kbd> and <kbd>page down</kbd>, or <kbd>space</kbd> and <kbd>B</kbd>.  
+Type <kbd>Q</kbd> to quit the manual.
+
+Note, on a Windows machine running Git Bash, you may need to use the `--help` option 
+instead of `man` to access documentation. 
+
+### Environment variables
+
+Environment variables are pieces of information that are stored in your shell session.
+Variables start with `$`, e.g. the variable `$USER` identifies the user (you).  
+
+Access variables individually using the echo command:
+
+`$ echo $USER`
+
+returns your username.
+
+You can access all environment variables using `env` and you can set 
+environment variables using `export`.
+
+`$ export greeting=hello`
+
+returns no output to the console but saves the variable value. Access the new value 
+with the 'echo' command:
+
+`$ echo $greeting`
+
+Exiting and opening a new session of the shell will reset the variables.
+
+### Navigating files and directories
+
+You may be used to navigating the file system using Finder or Windows Explorer.
+
+

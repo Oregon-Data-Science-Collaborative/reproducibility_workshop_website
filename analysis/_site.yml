@@ -3,14 +3,21 @@ output_dir: ../docs
 navbar:
   title: "Reproducible Research"
   left:
-  - text: About
-    href: about.html
-  - text: License
-    href: license.html
-  - text: Resources
-    href: resources.html
   - text: Home
     href: index.html
+  - text: Modules
+    href: modules.html
+    menu:
+    - text: Lesson notes
+    - text: "Module 1: Reproducible Workflows"
+    - text: "Module 2: Working in the shell"
+      href: shell_intro.html
+    - text: "Module 3: Version control with Git"
+    - text: "Module 4: Collaboration with GitHub"
+  - text: Resources
+    href: resources.html
+  - text: License
+    href: license.html
 output:
   workflowr::wflow_html:
     toc: yes
