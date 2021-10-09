@@ -340,7 +340,7 @@ div.tocify {
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
-    <li class="dropdown-header">Lesson notes</li>
+    <li class="dropdown-header">Overview</li>
     <li class="dropdown-header">Module 1: Reproducible Workflows</li>
     <li>
       <a href="shell_intro.html">Module 2: Working in the shell</a>
@@ -397,7 +397,7 @@ div.tocify {
 <div class="tab-content">
 <div id="summary" class="tab-pane fade in active">
 <p>
-<strong>Last updated:</strong> 2021-10-07
+<strong>Last updated:</strong> 2021-10-08
 </p>
 <p>
 <strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 6 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 1
@@ -488,16 +488,16 @@ This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis
 <div class="panel panel-default">
 <div class="panel-heading">
 <p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomlillianaokiworkshopwebsitetreef8c085ff68c279573d0451f283913a8e22ce3958targetblankf8c085fa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/lillian-aoki/workshop_website/tree/f8c085ff68c279573d0451f283913a8e22ce3958" target="_blank">f8c085f</a> </a>
+<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomlillianaokiworkshopwebsitetreef8d103fde7f80baef65feb370de942217b864ef2targetblankf8d103fa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/lillian-aoki/workshop_website/tree/f8d103fde7f80baef65feb370de942217b864ef2" target="_blank">f8d103f</a> </a>
 </p>
 </div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomlillianaokiworkshopwebsitetreef8c085ff68c279573d0451f283913a8e22ce3958targetblankf8c085fa" class="panel-collapse collapse">
+<div id="strongRepositoryversionstrongahrefhttpsgithubcomlillianaokiworkshopwebsitetreef8d103fde7f80baef65feb370de942217b864ef2targetblankf8d103fa" class="panel-collapse collapse">
 <div class="panel-body">
 <p>
 Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
 </p>
 <p>
-The results in this page were generated with repository version <a href="https://github.com/lillian-aoki/workshop_website/tree/f8c085ff68c279573d0451f283913a8e22ce3958" target="_blank">f8c085f</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
+The results in this page were generated with repository version <a href="https://github.com/lillian-aoki/workshop_website/tree/f8d103fde7f80baef65feb370de942217b864ef2" target="_blank">f8d103f</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
 </p>
 <p>
 Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
@@ -549,6 +549,40 @@ Message
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>
+Rmd
+</td>
+<td>
+<a href="https://github.com/lillian-aoki/workshop_website/blob/f8d103fde7f80baef65feb370de942217b864ef2/analysis/shell_intro.Rmd" target="_blank">f8d103f</a>
+</td>
+<td>
+Lillian Aoki
+</td>
+<td>
+2021-10-07
+</td>
+<td>
+might be a mistake with font css here
+</td>
+</tr>
+<tr>
+<td>
+html
+</td>
+<td>
+<a href="https://rawcdn.githack.com/lillian-aoki/workshop_website/f8d103fde7f80baef65feb370de942217b864ef2/docs/shell_intro.html" target="_blank">f8d103f</a>
+</td>
+<td>
+Lillian Aoki
+</td>
+<td>
+2021-10-07
+</td>
+<td>
+might be a mistake with font css here
+</td>
+</tr>
 <tr>
 <td>
 html
@@ -711,10 +745,29 @@ add shell intro
 </div>
 <div id="working-in-the-shell" class="section level2">
 <h2>Working in the shell</h2>
-<p>This is a brief introduction to working in the shell, to supplement the live-coding during the workshop.</p>
-<p>This guide is derived in part from the <a href="https://swcarpentry.github.io/shell-novice/">Sofware Carprentries</a> and <a href="https://datacarpentry.org/shell-genomics/">Data Carpentries</a> lessons on using the shell.</p>
-<div id="getting-started" class="section level3">
-<h3>Getting started</h3>
+<p>Working in the shell is a succinct way to navigate files and run programs,<br />
+is fundamental for some advanced computing tasks, and is increasingly used for<br />
+analysis of big data across fields. This tutorial gives a brief introduction to<br />
+working in the shell, taught as part of a Reproducible Research workshop series<br />
+at the University of Oregon.</p>
+<div id="learning-objectives" class="section level3">
+<h3>Learning objectives</h3>
+<p>The target audience for this module is a researcher with little to no experience<br />
+using the shell/command line. During the workshop, participants will</p>
+<ul>
+<li>Gain basic familiarity with the shell and learn to run commands</li>
+<li>Practice navigating the filesystem using the shell</li>
+<li>Practice manipulating files and directories (moving, copying, locking)</li>
+</ul>
+<p>This tutorial serves as a reference and supplement to in-person learning.</p>
+</div>
+<div id="acknowledgements-and-resources" class="section level3">
+<h3>Acknowledgements and resources</h3>
+<p>This guide is derived in part from the <a href="https://swcarpentry.github.io/shell-novice/">Software Carpentries</a> and <a href="https://datacarpentry.org/shell-genomics/">Data Carpentries</a> lessons.</p>
+</div>
+</div>
+<div id="getting-started" class="section level2">
+<h2>Getting started</h2>
 <p>When you open the shell, you will see some <strong>text</strong> followed by a <strong>prompt symbol</strong> and a <strong>cursor</strong>.</p>
 <p>The text indicates your user name and the working directory (the folder you are working in).</p>
 <p>The prompt symbol is often a <code>$</code> but may also be a <code>%</code> depending on the shell you are using.</p>
@@ -725,29 +778,36 @@ add shell intro
 <p>you should see the <strong>output</strong> on the next line as</p>
 <p><code>hello!</code></p>
 <p class="text-success">
-In this documentation, the <code>$</code> prompt is included but you don’t need to type the prompt itself, just the commands that follow it.
+Note, in this documentation, the <code>$</code> prompt is included but you don’t need to type the<br />
+prompt itself, just the commands that follow it.
 </p>
-<p>Some other basic commands:</p>
+<div id="a-few-basic-commands" class="section level3">
+<h3>A few basic commands</h3>
 <p><code>pwd</code> prints the working directory (the folder you are working in)</p>
 <p><code>ls</code> returns a list of files in the current (working) directory</p>
-<p><code>clear</code> will scroll up your screen to give you a clean space to work it. This makes it easier to read, but you can still scroll up to see your previous work.</p>
-<p>Try running <code>ls</code> to see the files in your directory.</p>
+<p><code>clear</code> will scroll up your screen to give you a clean space to work it. This makes it<br />
+easier to read, but you can still scroll up to see your previous work.</p>
+<p>Try running <code>ls</code> to see the files in your current directory.</p>
 </div>
 <div id="options-and-documentation" class="section level3">
 <h3>Options and documentation</h3>
 <p>When you run a command, you can add <strong>options</strong> (also known as <strong>flags</strong>) to modify the output.</p>
 <p>For example, use the option <code>-l</code> for the command <code>ls</code> to display more information.</p>
 <p><code>$ ls -l</code></p>
-<p>To find out what options are available for a command, access the manual (i.e. the documentation) by running <code>man</code> and the command:</p>
+<p>To find out what options are available for a command, access the manual (i.e. the <strong>documentation</strong>)<br />
+by running <code>man</code> and the command:</p>
 <p><code>$ man ls</code></p>
 <p>gives as output the manual for the <code>ls</code> command.</p>
 <p>You can navigate through the manual using the <kbd>↑</kbd> and <kbd>↓</kbd> arrow keys, <kbd>page up</kbd> and <kbd>page down</kbd>, or <kbd>space</kbd> and <kbd>B</kbd>.</p>
 <p>Type <kbd>Q</kbd> to quit the manual.</p>
-<p>Note, on a Windows machine running Git Bash, you may need to use the <code>--help</code> option instead of <code>man</code> to access documentation.</p>
+<p class="text-success">
+Note, on a Windows machine running Git Bash, you may need to use the <code>--help</code> option instead of <code>man</code> to access documentation.
+</p>
 </div>
 <div id="environment-variables" class="section level3">
 <h3>Environment variables</h3>
-<p><strong>Environment variables</strong> are pieces of information that are stored in your shell session. Variables start with <code>$</code>, e.g. the variable <code>$USER</code> identifies the user (you).</p>
+<p><strong>Environment variables</strong> are pieces of information that are stored in your shell session.<br />
+Variables start with <code>$</code>, e.g. the variable <code>$USER</code> identifies the user (you).</p>
 <p>Access variables individually using the echo command:</p>
 <p><code>$ echo $USER</code></p>
 <p>returns your username.</p>
@@ -757,9 +817,126 @@ In this documentation, the <code>$</code> prompt is included but you don’t nee
 <p><code>$ echo $greeting</code></p>
 <p>Exiting and opening a new session of the shell will reset the variables.</p>
 </div>
-<div id="navigating-files-and-directories" class="section level3">
-<h3>Navigating files and directories</h3>
+</div>
+<div id="navigating-files-and-directories" class="section level2">
+<h2>Navigating files and directories</h2>
 <p>You may be used to navigating the file system using Finder or Windows Explorer.</p>
+<p>The command line provides an alternative way to navigate the files stored on<br />
+your computer. Individual files are organized within <strong>directories</strong> (aka folders),<br />
+and directories are organized hierarchically. For example, your Desktop may contain<br />
+several files and folders, and within those folders there may be additional subfolders.<br />
+If you downloaded the <a href="">data files</a> for this tutorial, you have a folder called<br />
+<code>shell_intro</code> on your Desktop, which contains additional subfolders and files.</p>
+<p>You already used <code>pwd</code> to print the working directory - where you are in the<br />
+filesystem. Most likely, your default directory is <code>/Users/[my username]</code> on a Mac.<br />
+On a Windows machine, it may be something like <code>C:\Users\[my username]</code>.</p>
+<p>A key command to navigate the filesystem is <code>cd</code> - change directory.</p>
+<p><code>$ cd ~/Desktop/shell_intro</code></p>
+<p>will change your working directory to the shell_intro directory on your Desktop.</p>
+<p>Run <code>ls</code> after you move into a new directory to see the sub-folders and files.</p>
+<p>You can move further into the sub-folders by running <code>cd</code> again:</p>
+<p><code>$ cd data</code></p>
+<p>And you can navigate ‘up’ in the file system using <code>..</code> to move one level up (from<br />
+<code>data</code> back up to <code>shell_intro</code>, the parent directory of <code>data</code>)</p>
+<p>To return to your home (default) directory, you can type the absolute file path,<br />
+e.g. <code>cd /Users/[my username]</code> or you can use a short-cut with the HOME environment variable:</p>
+<p><code>$ cd $HOME</code></p>
+<p>will take you back to your home directory.</p>
+<div id="some-other-shortcuts" class="section level3">
+<h3>Some other shortcuts</h3>
+<p>The <code>~</code> (tilde) stands for the home directory, so <code>~/Desktop</code> is equivalent to<br />
+<code>/Users/[my username]/Desktop</code></p>
+<p>The <code>.</code> stands for the current directory.</p>
+<p>Running <code>cd</code> without a path specified will also take you to the home directory.</p>
+<p>Running <code>cd -</code> (dash) will take you to the previous directory you were in - not<br />
+‘up’ the file system, but backwards in time to the last directory you were in.</p>
+<p>Tab completion can make writing paths easier. As you type the name of a directory,<br />
+you can hit <kbd>Tab</kbd> once and the shell will auto-complete the name, if<br />
+there is only one option. If there is more than one option (e.g. more than one<br />
+file in a folder), hit <kbd>Tab</kbd> a second time to display the possibilities</p>
+</div>
+</div>
+<div id="manipulating-files-and-directories" class="section level2">
+<h2>Manipulating files and directories</h2>
+<div id="viewing-files" class="section level3">
+<h3>Viewing files</h3>
+<p>From the home directory, you can use <code>cd</code> to change the working directory to<br />
+<code>shell_intro</code> and <code>ls</code> to look at the contents of the new working directory. Use<br />
+the option <code>-F</code> with <code>ls</code> to indicate which paths are a directory (end in /).</p>
+<p><code>$ cd ~/Desktop/shell_intro</code><br />
+<code>$ ls -F</code></p>
+<p>returns output</p>
+<p><code>brainstorm.txt   data/    draft/</code></p>
+<p>You can also use <code>ls</code> to look at the contents of directories that are NOT the<br />
+working directory. For example,</p>
+<p><code>$ ls data</code></p>
+<p>will return the contents of the <code>data</code> directory, which is a subfolder of the<br />
+current working directory <code>shell_intro</code>. To view the contents of a folder that<br />
+is not a subfolder of the current directory, use <code>ls</code> with the full path.</p>
+<p>There are several commands you can use to view the contents of a file:</p>
+<p><code>cat</code> prints the entire contents of the file<br />
+<code>head</code> prints the first lines of the file (default is 10 lines).<br />
+<code>tail</code> prints the last lines of the file (default is 10 lines).</p>
+<p>Both <code>head</code> and <code>tail</code> can be modified using the <code>-n</code> option to specify the number<br />
+of lines to print. To print the first five lines of the file ’brainstorm.txt`:</p>
+<p><code>$ head -n 5 brainstorm.txt</code></p>
+<p>For large files, an alternative to <code>cat</code> is <code>less</code> which opens the file as a<br />
+read-only copy and allows you to navigate the file, using the same tools as for<br />
+the <code>man</code> help pages.</p>
+</div>
+<div id="creating-files-and-directories" class="section level3">
+<h3>Creating files and directories</h3>
+<p>The command to create a new directory is <code>mkdir</code>. You can create multiple directories<br />
+in a hierarchy by specifying the full path. For example, if the working directory<br />
+is <code>shell_intro</code> on the desktop,</p>
+<p><code>$ mkdir figs</code> creates a directory <code>figs</code> within the current directory, whereas<br />
+<code>$ mkdir figs/high-res/</code> creates two new directories, <code>high-res</code> inside <code>figs</code>.</p>
+<p>Note, there is no output from <code>mkdir</code> but you can check it worked with <code>ls</code>.</p>
+<p>You can use the command <code>touch</code> to create an empty file.</p>
+<p><code>$ touch my_file.txt</code></p>
+<p>creates an empty text file in the current directory.</p>
+<p>You can also use a text editor to create files. Using the text editor Nano,</p>
+<p><code>$ nano abstract.txt</code></p>
+<p>will create a file called <code>abstract.txt</code> and open that file in the Nano text editor.</p>
+<p>You can type some sample text in the file, then hit <kbd>Ctrl</kbd> + <kbd>X</kbd> to exit. Nano will ask<br />
+if you want to save the changes. Type <kbd>Y</kbd> and then <kbd>Enter</kbd> to save changes.</p>
+</div>
+<div id="moving-and-copying-files" class="section level3">
+<h3>Moving and copying files</h3>
+<p>To copy files or directories, use the <code>mv</code> command. Specify the file to move<br />
+and the new destination. For example,</p>
+<p><code>$ mv brainstorm.txt draft</code></p>
+<p>will move the file <code>brainstorm.txt</code> into the <code>draft</code> folder. What if you want to<br />
+move the file back to the main <code>shell_intro</code> folder?</p>
+<p><code>$ mv draft/brainstorm.txt .</code></p>
+<p>will identify the file based on the path and move it to the current directory<br />
+(using <code>.</code> as the shortcut for the current directory)</p>
+<p class="text-success">
+Note, <code>mv</code> will overwrite any existing files with the same name! Double-check<br />
+names before moving files, or use <code>mv -i</code>, the interactive option which will<br />
+ask you before overwriting existing files.
+</p>
+<p>To copy files or directories, use the <code>cp</code> command, which is similar to <code>mv</code>.<br />
+Specify the file or directory to copy and the location for the copy. To create<br />
+a duplicate, such as a back-up file, you can simply specify a new name in the<br />
+current directory as follows:</p>
+<p><code>$ cp abstract.txt abstract_backup.txt</code></p>
+<p>will create a second copy of your text file, named <code>abstract_backup.txt</code></p>
+</div>
+<div id="deleting-files-and-directories" class="section level3">
+<h3>Deleting files and directories</h3>
+<p>Deleting files is easy using the <code>rm</code> command.</p>
+<p><code>$ rm abstract_backup.txt</code></p>
+<p>will remove the second text file you just created.</p>
+<p class="text-success">
+Caution, there’s no ‘undo’ for deleting files! Use the <code>-i</code> option to give an<br />
+interactive confirmation you want to remove a file.
+</p>
+<p>Deleting directories requires using an option with <code>rm</code>. The <code>-d</code> option will<br />
+allow for removing directories, but again with no warning. Combine the <code>-d</code> with<br />
+<code>-i</code> to get an interactive warning before deleting.</p>
+<p><code>$ rm -d -i data/figs/high-res</code></p>
+<p>will first ask if you want to delete the <code>high-res</code> directory. Hit <kbd>Y</kbd> to confirm.</p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -782,17 +959,14 @@ locale:
 attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
-other attached packages:
-[1] workflowr_1.6.2
-
 loaded via a namespace (and not attached):
- [1] Rcpp_1.0.7       rprojroot_2.0.2  digest_0.6.28    later_1.3.0     
- [5] R6_2.5.1         git2r_0.28.0     magrittr_2.0.1   evaluate_0.14   
- [9] stringi_1.7.4    rlang_0.4.11     fs_1.5.0         promises_1.2.0.1
-[13] whisker_0.4      jquerylib_0.1.4  rmarkdown_2.11   tools_4.1.1     
-[17] stringr_1.4.0    glue_1.4.2       yaml_2.2.1       httpuv_1.6.3    
-[21] xfun_0.26        fastmap_1.1.0    compiler_4.1.1   htmltools_0.5.2 
-[25] knitr_1.36      </code></pre>
+ [1] workflowr_1.6.2  Rcpp_1.0.7       rprojroot_2.0.2  digest_0.6.28   
+ [5] later_1.3.0      R6_2.5.1         git2r_0.28.0     magrittr_2.0.1  
+ [9] evaluate_0.14    stringi_1.7.4    rlang_0.4.11     fs_1.5.0        
+[13] promises_1.2.0.1 whisker_0.4      jquerylib_0.1.4  rmarkdown_2.11  
+[17] tools_4.1.1      stringr_1.4.0    glue_1.4.2       httpuv_1.6.3    
+[21] xfun_0.26        yaml_2.2.1       fastmap_1.1.0    compiler_4.1.1  
+[25] htmltools_0.5.2  knitr_1.36      </code></pre>
 </div>
 </div>
 </div>

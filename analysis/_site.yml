@@ -8,7 +8,7 @@ navbar:
   - text: Modules
     href: modules.html
     menu:
-    - text: Lesson notes
+    - text: "Overview"
     - text: "Module 1: Reproducible Workflows"
     - text: "Module 2: Working in the shell"
       href: shell_intro.html

@@ -8,11 +8,29 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Working in the shell
 
-This is a brief introduction to working in the shell, to supplement the live-coding during the workshop. 
+Working in the shell is a succinct way to navigate files and run programs,  
+is fundamental for some advanced computing tasks, and is increasingly used for  
+analysis of big data across fields. This tutorial gives a brief introduction to  
+working in the shell, taught as part of a Reproducible Research workshop series  
+at the University of Oregon. 
 
-This guide is derived in part from the [Sofware Carprentries](https://swcarpentry.github.io/shell-novice/) and [Data Carpentries](https://datacarpentry.org/shell-genomics/) lessons on using the shell.
+### Learning objectives
+The target audience for this module is a researcher with little to no experience  
+using the shell/command line. During the workshop, participants will
 
-### Getting started
+- Gain basic familiarity with the shell and learn to run commands
+- Practice navigating the filesystem using the shell
+- Practice manipulating files and directories (moving, copying, locking)
+
+This tutorial serves as a reference and supplement to in-person learning. 
+
+### Acknowledgements and resources
+This guide is derived in part from the [Software Carpentries][] and [Data Carpentries][] lessons.  
+
+[Software Carpentries]: https://swcarpentry.github.io/shell-novice/
+[Data Carpentries]:https://datacarpentry.org/shell-genomics/
+
+## Getting started
 
 When you open the shell, you will see some **text** followed by a **prompt symbol** and a **cursor**.  
 
@@ -33,19 +51,19 @@ you should see the **output** on the next line as
 `hello!`
 
 <p class="text-success">
-In this documentation, the `$` prompt is included but you don't need to type the
+Note, in this documentation, the `$` prompt is included but you don't need to type the  
 prompt itself, just the commands that follow it.</p>
 
-Some other basic commands:
+### A few basic commands
 
 `pwd` prints the working directory (the folder you are working in)  
 
 `ls` returns a list of files in the current (working) directory  
 
-`clear` will scroll up your screen to give you a clean space to work it. This makes it easier to read, 
-but you can still scroll up to see your previous work.
+`clear` will scroll up your screen to give you a clean space to work it. This makes it  
+easier to read, but you can still scroll up to see your previous work.
 
-Try running `ls` to see the files in your directory.
+Try running `ls` to see the files in your current directory.
 
 ### Options and documentation
 
@@ -55,7 +73,7 @@ For example, use the option `-l`  for the command `ls` to display more informati
 
 `$ ls -l` 
 
-To find out what options are available for a command, access the manual (i.e. the documentation) 
+To find out what options are available for a command, access the manual (i.e. the **documentation**)  
 by running `man` and the command:  
 
 `$ man ls`
@@ -67,12 +85,14 @@ arrow keys, <kbd>page up</kbd> and <kbd>page down</kbd>, or <kbd>space</kbd> and
 
 Type <kbd>Q</kbd> to quit the manual.
 
+<p class="text-success">
 Note, on a Windows machine running Git Bash, you may need to use the `--help` option 
 instead of `man` to access documentation. 
+</p>
 
 ### Environment variables
 
-**Environment variables** are pieces of information that are stored in your shell session.
+**Environment variables** are pieces of information that are stored in your shell session.  
 Variables start with `$`, e.g. the variable `$USER` identifies the user (you).  
 
 Access variables individually using the echo command:
@@ -93,8 +113,172 @@ with the `echo` command:
 
 Exiting and opening a new session of the shell will reset the variables.
 
-### Navigating files and directories
+## Navigating files and directories
 
 You may be used to navigating the file system using Finder or Windows Explorer.
 
+The command line provides an alternative way to navigate the files stored on  
+your computer. Individual files are organized within **directories** (aka folders),  
+and directories are organized hierarchically. For example, your Desktop may contain  
+several files and folders, and within those folders there may be additional subfolders.  
+If you downloaded the [data files]() for this tutorial, you have a folder called  
+`shell_intro` on your Desktop, which contains additional subfolders and files. 
 
+You already used `pwd` to print the working directory - where you are in the  
+filesystem. Most likely, your default directory is `/Users/[my username]` on a Mac.  
+On a Windows machine, it may be something like `C:\Users\[my username]`.
+
+A key command to navigate the filesystem is `cd` - change directory.
+
+`$ cd ~/Desktop/shell_intro`  
+
+will change your working directory to the shell_intro directory on your Desktop.
+
+Run `ls` after you move into a new directory to see the sub-folders and files.
+
+You can move further into the sub-folders by running `cd` again:
+
+`$ cd data`
+
+And you can navigate 'up' in the file system using `..` to move one level up (from  
+`data` back up to `shell_intro`, the parent directory of `data`)
+
+To return to your home (default) directory, you can type the absolute file path,  
+e.g. `cd /Users/[my username]` or you can use a short-cut with the HOME environment variable:
+
+`$ cd $HOME`
+
+will take you back to your home directory.
+
+### Some other shortcuts
+
+The `~` (tilde) stands for the home directory, so `~/Desktop` is equivalent to  
+`/Users/[my username]/Desktop`
+
+The `.` stands for the current directory. 
+
+Running `cd` without a path specified will also take you to the home directory.
+
+Running `cd -` (dash) will take you to the previous directory you were in - not  
+'up' the file system, but backwards in time to the last directory you were in. 
+
+Tab completion can make writing paths easier. As you type the name of a directory,  
+you can hit <kbd>Tab</kbd> once and the shell will auto-complete the name, if  
+there is only one option. If there is more than one option (e.g. more than one  
+file in a folder), hit <kbd>Tab</kbd> a second time to display the possibilities
+
+## Manipulating files and directories
+
+### Viewing files
+
+From the home directory, you can use `cd` to change the working directory to  
+`shell_intro` and `ls` to look at the contents of the new working directory. Use  
+the option `-F` with `ls` to indicate which paths are a directory (end in /).  
+
+`$ cd ~/Desktop/shell_intro`  
+`$ ls -F`  
+
+returns output  
+
+`brainstorm.txt   data/    draft/`  
+
+You can also use `ls` to look at the contents of directories that are NOT the  
+working directory. For example,  
+
+`$ ls data`  
+
+will return the contents of the `data` directory, which is a subfolder of the  
+current working directory `shell_intro`. To view the contents of a folder that   
+is not a subfolder of the current directory, use `ls` with the full path.
+
+There are several commands you can use to view the contents of a file:  
+
+`cat` prints the entire contents of the file  
+`head` prints the first lines of the file (default is 10 lines).  
+`tail` prints the last lines of the file (default is 10 lines).  
+
+Both `head` and `tail` can be modified using the `-n` option to specify the number  
+of lines to print. To print the first five lines of the file 'brainstorm.txt`:
+
+`$ head -n 5 brainstorm.txt`
+
+For large files, an alternative to `cat` is `less` which opens the file as a  
+read-only copy and allows you to navigate the file, using the same tools as for  
+the `man` help pages.
+
+### Creating files and directories
+
+The command to create a new directory is `mkdir`. You can create multiple directories  
+in a hierarchy by specifying the full path. For example, if the working directory  
+is `shell_intro` on the desktop,
+
+`$ mkdir figs` creates a directory `figs` within the current directory, whereas   
+`$ mkdir figs/high-res/` creates two new directories, `high-res` inside `figs`.
+
+Note, there is no output from `mkdir` but you can check it worked with `ls`.
+
+You can use the command `touch` to create an empty file.
+
+`$ touch my_file.txt`  
+
+creates an empty text file in the current directory. 
+
+You can also use a text editor to create files. Using the text editor Nano,  
+
+`$ nano abstract.txt`  
+
+will create a file called `abstract.txt` and open that file in the Nano text editor. 
+
+You can type some sample text in the file, then hit <kbd>Ctrl</kbd> + <kbd>X</kbd> to exit. Nano will ask  
+if you want to save the changes. Type <kbd>Y</kbd> and then <kbd>Enter</kbd> to save changes.
+
+### Moving and copying files
+
+To copy files or directories, use the `mv` command. Specify the file to move  
+and the new destination. For example,  
+
+`$ mv brainstorm.txt draft`  
+
+will move the file `brainstorm.txt` into the `draft` folder. What if you want to  
+move the file back to the main `shell_intro` folder?  
+
+`$ mv draft/brainstorm.txt .`  
+
+will identify the file based on the path and move it to the current directory   
+(using `.` as the shortcut for the current directory)
+
+<p class="text-success">
+Note, `mv` will overwrite any existing files with the same name! Double-check  
+names before moving files, or use `mv -i`, the interactive option which will  
+ask you before overwriting existing files. 
+</p>
+
+To copy files or directories, use the `cp` command, which is similar to `mv`.  
+Specify the file or directory to copy and the location for the copy. To create  
+a duplicate, such as a back-up file, you can simply specify a new name in the  
+current directory as follows:  
+
+`$ cp abstract.txt abstract_backup.txt`  
+
+will create a second copy of your text file, named `abstract_backup.txt`
+
+### Deleting files and directories
+
+Deleting files is easy using the `rm` command.
+
+`$ rm abstract_backup.txt`  
+
+will remove the second text file you just created. 
+
+<p class="text-success">
+Caution, there's no 'undo' for deleting files! Use the `-i` option to give an  
+interactive confirmation you want to remove a file.
+</p>
+
+Deleting directories requires using an option with `rm`. The `-d` option will  
+allow for removing directories, but again with no warning. Combine the `-d` with  
+`-i` to get an interactive warning before deleting. 
+
+`$ rm -d -i data/figs/high-res`
+
+will first ask if you want to delete the `high-res` directory. Hit <kbd>Y</kbd> to confirm.
