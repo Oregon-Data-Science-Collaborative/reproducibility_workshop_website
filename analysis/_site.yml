@@ -10,9 +10,11 @@ navbar:
     menu:
     - text: "Overview"
     - text: "Module 1: Reproducible Workflows"
+      href: research_workflow.html
     - text: "Module 2: Working in the shell"
       href: shell_intro.html
     - text: "Module 3: Version control with Git"
+      href: git_intro.html
     - text: "Module 4: Collaboration with GitHub"
   - text: Resources
     href: resources.html

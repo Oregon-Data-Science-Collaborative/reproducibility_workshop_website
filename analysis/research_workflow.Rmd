@@ -1,0 +1,92 @@
+---
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Reproducible Research Workflows
+
+Reproducibility is central to scientific inquiry, and a key facet of reproducible  
+science is building a reproducible research workflow. 
+
+### Learning objectives
+
+The target audience for this module is a researcher at any stage seeking to  
+improve the reproducibility of their research workflow. During the workshop,  
+participants will 
+
+- Consider how principles of FAIR data and open science apply to their workflows  
+- Learn about specific tools and practices that can enhance reproducibility
+- Apply best practices to improve file organization and collaboration
+
+### Resources
+
+<p class="text-success">
+A useful review of the status of reproducibility in modern science:</p>  
+  Peng, R. D., & Hicks, S. C. (2021). Reproducible Research: A Retrospective.  
+  Annual Review of Public Health, 42(1), 79–93.  
+  <https://doi.org/10.1146/annurev-publhealth-012420-105110>  
+
+<p class="text-success">
+The article that first outlined FAIR data principles:</p>  
+Wilkinson, M. D., Dumontier, M., Aalbersberg, Ij. J., Appleton, G., Axton, M.,  
+Baak, A., Blomberg, N., Boiten, J.-W., da Silva Santos, L. B., Bourne, P. E.,  
+Bouwman, J., Brookes, A. J., Clark, T., Crosas, M., Dillo, I., Dumon, O., Edmunds,  
+S., Evelo, C. T., Finkers, R., … Mons, B. (2016). The FAIR Guiding Principles for  
+scientific data management and stewardship. Scientific Data, 3(1), 160018.  
+<https://doi.org/10.1038/sdata.2016.18>  
+
+<p class="text-success">
+Guide from UO Libraries on file naming: </p>
+<https://researchguides.uoregon.edu/data-management/filenaming>
+
+<p class="text-success">
+Blog post with related links detailing Dr. Jenny Bryan's take on project-oriented  
+workflows: </p>
+<https://www.tidyverse.org/blog/2017/12/workflow-vs-script/>
+
+<p class="text-success">
+Guide from the MIT Comm Lab on file structure and organization: </p>
+<https://mitcommlab.mit.edu/broad/commkit/file-structure/>
+
+## Workshop materials 
+
+### Slides
+
+Slides presented during the workshop are available [here][]
+
+[here]: (repro_workflow_slides.html)
+
+### Exercises
+
+#### Collaboration for reproducibility
+
+1. Diagram (part of) your research workflow, from data collection to publication.  
+2. Identify collaborators who contribute at different steps.  
+3. Pick one step (e.g. moving from raw to processed data)
+    - What access do your collaborators need to data, analysis, or products at  
+    this step? How do they contribute?
+    - How do you maintain reproducibility with these collaborators at this step?  
+    - Don't forget to include your future self as a collaborator!
+
+#### File organization
+
+Adapted from the [MIT Libraries][]
+
+[MIT Libraries]: https://www.dropbox.com/s/xx26a1onsu1qdpc/Worksheet_fileOrg.docx?dl=0
+
+1. Consider the files for (one of) your research projects. Diagram or screenshot  
+your directory structure.
+    - What works and doesn't work about this file structure?
+    - Who else might need access to these files (including your future self)?
+2. Assess your naming scheme for the files related to this project.
+    - What kinds of files do you create and in what formats?
+    - What are the unique characteristics of these files? Consider factors like   
+    date created, experiment number, investigator, location
+    - Use the unique identifiers to draft file names
+3. Create a systemic folder hierarchy.
+    - How can you group the individual files into folders?
+    - Can you improve the directory structure to address the needs you identified  
+    in [1]?
