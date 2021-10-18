@@ -16,7 +16,7 @@
 <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
@@ -331,7 +331,7 @@ div.tocify {
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="index.html">Home</a>
+  <a href="index.html">About</a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -340,12 +340,15 @@ div.tocify {
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
-    <li class="dropdown-header">Lesson notes</li>
-    <li class="dropdown-header">Module 1: Reproducible Workflows</li>
+    <li>
+      <a href="research_workflow.html">Module 1: Reproducible Workflows</a>
+    </li>
     <li>
       <a href="shell_intro.html">Module 2: Working in the shell</a>
     </li>
-    <li class="dropdown-header">Module 3: Version control with Git</li>
+    <li>
+      <a href="git_intro.html">Module 3: Version control with Git</a>
+    </li>
     <li class="dropdown-header">Module 4: Collaboration with GitHub</li>
   </ul>
 </li>
@@ -353,7 +356,7 @@ div.tocify {
   <a href="resources.html">Resources</a>
 </li>
 <li>
-  <a href="license.html">License</a>
+  <a href="install.html">Installation</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -377,287 +380,6 @@ div.tocify {
 </div>
 
 
-<p>
-<button type="button" class="btn btn-default btn-workflowr btn-workflowr-report" data-toggle="collapse" data-target="#workflowr-report">
-<span class="glyphicon glyphicon-list" aria-hidden="true"></span> workflowr <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span>
-</button>
-</p>
-<div id="workflowr-report" class="collapse">
-<ul class="nav nav-tabs">
-<li class="active">
-<a data-toggle="tab" href="#summary">Summary</a>
-</li>
-<li>
-<a data-toggle="tab" href="#checks"> Checks <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> </a>
-</li>
-<li>
-<a data-toggle="tab" href="#versions">Past versions</a>
-</li>
-</ul>
-<div class="tab-content">
-<div id="summary" class="tab-pane fade in active">
-<p>
-<strong>Last updated:</strong> 2021-10-07
-</p>
-<p>
-<strong>Checks:</strong> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> 7 <span class="glyphicon glyphicon-exclamation-sign text-danger" aria-hidden="true"></span> 0
-</p>
-<p>
-<strong>Knit directory:</strong> <code>workshop_website/</code> <span class="glyphicon glyphicon-question-sign" aria-hidden="true" title="This is the local directory in which the code in this file was executed."> </span>
-</p>
-<p>
-This reproducible <a href="http://rmarkdown.rstudio.com">R Markdown</a> analysis was created with <a
-  href="https://github.com/jdblischak/workflowr">workflowr</a> (version 1.6.2). The <em>Checks</em> tab describes the reproducibility checks that were applied when the results were created. The <em>Past versions</em> tab lists the development history.
-</p>
-<hr>
-</div>
-<div id="checks" class="tab-pane fade">
-<div id="workflowr-checks" class="panel-group">
-<div class="panel panel-default">
-<div class="panel-heading">
-<p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRMarkdownfilestronguptodate"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>R Markdown file:</strong> up-to-date </a>
-</p>
-</div>
-<div id="strongRMarkdownfilestronguptodate" class="panel-collapse collapse">
-<div class="panel-body">
-<p>Great! Since the R Markdown file has been committed to the Git repository, you know the exact version of the code that produced these results.</p>
-</div>
-</div>
-</div>
-<div class="panel panel-default">
-<div class="panel-heading">
-<p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongEnvironmentstrongempty"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Environment:</strong> empty </a>
-</p>
-</div>
-<div id="strongEnvironmentstrongempty" class="panel-collapse collapse">
-<div class="panel-body">
-<p>Great job! The global environment was empty. Objects defined in the global environment can affect the analysis in your R Markdown file in unknown ways. For reproduciblity it’s best to always run the code in an empty environment.</p>
-</div>
-</div>
-</div>
-<div class="panel panel-default">
-<div class="panel-heading">
-<p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSeedstrongcodesetseed20211006code"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Seed:</strong> <code>set.seed(20211006)</code> </a>
-</p>
-</div>
-<div id="strongSeedstrongcodesetseed20211006code" class="panel-collapse collapse">
-<div class="panel-body">
-<p>The command <code>set.seed(20211006)</code> was run prior to running the code in the R Markdown file. Setting a seed ensures that any results that rely on randomness, e.g. subsampling or permutations, are reproducible.</p>
-</div>
-</div>
-</div>
-<div class="panel panel-default">
-<div class="panel-heading">
-<p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongSessioninformationstrongrecorded"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Session information:</strong> recorded </a>
-</p>
-</div>
-<div id="strongSessioninformationstrongrecorded" class="panel-collapse collapse">
-<div class="panel-body">
-<p>Great job! Recording the operating system, R version, and package versions is critical for reproducibility.</p>
-</div>
-</div>
-</div>
-<div class="panel panel-default">
-<div class="panel-heading">
-<p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongCachestrongnone"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Cache:</strong> none </a>
-</p>
-</div>
-<div id="strongCachestrongnone" class="panel-collapse collapse">
-<div class="panel-body">
-<p>Nice! There were no cached chunks for this analysis, so you can be confident that you successfully produced the results during this run.</p>
-</div>
-</div>
-</div>
-<div class="panel panel-default">
-<div class="panel-heading">
-<p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongFilepathsstrongrelative"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>File paths:</strong> relative </a>
-</p>
-</div>
-<div id="strongFilepathsstrongrelative" class="panel-collapse collapse">
-<div class="panel-body">
-<p>Great job! Using relative paths to the files within your workflowr project makes it easier to run your code on other machines.</p>
-</div>
-</div>
-</div>
-<div class="panel panel-default">
-<div class="panel-heading">
-<p class="panel-title">
-<a data-toggle="collapse" data-parent="#workflowr-checks" href="#strongRepositoryversionstrongahrefhttpsgithubcomlillianaokiworkshopwebsitetreef8c085ff68c279573d0451f283913a8e22ce3958targetblankf8c085fa"> <span class="glyphicon glyphicon-ok text-success" aria-hidden="true"></span> <strong>Repository version:</strong> <a href="https://github.com/lillian-aoki/workshop_website/tree/f8c085ff68c279573d0451f283913a8e22ce3958" target="_blank">f8c085f</a> </a>
-</p>
-</div>
-<div id="strongRepositoryversionstrongahrefhttpsgithubcomlillianaokiworkshopwebsitetreef8c085ff68c279573d0451f283913a8e22ce3958targetblankf8c085fa" class="panel-collapse collapse">
-<div class="panel-body">
-<p>
-Great! You are using Git for version control. Tracking code development and connecting the code version to the results is critical for reproducibility.
-</p>
-<p>
-The results in this page were generated with repository version <a href="https://github.com/lillian-aoki/workshop_website/tree/f8c085ff68c279573d0451f283913a8e22ce3958" target="_blank">f8c085f</a>. See the <em>Past versions</em> tab to see a history of the changes made to the R Markdown and HTML files.
-</p>
-<p>
-Note that you need to be careful to ensure that all relevant files for the analysis have been committed to Git prior to generating the results (you can use <code>wflow_publish</code> or <code>wflow_git_commit</code>). workflowr only checks the R Markdown file, but you know if there are other scripts or data files that it depends on. Below is the status of the Git repository when the results were generated:
-</p>
-<pre><code>
-Ignored files:
-    Ignored:    .DS_Store
-    Ignored:    .Rhistory
-    Ignored:    .Rproj.user/
-
-Unstaged changes:
-    Modified:   analysis/_site.yml
-    Modified:   analysis/shell_intro.Rmd
-
-</code></pre>
-<p>
-Note that any generated files, e.g. HTML, png, CSS, etc., are not included in this status report because it is ok for generated content to have uncommitted changes.
-</p>
-</div>
-</div>
-</div>
-</div>
-<hr>
-</div>
-<div id="versions" class="tab-pane fade">
-
-<p>
-These are the previous versions of the repository in which changes were made to the R Markdown (<code>analysis/resources.Rmd</code>) and HTML (<code>docs/resources.html</code>) files. If you’ve configured a remote Git repository (see <code>?wflow_git_remote</code>), click on the hyperlinks in the table below to view the files as they were in that past version.
-</p>
-<div class="table-responsive">
-<table class="table table-condensed table-hover">
-<thead>
-<tr>
-<th>
-File
-</th>
-<th>
-Version
-</th>
-<th>
-Author
-</th>
-<th>
-Date
-</th>
-<th>
-Message
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/lillian-aoki/workshop_website/f8c085ff68c279573d0451f283913a8e22ce3958/docs/resources.html" target="_blank">f8c085f</a>
-</td>
-<td>
-Lillian Aoki
-</td>
-<td>
-2021-10-07
-</td>
-<td>
-add css
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/lillian-aoki/workshop_website/77cadfb087fc5b8f4aa5dd06a7cca4fccb336035/docs/resources.html" target="_blank">77cadfb</a>
-</td>
-<td>
-Lillian Aoki
-</td>
-<td>
-2021-10-07
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/lillian-aoki/workshop_website/9930ca58a2f4fb65ae4d716ee7a78640c109c883/docs/resources.html" target="_blank">9930ca5</a>
-</td>
-<td>
-Lillian Aoki
-</td>
-<td>
-2021-10-07
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/lillian-aoki/workshop_website/f50404c58e6471bca37cdd4880621ae0bf4c47c6/docs/resources.html" target="_blank">f50404c</a>
-</td>
-<td>
-Lillian Aoki
-</td>
-<td>
-2021-10-07
-</td>
-<td>
-Build site.
-</td>
-</tr>
-<tr>
-<td>
-html
-</td>
-<td>
-<a href="https://rawcdn.githack.com/lillian-aoki/workshop_website/103948d9fa7a4fbbabd468e5fd890e2892e9fef3/docs/resources.html" target="_blank">103948d</a>
-</td>
-<td>
-Lillian Aoki
-</td>
-<td>
-2021-10-06
-</td>
-<td>
-add resources.html
-</td>
-</tr>
-<tr>
-<td>
-Rmd
-</td>
-<td>
-<a href="https://github.com/lillian-aoki/workshop_website/blob/fe4b5271c705a3c55cfb3405cc078b04990ff114/analysis/resources.Rmd" target="_blank">fe4b527</a>
-</td>
-<td>
-Lillian Aoki
-</td>
-<td>
-2021-10-06
-</td>
-<td>
-add resources.rmd
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-<hr>
-</div>
-</div>
-</div>
 <div id="articles" class="section level3">
 <h3>Articles</h3>
 <p>Bryan, J. (2017). Excuse me, do you have a moment to talk about version control? (e3159v2). PeerJ Inc. <a href="https://doi.org/10.7287/peerj.preprints.3159v2" class="uri">https://doi.org/10.7287/peerj.preprints.3159v2</a></p>
@@ -697,10 +419,9 @@ loaded via a namespace (and not attached):
  [1] Rcpp_1.0.7       rprojroot_2.0.2  digest_0.6.28    later_1.3.0     
  [5] R6_2.5.1         git2r_0.28.0     magrittr_2.0.1   evaluate_0.14   
  [9] stringi_1.7.4    rlang_0.4.11     fs_1.5.0         promises_1.2.0.1
-[13] whisker_0.4      jquerylib_0.1.4  rmarkdown_2.11   tools_4.1.1     
-[17] stringr_1.4.0    glue_1.4.2       yaml_2.2.1       httpuv_1.6.3    
-[21] xfun_0.26        fastmap_1.1.0    compiler_4.1.1   htmltools_0.5.2 
-[25] knitr_1.36      </code></pre>
+[13] jquerylib_0.1.4  rmarkdown_2.11   tools_4.1.1      stringr_1.4.0   
+[17] glue_1.4.2       yaml_2.2.1       httpuv_1.6.3     xfun_0.26       
+[21] fastmap_1.1.0    compiler_4.1.1   htmltools_0.5.2  knitr_1.36      </code></pre>
 </div>
 </div>
 
