@@ -3,12 +3,11 @@ output_dir: ../docs
 navbar:
   title: "Reproducible Research"
   left:
-  - text: Home
+  - text: About
     href: index.html
   - text: Modules
     href: modules.html
     menu:
-    - text: "Overview"
     - text: "Module 1: Reproducible Workflows"
       href: research_workflow.html
     - text: "Module 2: Working in the shell"
@@ -18,8 +17,8 @@ navbar:
     - text: "Module 4: Collaboration with GitHub"
   - text: Resources
     href: resources.html
-  - text: License
-    href: license.html
+  - text: Installation
+    href: install.html
   right:
   - icon: fa-github
     text: Source code
@@ -28,6 +27,6 @@ output:
   workflowr::wflow_html:
     toc: yes
     toc_float: yes
-    theme: cerulean
+    theme: flatly
     highlight: textmate
     css: style.css
