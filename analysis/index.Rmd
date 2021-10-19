@@ -1,5 +1,5 @@
 ---
-title: "About"
+title: "Reproducible Research Workshop Series"
 site: workflowr::wflow_site
 output:
   workflowr::wflow_html:
@@ -37,7 +37,8 @@ While version control with Git enhances reproducibility, GitHub takes it to the 
 
 ### License
 
-This material is licensed under the [Open Source Initiative's]() [BSD-3-Clause license]()
+This material is available under the [Open Source Initiative]()'s [BSD-3-Clause license]().  
+See the full text of the license [here](license.html).
 
-[Open Source Initiative's]: https://opensource.org/about
+[Open Source Initiative]: https://opensource.org/about
 [BSD-3-Clause license]: https://opensource.org/licenses/BSD-3-Clause

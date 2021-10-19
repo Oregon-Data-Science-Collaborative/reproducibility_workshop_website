@@ -8,8 +8,85 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Git for version control 
 
+Version control keeps files organized and tracks changes over time, making it  
+easier for you to reproduce your analyses and to step backward/’undo’ changes as  
+needed during the analysis process.  
+
 ### Learning objectives
 
-### Sources
+The target audience for this workshop is any researcher looking to improve their  
+basic skills with Git. During this workshop, participants will  
 
-## 
+- Gain familiarity with Git commands, vocabulary, and basic workflows
+- Practice using Git to track changes and recover older file versions
+- Use both the command line and a Git client
+
+### Sources
+This lesson is adapted in part from the [Software Carpentries][] and [Library Carpentries][] lessons.
+
+Other useful resources for learning Git include:
+
+[Happy Git with R][] - especially useful if you are an R user and new to Git.  
+[Think Like a Git][] - I found this most useful once I had some basic Git knowledge
+[Git Cheatsheet][] - some basic and some more advanced commands
+
+[Software Carpentries]: https://swcarpentry.github.io/git-novice/
+[Library Carpentries]: https://librarycarpentry.org/lc-git/
+[Happy Git with R]: https://happygitwithr.com/
+[Think Like a Git]: http://think-like-a-git.net/
+[Git Cheatsheet]: https://www.atlassian.com/git/tutorials/atlassian-git-cheatsheet
+
+
+Slides presented during the workshop are available here and give more conceptual  
+background into using Git for version control.
+
+## Getting started
+
+*Make sure you've downloaded Git and made a GitHub account before the workshop.  
+You'll use the same email used for your GitHub account to configure Git on your 
+machine.*
+
+### Configure Git
+
+The first time you use Git on your computer, you will need to configure some settings,  
+including your name and email address. It's useful to use the same user name and  
+email you will use with GitHub (or other Git host server, such as GitLab). 
+
+It's also helpful to use the `global` flag to configure these settings for all  
+Git activity on this computer on your user account. 
+
+`$ git config --global user.name "Your Username"`  
+`$ git config --global user.email "Your email"`
+
+It's also useful to configure your preferred text editor to use with Git.  
+To set the text editor to nano on Mac or Linux, use: 
+
+`$ git config --global core.editor "nano -w"`
+
+Check out the [table]() from Software Carpentries for setting other text editors.
+
+[table]: https://swcarpentry.github.io/git-novice/02-setup/index.html#line-endings
+
+Finally, configure the name of the default branch to `main`.
+
+`$ git config --global init.defaultBranch main`
+
+Check the status of your git settings with the `list` option:
+
+`$ git config --list` 
+
+### Initialize a repository
+
+### Check the project status
+
+## Basic Git workflow
+
+### Edit, Add, Commit
+
+### Tracking changes
+
+### Ignoring files
+
+## Stepping backwards
+
+## Using a Git client

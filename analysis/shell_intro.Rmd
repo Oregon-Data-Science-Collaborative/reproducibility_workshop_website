@@ -25,7 +25,7 @@ using the shell/command line. During the workshop, participants will
 This tutorial serves as a reference and supplement to in-person learning. 
 
 ### Acknowledgements and resources
-This guide is derived in part from the [Software Carpentries][] and [Data Carpentries][] lessons.  
+This lesson is adapted in part from the [Software Carpentries][] and [Data Carpentries][] lessons.  
 
 [Software Carpentries]: https://swcarpentry.github.io/shell-novice/
 [Data Carpentries]:https://datacarpentry.org/shell-genomics/

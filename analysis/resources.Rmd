@@ -8,6 +8,10 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+<p class="text-success">
+*This list is not comprehensive,extends beyond the workshop material, and is  
+under active development. Suggestions for additional resources are welcome!*
+</p>
 
 ### Articles
 
@@ -23,3 +27,10 @@ Wilkinson, M. D., Dumontier, M., Aalbersberg, Ij. J., Appleton, G., Axton, M., B
 
 Style guide for the tidyverse in R; useful for thinking about naming and organizing code files, variables and functions.  <https://style.tidyverse.org/index.html>  
 
+A good read on developing a coding mindset from the MIT Comm Lab
+<https://mitcommlab.mit.edu/broad/commkit/coding-mindset/>
+
+### Other resource lists
+
+Useful list of open science literature from the Ocean Health Index  
+<https://ohi-science.org/news/importance-of-open-data-science-tools>
