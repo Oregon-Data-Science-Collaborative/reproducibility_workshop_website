@@ -16,7 +16,7 @@
 <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
@@ -382,15 +382,75 @@ div.tocify {
 
 <div id="git-for-version-control" class="section level2">
 <h2>Git for version control</h2>
+<p>Version control keeps files organized and tracks changes over time, making it<br />
+easier for you to reproduce your analyses and to step backward/’undo’ changes as<br />
+needed during the analysis process.</p>
 <div id="learning-objectives" class="section level3">
 <h3>Learning objectives</h3>
+<p>The target audience for this workshop is any researcher looking to improve their<br />
+basic skills with Git. During this workshop, participants will</p>
+<ul>
+<li>Gain familiarity with Git commands, vocabulary, and basic workflows</li>
+<li>Practice using Git to track changes and recover older file versions</li>
+<li>Use both the command line and a Git client</li>
+</ul>
 </div>
 <div id="sources" class="section level3">
 <h3>Sources</h3>
+<p>This lesson is adapted in part from the <a href="https://swcarpentry.github.io/git-novice/">Software Carpentries</a> and <a href="https://librarycarpentry.org/lc-git/">Library Carpentries</a> lessons.</p>
+<p>Other useful resources for learning Git include:</p>
+<p><a href="https://happygitwithr.com/">Happy Git with R</a> - especially useful if you are an R user and new to Git.<br />
+<a href="http://think-like-a-git.net/">Think Like a Git</a> - I found this most useful once I had some basic Git knowledge <a href="https://www.atlassian.com/git/tutorials/atlassian-git-cheatsheet">Git Cheatsheet</a> - some basic and some more advanced commands</p>
+<p>Slides presented during the workshop are available here and give more conceptual<br />
+background into using Git for version control.</p>
 </div>
 </div>
-<div id="section" class="section level2">
-<h2></h2>
+<div id="getting-started" class="section level2">
+<h2>Getting started</h2>
+<p><em>Make sure you’ve downloaded Git and made a GitHub account before the workshop.<br />
+You’ll use the same email used for your GitHub account to configure Git on your machine.</em></p>
+<div id="configure-git" class="section level3">
+<h3>Configure Git</h3>
+<p>The first time you use Git on your computer, you will need to configure some settings,<br />
+including your name and email address. It’s useful to use the same user name and<br />
+email you will use with GitHub (or other Git host server, such as GitLab).</p>
+<p>It’s also helpful to use the <code>global</code> flag to configure these settings for all<br />
+Git activity on this computer on your user account.</p>
+<p><code>$ git config --global user.name "Your Username"</code><br />
+<code>$ git config --global user.email "Your email"</code></p>
+<p>It’s also useful to configure your preferred text editor to use with Git.<br />
+To set the text editor to nano on Mac or Linux, use:</p>
+<p><code>$ git config --global core.editor "nano -w"</code></p>
+<p>Check out the <a href="">table</a> from Software Carpentries for setting other text editors.</p>
+<p>Finally, configure the name of the default branch to <code>main</code>.</p>
+<p><code>$ git config --global init.defaultBranch main</code></p>
+<p>Check the status of your git settings with the <code>list</code> option:</p>
+<p><code>$ git config --list</code></p>
+</div>
+<div id="initialize-a-repository" class="section level3">
+<h3>Initialize a repository</h3>
+</div>
+<div id="check-the-project-status" class="section level3">
+<h3>Check the project status</h3>
+</div>
+</div>
+<div id="basic-git-workflow" class="section level2">
+<h2>Basic Git workflow</h2>
+<div id="edit-add-commit" class="section level3">
+<h3>Edit, Add, Commit</h3>
+</div>
+<div id="tracking-changes" class="section level3">
+<h3>Tracking changes</h3>
+</div>
+<div id="ignoring-files" class="section level3">
+<h3>Ignoring files</h3>
+</div>
+</div>
+<div id="stepping-backwards" class="section level2">
+<h2>Stepping backwards</h2>
+</div>
+<div id="using-a-git-client" class="section level2">
+<h2>Using a Git client</h2>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
