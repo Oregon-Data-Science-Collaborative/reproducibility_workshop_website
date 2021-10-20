@@ -18,7 +18,7 @@ navbar:
   - text: Resources
     href: resources.html
   - text: Installation
-    href: install.html
+    href: installation.html
   right:
   - icon: fa-github
     text: Source code
@@ -27,6 +27,6 @@ output:
   workflowr::wflow_html:
     toc: yes
     toc_float: yes
-    theme: flatly
+    theme: cerulean
     highlight: textmate
     css: style.css

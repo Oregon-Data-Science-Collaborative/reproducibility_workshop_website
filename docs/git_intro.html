@@ -555,7 +555,8 @@ use the following syntax:</p>
 <p><code>$ git diff HEAD readme.md</code></p>
 <p>Of course, this is the same as if you used only <code>git diff readme.md</code> as we did<br />
 previously. However, you can also compare to earlier commits with the <code>HEAD</code> syntax.</p>
-<p><code>HEAD~1</code> refers to the commit before <code>HEAD</code>(essentially the next oldest commit). <code>HEAD~2</code> referst to the commit before <code>HEAD~1</code>, again moving one step older.</p>
+<p><code>HEAD~1</code> refers to the commit before <code>HEAD</code>(essentially the next oldest commit).<br />
+<code>HEAD~2</code> referst to the commit before <code>HEAD~1</code>, again moving one step older.</p>
 <p><code>$ git diff HEAD~1 readme.md</code> will highlight multiple lines of text have changed<br />
 since the commit before the most recent commit.</p>
 <p>The <code>HEAD</code> syntax can be useful if you find a change that you want to reverse.<br />
@@ -583,8 +584,10 @@ as temporary files created during analysis.</p>
 during analysis, and create some empty files for that folder:</p>
 <p><code>$ mkdir temp $ touch temp/a.dat temp/b.dat</code></p>
 <p>Git isn’t tracking these files yet - because you haven’t added them to the staging<br />
-area with <code>add</code>. However, having lots of untracked files can clutter up the <code>status</code> output and generally make things more confusing.</p>
-<p>To specify that we do not want to track these files, we create a <code>.gitignore</code> file, and we can list these filenames in the <code>.gitignore</code></p>
+area with <code>add</code>. However, having lots of untracked files can clutter up the <code>status</code><br />
+output and generally make things more confusing.</p>
+<p>To specify that we do not want to track these files, we create a <code>.gitignore</code> file,<br />
+and we can list these filenames in the <code>.gitignore</code></p>
 <p><code>$ nano .gitignore</code></p>
 <p>In the text editor, you can list the exact file names, <code>a.dat</code> and <code>b.dat</code>, separated<br />
 by a return. Or, you can use a wildcard (*) to indicate all files with names ending<br />
@@ -647,7 +650,8 @@ is happening with a repo, even if you end up running the Git commands in the she
 covered above are easily accessible. For example, unchecking the checkbox will<br />
 unstage a file, indicating you do not want Git to record new changes in the next<br />
 commit. And if you have an unstaged file, you can right-click and select ‘Add to<br />
-gitignore’ to ignore that file. This approach can be more intuitive to learn than using the command line.</p>
+gitignore’ to ignore that file. This approach can be more intuitive to learn than<br />
+using the command line.</p>
 <p>If you are an R user, RStudio has a basic Git client. You can also access the shell<br />
 within RStudio as well, so it is easy to use both the command line and a client<br />
 to access Git as needed.</p>
@@ -675,16 +679,14 @@ locale:
 attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
-other attached packages:
-[1] workflowr_1.6.2
-
 loaded via a namespace (and not attached):
- [1] Rcpp_1.0.7       rprojroot_2.0.2  digest_0.6.28    later_1.3.0     
- [5] R6_2.5.1         git2r_0.28.0     magrittr_2.0.1   evaluate_0.14   
- [9] stringi_1.7.4    rlang_0.4.11     fs_1.5.0         promises_1.2.0.1
-[13] jquerylib_0.1.4  rmarkdown_2.11   tools_4.1.1      stringr_1.4.0   
-[17] glue_1.4.2       yaml_2.2.1       httpuv_1.6.3     xfun_0.26       
-[21] fastmap_1.1.0    compiler_4.1.1   htmltools_0.5.2  knitr_1.36      </code></pre>
+ [1] workflowr_1.6.2  Rcpp_1.0.7       rprojroot_2.0.2  digest_0.6.28   
+ [5] later_1.3.0      R6_2.5.1         git2r_0.28.0     magrittr_2.0.1  
+ [9] evaluate_0.14    stringi_1.7.4    rlang_0.4.11     fs_1.5.0        
+[13] promises_1.2.0.1 jquerylib_0.1.4  rmarkdown_2.11   tools_4.1.1     
+[17] stringr_1.4.0    glue_1.4.2       httpuv_1.6.3     xfun_0.26       
+[21] yaml_2.2.1       fastmap_1.1.0    compiler_4.1.1   htmltools_0.5.2 
+[25] knitr_1.36      </code></pre>
 </div>
 </div>
 </div>

@@ -242,7 +242,7 @@ use the following syntax:
 Of course, this is the same as if you used only `git diff readme.md` as we did  
 previously. However, you can also compare to earlier commits with the `HEAD` syntax.  
 
-`HEAD~1` refers to the commit before `HEAD`(essentially the next oldest commit).
+`HEAD~1` refers to the commit before `HEAD`(essentially the next oldest commit).  
 `HEAD~2` referst to the commit before `HEAD~1`, again moving one step older. 
 
 `$ git diff HEAD~1 readme.md` will highlight multiple lines of text have changed  
@@ -281,10 +281,10 @@ during analysis, and create some empty files for that folder:
 $ touch temp/a.dat temp/b.dat`  
 
 Git isn't tracking these files yet - because you haven't added them to the staging  
-area with `add`. However, having lots of untracked files can clutter up the `status`
+area with `add`. However, having lots of untracked files can clutter up the `status`  
 output and generally make things more confusing. 
 
-To specify that we do not want to track these files, we create a `.gitignore` file, 
+To specify that we do not want to track these files, we create a `.gitignore` file,  
 and we can list these filenames in the `.gitignore`
 
 `$ nano .gitignore`
@@ -369,7 +369,7 @@ Take some time to explore the GitHub Desktop functionality. Many of the commands
 covered above are easily accessible. For example, unchecking the checkbox will  
 unstage a file, indicating you do not want Git to record new changes in the next  
 commit. And if you have an unstaged file, you can right-click and select 'Add to  
-gitignore' to ignore that file. This approach can be more intuitive to learn than 
+gitignore' to ignore that file. This approach can be more intuitive to learn than  
 using the command line. 
 
 If you are an R user, RStudio has a basic Git client. You can also access the shell  
