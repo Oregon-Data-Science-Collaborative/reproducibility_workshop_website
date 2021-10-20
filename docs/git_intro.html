@@ -477,7 +477,8 @@ perhaps something like,</p>
 The output also lets you know the syntax to start tracking that file.</p>
 <p class="text-success">
 Note, there’s nothing wrong with having untracked files. You might not want Git to<br />
-keep track of large raw data files for example.
+keep track of large raw data files for example. See ‘Ignoring files’ below for more<br />
+info.
 </p>
 </div>
 </div>
@@ -510,7 +511,8 @@ longer message with more details.
 <p>The output from running <code>commit</code> shows us that the commit has captured the new file,<br />
 with 1 line of text inserted. The output also shows an alphanumeric string of seven<br />
 characters. This is actually the first seven characters of a longer string that<br />
-identifies the commit. This label can be useful in navigating your Git history.</p>
+identifies the commit. This identifier oro label can be useful in navigating your<br />
+Git history.</p>
 <p>The basic Git workflow starts by modifying a file, staging the changes (using <code>add</code>),<br />
 and commiting those changes (using <code>commit</code>). Repeat this cycle to keep track of<br />
 the changes you make to your files over time.</p>
@@ -524,7 +526,7 @@ a message stating there are changes not staged for commit.</p>
 <p>It can be useful to compare the changes, before staging and committing, using <code>diff</code>:</p>
 <p><code>$ git diff</code></p>
 <p>The first few lines of the output identify what file is being compared, as well as<br />
-the computer-generated labels for the two versions. The last lines show the actual<br />
+the computer-generated identifiers for the two versions. The last lines show the actual<br />
 changes, with a <code>+</code> marker showing the line that has been added.</p>
 <p>You can review the <code>diff</code> at this point to understand the changes before committing<br />
 them. Once you verify the changes, use <code>add</code> and <code>commit</code> to complete the cycle.</p>
@@ -533,17 +535,124 @@ them. Once you verify the changes, use <code>add</code> and <code>commit</code> 
 <p><code>$ git log</code></p>
 <p>The output lists the commits that have been made to this repository, starting with<br />
 the most recent. Here you can see how the commit messages can be really useful for<br />
-understanding the updates to your project.</p>
+understanding the updates to your project. You also see the full length of the<br />
+alphanumeric identifiers that Git uses to label each commit.</p>
+</div>
+<div id="looking-backwards" class="section level3">
+<h3>Looking backwards</h3>
+<p>Add a third line of text to the README file and look at the text using <code>cat</code>.<br />
+You should have three lines of text, similar to:</p>
+<p><code>"A Read Me file for the practice_repo</code><br />
+<code>This repo is for demonstration purposes.</code><br />
+<code>Another line of text adds more detail."</code></p>
+<p>Remember, the first two lines have been added to the previous commit, so they are<br />
+captured by Git. But the third line you just added is a new modifcation, and has not<br />
+been added (staged) and committed yet.</p>
+<p>You can assess the difference between the changes in the current working directory<br />
+and the last commit using the identifier <code>HEAD</code>. <code>HEAD</code> refers to the most recent<br />
+commit. So, if you want to compare the current changes to the last commit, you can<br />
+use the following syntax:</p>
+<p><code>$ git diff HEAD readme.md</code></p>
+<p>Of course, this is the same as if you used only <code>git diff readme.md</code> as we did<br />
+previously. However, you can also compare to earlier commits with the <code>HEAD</code> syntax.</p>
+<p><code>HEAD~1</code> refers to the commit before <code>HEAD</code>(essentially the next oldest commit). <code>HEAD~2</code> referst to the commit before <code>HEAD~1</code>, again moving one step older.</p>
+<p><code>$ git diff HEAD~1 readme.md</code> will highlight multiple lines of text have changed<br />
+since the commit before the most recent commit.</p>
+<p>The <code>HEAD</code> syntax can be useful if you find a change that you want to reverse.<br />
+For example, perhaps you decide the third line you just added to the READEME isn’t<br />
+necessary. Remember, that line has not been staged or committed (check with <code>status</code>).</p>
+<p>So, you can easily revert the file to the status at the last commit, i.e. <code>HEAD</code>:</p>
+<p><code>$ git checkout HEAD readme.md</code></p>
+<p>The <code>checkout</code> command restores the file status to the <code>HEAD</code> commit. You could step<br />
+further back using the <code>HEAD~</code> syntax or by using the alphanumeric identifiers<br />
+for each commit. The identifiers are long (40 characters) but you can use just the<br />
+first seven characters instead of <code>HEAD</code> to refer to a specific commit.</p>
+<p class="text-warning">
+Note! Be cautious with using <code>git checkout</code>. It can be useful to return to a previous<br />
+version of a file, for example if a script ‘breaks’ after editing. However, if you<br />
+run <code>git checkout HEAD</code> without a filename, you will end up in a ‘detached HEAD’ state.<br />
+Don’t commit changes in this state, instead return to your main branch by running<br />
+<code>git checkout main</code>.
+</p>
 </div>
 <div id="ignoring-files" class="section level3">
 <h3>Ignoring files</h3>
+<p>Sometimes there are files in a repository that you do NOT want Git to track, such<br />
+as temporary files created during analysis.</p>
+<p>In the <code>practice_repo</code>, create a folder named <code>temp</code> for temporary files created<br />
+during analysis, and create some empty files for that folder:</p>
+<p><code>$ mkdir temp $ touch temp/a.dat temp/b.dat</code></p>
+<p>Git isn’t tracking these files yet - because you haven’t added them to the staging<br />
+area with <code>add</code>. However, having lots of untracked files can clutter up the <code>status</code> output and generally make things more confusing.</p>
+<p>To specify that we do not want to track these files, we create a <code>.gitignore</code> file, and we can list these filenames in the <code>.gitignore</code></p>
+<p><code>$ nano .gitignore</code></p>
+<p>In the text editor, you can list the exact file names, <code>a.dat</code> and <code>b.dat</code>, separated<br />
+by a return. Or, you can use a wildcard (*) to indicate all files with names ending<br />
+in <code>dat</code> should be tracked.</p>
+<p><code>*.dat</code></p>
+<p>Next, add and commit the <code>.gitignore</code> file:</p>
+<p><code>$ git add .gitignore   $ git commit -m "create .gitignore to ignore .dat files"</code></p>
+<p>Now, Git will ignore these files when looking for unstaged changes.</p>
+<p>However, you can use the option <code>-f</code> to force Git to track a file that is listed<br />
+in the <code>.gitignore</code></p>
+<p><code>$ git add -f a.dat</code></p>
+<p>You can also add a directory to a <code>.gitignore</code> file, so we could have simply listed<br />
+<code>temp/</code> in the <code>.gitignore</code> file to exclude all files in the <code>temp</code> folder.</p>
 </div>
-</div>
-<div id="stepping-backwards" class="section level2">
-<h2>Stepping backwards</h2>
 </div>
 <div id="using-a-git-client" class="section level2">
 <h2>Using a Git client</h2>
+<p>An alternative to running Git from the command line is to use a Git client, such<br />
+as GitHub Desktop. The client will give a more visual experience, which can be<br />
+helpful to stay organized as you are learning Git.</p>
+<p>You can download <a href="">GitHub Desktop</a> if you have not already. When you open the application,<br />
+it will ask you to authenticate using your username and password on GitHub.com.<br />
+If you get stuck, there are <a href="">instructions from GitHub here</a>.</p>
+<p>Authenticating with GitHub.com will allow you to collaborate on remote repositories.<br />
+For now, we will focus on using GitHub Desktop to work with the local repo,<br />
+<code>practice_repo</code> on your machine.</p>
+<div id="adding-a-local-repo" class="section level3">
+<h3>Adding a local repo</h3>
+<p>To add a local repo to GitHub Desktop, go to <code>File</code> and select <code>Add local repository</code>.<br />
+Navigate to your <code>practice_repo</code> directory (probably on your Desktop) and click<br />
+<code>Add repository</code>.</p>
+<p>You should now see the repository in the left-hand pane. Click on the repository<br />
+name, and a new left-hand pane appears, showing ‘Changes’ and ‘History’.</p>
+<p>Commits you have made in this repo should appear in the ‘History’ pane.</p>
+<p>New changes to your files will appear in the ‘Changes’ pane.</p>
+</div>
+<div id="staging-and-commiting" class="section level3">
+<h3>Staging and commiting</h3>
+<p>The strength of using a client like GitHub Desktop is that it provides more visual<br />
+information compared to the shell. For example, in the ‘Changes’ pane, you should<br />
+see your README file listed, with a check box to the left and a symbol to the right.<br />
+The checkbox shows if your file is staged - it’s probably checked if you have staged<br />
+the file in the shell. The symbol will be orange if the file has been modified but<br />
+not commited.</p>
+<p>To make a commit, you enter a commit message at the bottom of the ‘Changes’ panel<br />
+and click ‘Commit to main’</p>
+<p>You might need to make a modification to your README file so you have something<br />
+to commit. You can do that back in the shell (using the text editor as before).<br />
+Or, try right-clicking on the filename in the GitHub Desktop pane. You’ll see an<br />
+option to open the file (perhaps in RStudio or in the default program). You can edit<br />
+the file in that program, save and close, and you will see new changes to commit<br />
+in GitHub Desktop.</p>
+</div>
+<div id="git-client-vs.-command-line" class="section level3">
+<h3>Git client vs. command line</h3>
+<p>Using a Git client vs the command line is a matter of personal preference. The<br />
+visual information from the client can make it much easier to understand what<br />
+is happening with a repo, even if you end up running the Git commands in the shell.</p>
+<p>Take some time to explore the GitHub Desktop functionality. Many of the commands<br />
+covered above are easily accessible. For example, unchecking the checkbox will<br />
+unstage a file, indicating you do not want Git to record new changes in the next<br />
+commit. And if you have an unstaged file, you can right-click and select ‘Add to<br />
+gitignore’ to ignore that file. This approach can be more intuitive to learn than using the command line.</p>
+<p>If you are an R user, RStudio has a basic Git client. You can also access the shell<br />
+within RStudio as well, so it is easy to use both the command line and a client<br />
+to access Git as needed.</p>
+<p>Jenny Bryan, the author of Happy Git for the useR, gives a good run-down of the<br />
+<a href="">reasons to use a Git client</a>.</p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -576,6 +685,7 @@ loaded via a namespace (and not attached):
 [13] jquerylib_0.1.4  rmarkdown_2.11   tools_4.1.1      stringr_1.4.0   
 [17] glue_1.4.2       yaml_2.2.1       httpuv_1.6.3     xfun_0.26       
 [21] fastmap_1.1.0    compiler_4.1.1   htmltools_0.5.2  knitr_1.36      </code></pre>
+</div>
 </div>
 </div>
 
