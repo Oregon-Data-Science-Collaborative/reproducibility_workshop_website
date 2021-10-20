@@ -356,7 +356,7 @@ div.tocify {
   <a href="resources.html">Resources</a>
 </li>
 <li>
-  <a href="install.html">Installation</a>
+  <a href="installation.html">Installation</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -431,6 +431,8 @@ easier to read, but you can still scroll up to see your previous work.</p>
 <p>When you run a command, you can add <strong>options</strong> (also known as <strong>flags</strong>) to modify the output.</p>
 <p>For example, use the option <code>-l</code> for the command <code>ls</code> to display more information.</p>
 <p><code>$ ls -l</code></p>
+<p>Use the option <code>-a</code> to ‘show all’ files, including hidden files in the directory that begin with<br />
+<code>.</code> These include files used to configure programs, for example.</p>
 <p>To find out what options are available for a command, access the manual (i.e. the <strong>documentation</strong>)<br />
 by running <code>man</code> and the command:</p>
 <p><code>$ man ls</code></p>
@@ -484,6 +486,7 @@ e.g. <code>cd /Users/[my username]</code> or you can use a short-cut with the H
 <p>The <code>~</code> (tilde) stands for the home directory, so <code>~/Desktop</code> is equivalent to<br />
 <code>/Users/[my username]/Desktop</code></p>
 <p>The <code>.</code> stands for the current directory.</p>
+<p>A double period, <code>..</code> stands for the <em>parent</em> of the current directory (one level up).</p>
 <p>Running <code>cd</code> without a path specified will also take you to the home directory.</p>
 <p>Running <code>cd -</code> (dash) will take you to the previous directory you were in - not<br />
 ‘up’ the file system, but backwards in time to the last directory you were in.</p>

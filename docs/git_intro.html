@@ -356,7 +356,7 @@ div.tocify {
   <a href="resources.html">Resources</a>
 </li>
 <li>
-  <a href="install.html">Installation</a>
+  <a href="installation.html">Installation</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -400,7 +400,8 @@ basic skills with Git. During this workshop, participants will</p>
 <p>This lesson is adapted in part from the <a href="https://swcarpentry.github.io/git-novice/">Software Carpentries</a> and <a href="https://librarycarpentry.org/lc-git/">Library Carpentries</a> lessons.</p>
 <p>Other useful resources for learning Git include:</p>
 <p><a href="https://happygitwithr.com/">Happy Git with R</a> - especially useful if you are an R user and new to Git.<br />
-<a href="http://think-like-a-git.net/">Think Like a Git</a> - I found this most useful once I had some basic Git knowledge <a href="https://www.atlassian.com/git/tutorials/atlassian-git-cheatsheet">Git Cheatsheet</a> - some basic and some more advanced commands</p>
+<a href="http://think-like-a-git.net/">Think Like a Git</a> - I found this most useful once I had some basic Git knowledge<br />
+<a href="https://www.atlassian.com/git/tutorials/atlassian-git-cheatsheet">Git Cheatsheet</a> - some basic and some more advanced commands</p>
 <p>Slides presented during the workshop are available here and give more conceptual<br />
 background into using Git for version control.</p>
 </div>
@@ -409,6 +410,17 @@ background into using Git for version control.</p>
 <h2>Getting started</h2>
 <p><em>Make sure you’ve downloaded Git and made a GitHub account before the workshop.<br />
 You’ll use the same email used for your GitHub account to configure Git on your machine.</em></p>
+<div id="git-commands" class="section level3">
+<h3>Git commands</h3>
+<p>When we use Git with the command line, we use the syntax <code>$ git verb option</code><br />
+where <code>verb</code> is the command that we want to run, like <code>add</code> or <code>commit</code>.</p>
+<p>To get an overview of basic Git commands, run <code>git</code> by itself in the shell. You<br />
+should see an output that lists a bunch of different commands with a brief explanation.</p>
+<p>This is not the most useful way of learning to use Git, but it does provide a sense<br />
+for the overall trajectory, starting with simple tasks like creating a working area<br />
+or repository, making and tracking changes, comparing history and status, and eventually<br />
+collaborating and using Git in reproducible workflows.</p>
+</div>
 <div id="configure-git" class="section level3">
 <h3>Configure Git</h3>
 <p>The first time you use Git on your computer, you will need to configure some settings,<br />
@@ -418,8 +430,8 @@ email you will use with GitHub (or other Git host server, such as GitLab).</p>
 Git activity on this computer on your user account.</p>
 <p><code>$ git config --global user.name "Your Username"</code><br />
 <code>$ git config --global user.email "Your email"</code></p>
-<p>It’s also useful to configure your preferred text editor to use with Git.<br />
-To set the text editor to nano on Mac or Linux, use:</p>
+<p>You can also configure your preferred text editor to use with Git.</p>
+<p>To set the text editor to nano on Mac or Linux, use:</p>
 <p><code>$ git config --global core.editor "nano -w"</code></p>
 <p>Check out the <a href="">table</a> from Software Carpentries for setting other text editors.</p>
 <p>Finally, configure the name of the default branch to <code>main</code>.</p>
@@ -429,18 +441,99 @@ To set the text editor to nano on Mac or Linux, use:</p>
 </div>
 <div id="initialize-a-repository" class="section level3">
 <h3>Initialize a repository</h3>
+<p>Start by initializing a repository. Choose a reasonable directory to work in, such<br />
+as your Desktop or Documents folder, or perhaps a subfolder like ‘temp’ or ‘workshop’.</p>
+<p>To create a Git repository (aka repo), run:</p>
+<p><code>$ git init practice_repo</code></p>
+<p>There will not be any output from this command. Move your working directory into<br />
+the new <code>practice_repo</code> directory, then list the files, including hidden files:</p>
+<p><code>$ ls -aF</code></p>
+<p>You’ll see a hidden directory named <code>.git/</code>. This directory is what Git the program<br />
+uses to track all of the files in your repository, and all of the changes made to<br />
+those files over time. You will not need to access or modify the <code>.git</code> directory,<br />
+but its presence tells you that you’ve initiated version control over the parent folder.</p>
 </div>
 <div id="check-the-project-status" class="section level3">
 <h3>Check the project status</h3>
+<p>One of the useful basic commands is <code>checkout</code> which will give you the status of<br />
+your git repo.</p>
+<p><code>$ git status</code></p>
+</div>
+<div id="create-a-readme" class="section level3">
+<h3>Create a README</h3>
+<p>To start tracking files, you need to create some files! A good one to start with<br />
+is a README file. Including a README in a project repository gives the user some<br />
+guidance about what your repo is all about. The user might be your future self,<br />
+looking back at a project after a few months away.</p>
+<p>Create a README file with your text editor (here we use nano), and add a few lines<br />
+describing your practice repo, then close the editor.</p>
+<p><code>$ nano readme.md</code></p>
+<p>If you use <code>ls</code> to list the files in your repo, you’ll see <code>readme.md</code> listed.<br />
+Note that using the extension <code>.md</code> creates a markdown file, rather than text.</p>
+<p>You can use the <code>cat</code> command to show the text of the file you just created,<br />
+perhaps something like,</p>
+<p><code>"A ReadMe file for my Git practice repo"</code></p>
+<p>Check the status again. Git now gives you a message that you have an untracked file.<br />
+The output also lets you know the syntax to start tracking that file.</p>
+<p class="text-success">
+Note, there’s nothing wrong with having untracked files. You might not want Git to<br />
+keep track of large raw data files for example.
+</p>
 </div>
 </div>
 <div id="basic-git-workflow" class="section level2">
 <h2>Basic Git workflow</h2>
-<div id="edit-add-commit" class="section level3">
-<h3>Edit, Add, Commit</h3>
+<div id="modify-add-commit" class="section level3">
+<h3>Modify-Add-Commit</h3>
+<p>Once you’ve identified a file you want to track, like the README file, you need to<br />
+take two steps. First, tell Git you want to track the file using the <code>add</code> command.</p>
+<p><code>$ git add readme.md</code></p>
+<p>This is sometimes referred to as staging the file. Basically, you are telling git<br />
+that you want to keep track of the changes made to this file since the last commit.</p>
+<p>Check the status again, and you will see a new message, stating there are changes<br />
+to be committed in a new file.</p>
+<p>The second step is to tell Git to save a snapshot of the staged file(s), using<br />
+the <code>commit</code> command:</p>
+<p><code>$ git commit -m 'Add readme.md'</code></p>
+<p>The <code>-m</code> option stand for <code>message</code> and the text in quotes is the commit message.<br />
+A commit message is a short, descriptive, and specific summary of the changes we’ve<br />
+made since the last commit.</p>
+<p>If we tried to run the <code>commit</code> command without the <code>-m</code> flag and the message text,<br />
+Git would send us to the text editor with instructions to write a commit message.</p>
+<p class="text-success">
+Note, the goal of the commit message is to communicate the context of specific<br />
+changes; the message completes the sentence, ’If applied, this commit will __’.<br />
+A good message is short (&lt;50 characters), but a longer description can also be<br />
+added. Enter a return (blank line) to separate the short subject line from a<br />
+longer message with more details.
+</p>
+<p>The output from running <code>commit</code> shows us that the commit has captured the new file,<br />
+with 1 line of text inserted. The output also shows an alphanumeric string of seven<br />
+characters. This is actually the first seven characters of a longer string that<br />
+identifies the commit. This label can be useful in navigating your Git history.</p>
+<p>The basic Git workflow starts by modifying a file, staging the changes (using <code>add</code>),<br />
+and commiting those changes (using <code>commit</code>). Repeat this cycle to keep track of<br />
+the changes you make to your files over time.</p>
 </div>
 <div id="tracking-changes" class="section level3">
 <h3>Tracking changes</h3>
+<p>Other Git commands give more ability to assess the changes to your files.</p>
+<p>Start by making another change to the README, by adding another line of text.</p>
+<p>Then, run <code>git status</code> to see how Git is tracking those changes. You should see<br />
+a message stating there are changes not staged for commit.</p>
+<p>It can be useful to compare the changes, before staging and committing, using <code>diff</code>:</p>
+<p><code>$ git diff</code></p>
+<p>The first few lines of the output identify what file is being compared, as well as<br />
+the computer-generated labels for the two versions. The last lines show the actual<br />
+changes, with a <code>+</code> marker showing the line that has been added.</p>
+<p>You can review the <code>diff</code> at this point to understand the changes before committing<br />
+them. Once you verify the changes, use <code>add</code> and <code>commit</code> to complete the cycle.</p>
+<p><code>$ git add readme.me   $ git commit -m 'Add more detail to readme'</code></p>
+<p>Now that you’ve made multiple commits, it’s a good time to look at the Git log.</p>
+<p><code>$ git log</code></p>
+<p>The output lists the commits that have been made to this repository, starting with<br />
+the most recent. Here you can see how the commit messages can be really useful for<br />
+understanding the updates to your project.</p>
 </div>
 <div id="ignoring-files" class="section level3">
 <h3>Ignoring files</h3>

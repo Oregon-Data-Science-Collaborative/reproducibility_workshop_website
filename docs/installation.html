@@ -11,7 +11,7 @@
 
 
 
-<title>License</title>
+<title>installation.knit.md</title>
 
 <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -29,6 +29,9 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -231,6 +234,69 @@ $(document).ready(function () {
 
 
 
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
 
 </head>
 
@@ -238,6 +304,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -300,19 +376,98 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">License</h1>
 
 </div>
 
 
-<p>Copyright 2021 Lillian Aoki</p>
-<p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
-<ol style="list-style-type: decimal">
-<li><p>Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.</p></li>
-<li><p>Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.</p></li>
-<li><p>Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.</p></li>
-</ol>
-<p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS “AS IS” AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+<div id="pre-workshop-setup" class="section level2">
+<h2>Pre-workshop setup</h2>
+<p>For the workshop series, we will use specific software, listed below. Please make<br />
+sure to download and install the software before the first workshop. We will have<br />
+a setup/trouble-shooting pre-workshop session in case anyone has issues getting<br />
+set up.</p>
+<div id="the-shell" class="section level3">
+<h3>The shell</h3>
+<p>If you are on a Mac or Linux machine, you probably already have the Bash shell<br />
+installed. The most recent macOS uses zsh as the default shell instead of bash.<br />
+Either zsh or bash will be fine for purposes of this tutorial, but you can switch<br />
+to bash by typing <code>$ bash</code> in the Terminal.</p>
+<p>If you have a Windows machine, you can install the Bash shell and Git together,<br />
+following the instructions from Software Carepntries <a href="https://carpentries.github.io/workshop-template/#shell">here</a></p>
+<p>Check your installation by opening Terminal on Mac (in /<code>Applications/Utilities</code>)<br />
+or by opening the Git Bash program on Windows from the start menu. Type<br />
+<code>echo $SHELL</code> to verify the shell you are using.</p>
+</div>
+<div id="text-editor" class="section level3">
+<h3>Text editor</h3>
+<p>We will use the basic text editor nano during the workshop. It should be pre-installed<br />
+on Mac and Linux machines.</p>
+<p>On a Windows machine, when you install Git Bash for Windows (see above), nano<br />
+should also be installed.</p>
+<p>Feel free to use your preferred text editor instead of nano if you feel comfortable!<br />
+The workshops will demonstrate how to open and edit files in nano from the command<br />
+line - once you are familiar with the process, you can go ahead and use another<br />
+editor.</p>
+</div>
+<div id="git" class="section level3">
+<h3>Git</h3>
+<p>You can download and install Git for your operating system here: <a href="https://git-scm.com/downloads" class="uri">https://git-scm.com/downloads</a></p>
+<p>On a Windows machine, if you used the bash installer above you will already have<br />
+Git installed.</p>
+<p>After installing, check your git version by typing <code>git --version</code> in the shell.</p>
+</div>
+<div id="github" class="section level3">
+<h3>GitHub</h3>
+<p>You’ll need a free account on <a href="https://github.com/join">GitHub.com</a> for the workshops.<br />
+Be thoughtful about the user name and email you use, as these will be associated<br />
+with your repositories. Some advice on picking a username <a href="https://happygitwithr.com/github-acct.html#username-advice">here</a> and some info<br />
+from GitHub about keeping your email private <a href="https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-user-account/managing-email-preferences/setting-your-commit-email-address">here</a></p>
+</div>
+<div id="git-client" class="section level3">
+<h3>Git client</h3>
+<p>There are many Git clients available (see <a href="">this list</a>), which provide a more visual<br />
+way of interacting with Git. We will demo GitHub Desktop, which is available for<br />
+download <a href="https://desktop.github.com/">here</a>.</p>
+</div>
+<div id="data-files" class="section level3">
+<h3>Data files</h3>
+<p>For the shell tutorial, we will use some <a href="">demo files</a>. Please download the folder<br />
+and save to your Desktop.</p>
+<br>
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
+<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Session information
+</button>
+</p>
+<div id="workflowr-sessioninfo" class="collapse">
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>R version 4.1.1 (2021-08-10)
+Platform: x86_64-apple-darwin17.0 (64-bit)
+Running under: macOS Big Sur 10.16
+
+Matrix products: default
+BLAS:   /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRblas.0.dylib
+LAPACK: /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRlapack.dylib
+
+locale:
+[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] workflowr_1.6.2
+
+loaded via a namespace (and not attached):
+ [1] Rcpp_1.0.7       rprojroot_2.0.2  digest_0.6.28    later_1.3.0     
+ [5] R6_2.5.1         git2r_0.28.0     magrittr_2.0.1   evaluate_0.14   
+ [9] stringi_1.7.4    rlang_0.4.11     fs_1.5.0         promises_1.2.0.1
+[13] jquerylib_0.1.4  rmarkdown_2.11   tools_4.1.1      stringr_1.4.0   
+[17] glue_1.4.2       yaml_2.2.1       httpuv_1.6.3     xfun_0.26       
+[21] fastmap_1.1.0    compiler_4.1.1   htmltools_0.5.2  knitr_1.36      </code></pre>
+</div>
+</div>
+</div>
 
 
 <!-- Adjust MathJax settings so that all math formulae are shown using
@@ -330,6 +485,8 @@ footer is added to webpages before the MathJax javascript. -->
 
 
 
+</div>
+</div>
 
 </div>
 
@@ -362,6 +519,35 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
