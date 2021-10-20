@@ -27,7 +27,7 @@ This lesson is adapted in part from the [Software Carpentries][] and [Library Ca
 Other useful resources for learning Git include:
 
 [Happy Git with R][] - especially useful if you are an R user and new to Git.  
-[Think Like a Git][] - I found this most useful once I had some basic Git knowledge
+[Think Like a Git][] - I found this most useful once I had some basic Git knowledge  
 [Git Cheatsheet][] - some basic and some more advanced commands
 
 [Software Carpentries]: https://swcarpentry.github.io/git-novice/
@@ -35,7 +35,6 @@ Other useful resources for learning Git include:
 [Happy Git with R]: https://happygitwithr.com/
 [Think Like a Git]: http://think-like-a-git.net/
 [Git Cheatsheet]: https://www.atlassian.com/git/tutorials/atlassian-git-cheatsheet
-
 
 Slides presented during the workshop are available here and give more conceptual  
 background into using Git for version control.
@@ -45,6 +44,19 @@ background into using Git for version control.
 *Make sure you've downloaded Git and made a GitHub account before the workshop.  
 You'll use the same email used for your GitHub account to configure Git on your 
 machine.*
+
+### Git commands
+
+When we use Git with the command line, we use the syntax `$ git verb option`  
+where `verb` is the command that we want to run, like `add` or `commit`. 
+
+To get an overview of basic Git commands, run `git` by itself in the shell. You  
+should see an output that lists a bunch of different commands with a brief explanation.  
+
+This is not the most useful way of learning to use Git, but it does provide a sense  
+for the overall trajectory, starting with simple tasks like creating a working area  
+or repository, making and tracking changes, comparing history and status, and eventually  
+collaborating and using Git in reproducible workflows.
 
 ### Configure Git
 
@@ -58,7 +70,8 @@ Git activity on this computer on your user account.
 `$ git config --global user.name "Your Username"`  
 `$ git config --global user.email "Your email"`
 
-It's also useful to configure your preferred text editor to use with Git.  
+You can also configure your preferred text editor to use with Git.  
+
 To set the text editor to nano on Mac or Linux, use: 
 
 `$ git config --global core.editor "nano -w"`
@@ -77,13 +90,131 @@ Check the status of your git settings with the `list` option:
 
 ### Initialize a repository
 
+Start by initializing a repository. Choose a reasonable directory to work in, such  
+as your Desktop or Documents folder, or perhaps a subfolder like 'temp' or 'workshop'.
+
+To create a Git repository (aka repo), run:
+
+`$ git init practice_repo`
+
+There will not be any output from this command. Move your working directory into  
+the new `practice_repo` directory, then list the files, including hidden files:
+
+`$ ls -aF`
+
+You'll see a hidden directory named `.git/`. This directory is what Git the program  
+uses to track all of the files in your repository, and all of the changes made to  
+those files over time. You will not need to access or modify the `.git` directory,  
+but its presence tells you that you've initiated version control over the parent folder.
+
 ### Check the project status
 
+One of the useful basic commands is `checkout` which will give you the status of  
+your git repo. 
+
+`$ git status`
+
+### Create a README
+
+To start tracking files, you need to create some files! A good one to start with  
+is a README file. Including a README in a project repository gives the user some  
+guidance about what your repo is all about. The user might be your future self,  
+looking back at a project after a few months away. 
+
+Create a README file with your text editor (here we use nano), and add a few lines  
+describing your practice repo, then close the editor.
+
+`$ nano readme.md` 
+
+If you use `ls` to list the files in your repo, you'll see `readme.md` listed.  
+Note that using the extension `.md` creates a markdown file, rather than text.  
+
+You can use the `cat` command to show the text of the file you just created,   
+perhaps something like,  
+
+`"A ReadMe file for my Git practice repo"`
+
+Check the status again. Git now gives you a message that you have an untracked file.  
+The output also lets you know the syntax to start tracking that file.  
+
+<p class="text-success">
+Note, there's nothing wrong with having untracked files. You might not want Git to  
+keep track of large raw data files for example.
+</p>
 ## Basic Git workflow
 
-### Edit, Add, Commit
+### Modify-Add-Commit
+
+Once you've identified a file you want to track, like the README file, you need to  
+take two steps. First, tell Git you want to track the file using the `add` command.
+
+`$ git add readme.md`
+
+This is sometimes referred to as staging the file. Basically, you are telling git  
+that you want to keep track of the changes made to this file since the last commit.  
+
+Check the status again, and you will see a new message, stating there are changes  
+to be committed in a new file.
+
+The second step is to tell Git to save a snapshot of the staged file(s), using  
+the `commit` command:
+
+`$ git commit -m 'Add readme.md'`
+
+The `-m` option stand for `message` and the text in quotes is the commit message.  
+A commit message is a short, descriptive, and specific summary of the changes we've  
+made since the last commit.  
+
+If we tried to run the `commit` command without the `-m` flag and the message text,  
+Git would send us to the text editor with instructions to write a commit message. 
+
+<p class="text-success">
+Note, the goal of the commit message is to communicate the context of specific  
+changes; the message completes the sentence, 'If applied, this commit will __'.  
+A good message is short (<50 characters), but a longer description can also be  
+added. Enter a return (blank line) to separate the short subject line from a  
+longer message with more details.
+</p>
+
+The output from running `commit` shows us that the commit has captured the new file,  
+with 1 line of text inserted. The output also shows an alphanumeric string of seven  
+characters. This is actually the first seven characters of a longer string that  
+identifies the commit. This label can be useful in navigating your Git history.
+
+The basic Git workflow starts by modifying a file, staging the changes (using `add`),  
+and commiting those changes (using `commit`). Repeat this cycle to keep track of  
+the changes you make to your files over time.
 
 ### Tracking changes
+
+Other Git commands give more ability to assess the changes to your files. 
+
+Start by making another change to the README, by adding another line of text. 
+
+Then, run `git status` to see how Git is tracking those changes. You should see  
+a message stating there are changes not staged for commit.
+
+It can be useful to compare the changes, before staging and committing, using `diff`:  
+
+`$ git diff`
+
+The first few lines of the output identify what file is being compared, as well as  
+the computer-generated labels for the two versions. The last lines show the actual  
+changes, with a `+` marker showing the line that has been added. 
+
+You can review the `diff` at this point to understand the changes before committing  
+them. Once you verify the changes, use `add` and `commit` to complete the cycle.
+
+`$ git add readme.me  
+$ git commit -m 'Add more detail to readme'`
+
+Now that you've made multiple commits, it's a good time to look at the Git log.
+
+`$ git log`
+
+The output lists the commits that have been made to this repository, starting with  
+the most recent. Here you can see how the commit messages can be really useful for  
+understanding the updates to your project. 
 
 ### Ignoring files
 

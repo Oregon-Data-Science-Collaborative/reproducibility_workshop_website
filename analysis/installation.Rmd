@@ -1,0 +1,72 @@
+---
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Pre-workshop setup
+
+For the workshop series, we will use specific software, listed below. Please make  
+sure to download and install the software before the first workshop. We will have  
+a setup/trouble-shooting pre-workshop session in case anyone has issues getting  
+set up.
+
+### The shell
+
+If you are on a Mac or Linux machine, you probably already have the Bash shell   
+installed. The most recent macOS uses zsh as the default shell instead of bash.  
+Either zsh or bash will be fine for purposes of this tutorial, but you can switch  
+to bash by typing `$ bash` in the Terminal. 
+
+If you have a Windows machine, you can install the Bash shell and Git together,  
+following the instructions from Software Carepntries [here](https://carpentries.github.io/workshop-template/#shell)
+
+Check your installation by opening Terminal on Mac (in /`Applications/Utilities`)  
+or by opening the Git Bash program on Windows from the start menu. Type  
+`echo $SHELL` to verify the shell you are using.
+
+### Text editor
+
+We will use the basic text editor nano during the workshop. It should be pre-installed  
+on Mac and Linux machines. 
+
+On a Windows machine, when you install Git Bash for Windows (see above), nano  
+should also be installed. 
+
+Feel free to use your preferred text editor instead of nano if you feel comfortable!  
+The workshops will demonstrate how to open and edit files in nano from the command  
+line - once you are familiar with the process, you can go ahead and use another  
+editor.
+
+### Git
+
+You can download and install Git for your operating system here: https://git-scm.com/downloads  
+
+On a Windows machine, if you used the bash installer above you will already have  
+Git installed.
+
+After installing, check your git version by typing `git --version` in the shell.
+
+### GitHub
+
+You'll need a free account on [GitHub.com](https://github.com/join) for the workshops.  
+Be thoughtful about the user name and email you use, as these will be associated  
+with your repositories. Some advice on picking a username [here](https://happygitwithr.com/github-acct.html#username-advice) and some info  
+from GitHub about keeping your email private [here](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-user-account/managing-email-preferences/setting-your-commit-email-address)
+
+### Git client
+
+There are many Git clients available (see [this list]()), which provide a more visual  
+way of interacting with Git. We will demo GitHub Desktop, which is available for  
+download [here](https://desktop.github.com/). 
+
+[this list]:https://git-scm.com/downloads/guis
+
+### Data files
+
+For the shell tutorial, we will use some [demo files](). Please download the folder  
+and save to your Desktop.
+
+[demo files]: 

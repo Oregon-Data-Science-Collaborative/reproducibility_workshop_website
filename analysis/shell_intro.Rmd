@@ -73,6 +73,9 @@ For example, use the option `-l`  for the command `ls` to display more informati
 
 `$ ls -l` 
 
+Use the option `-a` to 'show all' files, including hidden files in the directory that begin with  
+`.` These include files used to configure programs, for example.
+
 To find out what options are available for a command, access the manual (i.e. the **documentation**)  
 by running `man` and the command:  
 
@@ -156,6 +159,8 @@ The `~` (tilde) stands for the home directory, so `~/Desktop` is equivalent to
 `/Users/[my username]/Desktop`
 
 The `.` stands for the current directory. 
+
+A double period, `..` stands for the *parent* of the current directory (one level up).
 
 Running `cd` without a path specified will also take you to the home directory.
 

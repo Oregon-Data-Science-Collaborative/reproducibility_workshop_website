@@ -9,8 +9,8 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 <p class="text-success">
-*This list is not comprehensive,extends beyond the workshop material, and is  
-under active development. Suggestions for additional resources are welcome!*
+*This list is not comprehensive, extends beyond the workshop material, and is under active development.  
+Suggestions for additional resources are welcome!*
 </p>
 
 ### Articles
@@ -23,6 +23,9 @@ Peng, R. D., & Hicks, S. C. (2021). Reproducible Research: A Retrospective. Annu
 
 Wilkinson, M. D., Dumontier, M., Aalbersberg, Ij. J., Appleton, G., Axton, M., Baak, A., Blomberg, N., Boiten, J.-W., da Silva Santos, L. B., Bourne, P. E., Bouwman, J., Brookes, A. J., Clark, T., Crosas, M., Dillo, I., Dumon, O., Edmunds, S., Evelo, C. T., Finkers, R., … Mons, B. (2016). The FAIR Guiding Principles for scientific data management and stewardship. Scientific Data, 3(1), 160018. <https://doi.org/10.1038/sdata.2016.18>  
 
+Wilson, G., Bryan, J., Cranston, K., Kitzes, J., Nederbragt, L., & Teal, T. K. (2017). Good enough practices in scientific computing. PLOS Computational Biology, 13(6), e1005510. <https://doi.org/10.1371/journal.pcbi.1005510>
+
+
 ### Computing best practices
 
 Style guide for the tidyverse in R; useful for thinking about naming and organizing code files, variables and functions.  <https://style.tidyverse.org/index.html>  
@@ -30,7 +33,27 @@ Style guide for the tidyverse in R; useful for thinking about naming and organiz
 A good read on developing a coding mindset from the MIT Comm Lab
 <https://mitcommlab.mit.edu/broad/commkit/coding-mindset/>
 
+### Other training material
+
+[The Carpentries]() - great training material for introductory computational skills
+
+[Happy Git for the useR]() - detailed guidance on integrating Git into your R workflow
+
+[Introduction to Open Data Science]() - an online training from the Ocean Health Index team, using Git and  
+Github with R and RStudio
+
+[Introduction to Earth Data Science]() - an open, online textbook of tutorials for learning reproducible  
+science tools (especially Python) from the Earth Lab at CU Boulder.  
+
+[The Carpentries]: https://carpentries.org/
+[Introduction to Open Data Science]:http://ohi-science.org/data-science-training/
+[Happy Git for the useR]:https://happygitwithr.com/
+[Introduction to Earth Data Science]:https://www.earthdatascience.org/courses/intro-to-earth-data-science/
+
 ### Other resource lists
 
 Useful list of open science literature from the Ocean Health Index  
 <https://ohi-science.org/news/importance-of-open-data-science-tools>
+
+Compliation of computational training resources from SESYNC, the Socio-Environmental Synthesis Center
+<https://www.sesync.org/for-you/cyberinfrastructure/training/guidance-for-self-teaching>
