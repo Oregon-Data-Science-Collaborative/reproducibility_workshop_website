@@ -1,0 +1,66 @@
+---
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Git and GitHub for Collaboration
+
+While version control with Git enhances reproducibility, GitHub takes it to the  
+next level by facilitating collaboration. In this workshop, participants will  
+practice collaborating on GitHub, including pushing and pulling changes to a  
+shared repository. We will also explore some of GitHub’s additional functionality  
+(e.g. using Issues) that can support scientific teams.
+
+### Learning objectives 
+
+The target audience for this workshop is any researcher looking to improve their  
+use of GitHub for sharing and collaborating on research projects. Basic familiarity  
+with Git, including using the command line and/or a Git client, is needed.  
+However, we will cover the basics of syncing Git and GitHub. 
+
+During the workshop, participants will
+
+- Practice pushing and pulling changes to a remote repository
+- Set up and make changes in a shared and collaborative repository
+- Consider different kinds of GitHub workflows to facilitate collaboration
+
+### Sources
+
+## Getting started
+
+### Create a remote repository
+
+Start by logging in to GitHub in your web browser. Create a new repository
+
+### SSH keys
+
+### Connecting your local repo to a remote
+
+### Pushing and pulling changes
+
+### Using branches
+
+Small and easily merged 
+
+## Working with others
+
+### Giving access
+
+### Forking vs. cloning
+
+### Pull requests
+
+### Merge conflicts
+
+### Using Issues
+
+## GitHub workflows
+
+### Centralized workflow
+
+### Forking workflow
+
+### What are your needs for collaboration?
