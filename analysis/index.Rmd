@@ -7,6 +7,9 @@ output:
 editor_options:
   chunk_output_type: console
 ---
+<p class="text-success">
+*Note, this site is under construction, with more content to be added soon!*
+</p>
 
 ### Overview 
 This series of workshops will introduce tools and practices for conducting reproducible research with quantitative data. Topics covered include principles of reproducible workflows, using Git for version control and GitHub for collaboration, and best practices for project management. For Fall 2021, we are piloting these workshops and will continue to expand the series in future terms.
