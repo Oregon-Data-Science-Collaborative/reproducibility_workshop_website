@@ -277,8 +277,9 @@ as temporary files created during analysis.
 In the `practice_repo`, create a folder named `temp` for temporary files created  
 during analysis, and create some empty files for that folder:
 
-`$ mkdir temp
-$ touch temp/a.dat temp/b.dat`  
+`$ mkdir temp`  
+
+`$ touch temp/a.dat temp/b.dat`  
 
 Git isn't tracking these files yet - because you haven't added them to the staging  
 area with `add`. However, having lots of untracked files can clutter up the `status`  
@@ -297,8 +298,9 @@ in `dat` should be tracked.
 
 Next, add and commit the `.gitignore` file:
 
-`$ git add .gitignore  
-$ git commit -m "create .gitignore to ignore .dat files"`
+`$ git add .gitignore`  
+
+`$ git commit -m "create .gitignore to ignore .dat files"`
 
 Now, Git will ignore these files when looking for unstaged changes. 
 
