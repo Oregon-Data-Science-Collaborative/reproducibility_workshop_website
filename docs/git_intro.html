@@ -584,7 +584,8 @@ Don’t commit changes in this state, instead return to your main branch by runn
 as temporary files created during analysis.</p>
 <p>In the <code>practice_repo</code>, create a folder named <code>temp</code> for temporary files created<br />
 during analysis, and create some empty files for that folder:</p>
-<p><code>$ mkdir temp $ touch temp/a.dat temp/b.dat</code></p>
+<p><code>$ mkdir temp</code></p>
+<p><code>$ touch temp/a.dat temp/b.dat</code></p>
 <p>Git isn’t tracking these files yet - because you haven’t added them to the staging<br />
 area with <code>add</code>. However, having lots of untracked files can clutter up the <code>status</code><br />
 output and generally make things more confusing.</p>
@@ -596,7 +597,8 @@ by a return. Or, you can use a wildcard (*) to indicate all files with names end
 in <code>dat</code> should be tracked.</p>
 <p><code>*.dat</code></p>
 <p>Next, add and commit the <code>.gitignore</code> file:</p>
-<p><code>$ git add .gitignore   $ git commit -m "create .gitignore to ignore .dat files"</code></p>
+<p><code>$ git add .gitignore</code></p>
+<p><code>$ git commit -m "create .gitignore to ignore .dat files"</code></p>
 <p>Now, Git will ignore these files when looking for unstaged changes.</p>
 <p>However, you can use the option <code>-f</code> to force Git to track a file that is listed<br />
 in the <code>.gitignore</code></p>
