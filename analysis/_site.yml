@@ -15,6 +15,7 @@ navbar:
     - text: "Module 3: Version control with Git"
       href: git_intro.html
     - text: "Module 4: Collaboration with GitHub"
+      href: github_collab.html
   - text: Resources
     href: resources.html
   - text: Installation
