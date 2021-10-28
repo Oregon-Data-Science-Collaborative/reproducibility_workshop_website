@@ -45,3 +45,7 @@ See the full text of the license [here](license.html).
 
 [Open Source Initiative]: https://opensource.org/about
 [BSD-3-Clause license]: https://opensource.org/licenses/BSD-3-Clause
+
+### Funding
+
+These workshops are supported by NSF grant OAC-2019161 to the University of Oregon, Oregon State University, and Portland State University

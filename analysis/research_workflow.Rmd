@@ -55,7 +55,7 @@ Guide from the MIT Comm Lab on file structure and organization: </p>
 
 ### Slides
 
-Slides presented during the workshop are available [here](https://github.com/lillian-aoki/workshop_website/blob/master/slides/01_research_workflow.pdf)
+Slides presented during the workshop will be available [here](https://github.com/lillian-aoki/workshop_website/blob/master/slides/01_research_workflow.pdf)
 
 ### Exercises
 
