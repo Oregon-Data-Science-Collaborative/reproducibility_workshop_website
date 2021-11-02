@@ -63,7 +63,7 @@ from GitHub about keeping your email private [here](https://docs.github.com/en/a
 
 ### Git client
 
-There are many Git clients available (see [this list]()), which provide a more visual  
+There are many Git clients available (see [this list][]), which provide a more visual  
 way of interacting with Git. We will demo GitHub Desktop, which is available for  
 download [here](https://desktop.github.com/). 
 
@@ -71,7 +71,7 @@ download [here](https://desktop.github.com/).
 
 ### Data files
 
-For the shell tutorial, we will use some [demo files](). Please download the folder  
+For the shell tutorial, we will use some [demo files][]. Please download the folder  
 and save to your Desktop.
 
 [demo files]: https://github.com/lillian-aoki/workshop_website/raw/master/data/shell_intro.zip
