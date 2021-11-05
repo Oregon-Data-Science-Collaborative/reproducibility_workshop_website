@@ -84,7 +84,8 @@ by running `man` and the command:
 gives as output the manual for the `ls` command. 
 
 You can navigate through the manual using the <kbd>&#x2191;</kbd> and <kbd>&#x2193;</kbd>
-arrow keys, <kbd>page up</kbd> and <kbd>page down</kbd>, or <kbd>space</kbd> and <kbd>B</kbd>.  
+arrow keys,  
+<kbd>page up</kbd> and <kbd>page down</kbd>, or <kbd>space</kbd> and <kbd>B</kbd>.  
 
 Type <kbd>Q</kbd> to quit the manual.
 
@@ -109,12 +110,33 @@ environment variables using `export`.
 
 `$ export greeting=hello`
 
-returns no output to the console but saves the variable value. Access the new value 
+returns no output to the console but saves the variable value. Access the new value   
 with the `echo` command:
 
 `$ echo $greeting`
 
 Exiting and opening a new session of the shell will reset the variables.
+
+### Using history
+
+Often it is useful to look at commands you've just entered in the shell. You can  
+access the previous lines you ran sequentially by using the <kbd>&#x2191;</kbd> arrow key.  
+This can be useful if you need to re-run a command with a slight change. You can  
+also use the <kbd>&#x2193;</kbd> arrow key to return to an empty line.  
+
+You can also use the `history` command to look at your previous commands.  
+
+`$ history`  
+
+produces a numbered output of your previous commands in the session. You can re-run  
+a specific command using the number. For example, if your history shows that you  
+used `ls` to list files:
+
+`15 ls -a`
+
+you can re-run that specific command (with the same options) using the syntax  
+
+`!15`
 
 ## Navigating files and directories
 
@@ -124,8 +146,10 @@ The command line provides an alternative way to navigate the files stored on
 your computer. Individual files are organized within **directories** (aka folders),  
 and directories are organized hierarchically. For example, your Desktop may contain  
 several files and folders, and within those folders there may be additional subfolders.  
-If you downloaded the [data files]() for this tutorial, you have a folder called  
+If you downloaded the [data files][] for this tutorial, you have a folder called  
 `shell_intro` on your Desktop, which contains additional subfolders and files. 
+
+[data files]:  https://github.com/lillian-aoki/workshop_website/raw/master/data/shell_intro.zip
 
 You already used `pwd` to print the working directory - where you are in the  
 filesystem. Most likely, your default directory is `/Users/[my username]` on a Mac.  
@@ -211,6 +235,22 @@ For large files, an alternative to `cat` is `less` which opens the file as a
 read-only copy and allows you to navigate the file, using the same tools as for  
 the `man` help pages.
 
+Compare viewing the `temperature.csv` file in the `data` subfolder using `cat` and `less`  
+
+Another useful command is `wc` which counts the number of lines, words, and characters    
+in a file.
+
+`wc data/temperature.csv`  
+
+will give the following output:
+
+`35      69    1275 data/temperature.csv`  
+
+If we are only interested in the number of lines, we can use the option `-l` which  
+shows that the file has 35 lines. Note that words are counted based on white space,  
+and this file is a CSV with commas separating information, so the word count isn't  
+particularly relevant. 
+
 ### Creating files and directories
 
 The command to create a new directory is `mkdir`. You can create multiple directories  
@@ -235,7 +275,29 @@ You can also use a text editor to create files. Using the text editor Nano,
 will create a file called `abstract.txt` and open that file in the Nano text editor. 
 
 You can type some sample text in the file, then hit <kbd>Ctrl</kbd> + <kbd>X</kbd> to exit. Nano will ask  
-if you want to save the changes. Type <kbd>Y</kbd> and then <kbd>Enter</kbd> to save changes.
+if you want to save the changes. Type <kbd>Y</kbd> and then <kbd>Enter</kbd> to save changes.  
+
+Another way to assign content to files is using the `>` and `>>` redirection operators.  
+The greater-than symbol `>` redirects the command's output. For example, you can  
+create a new file from the output of a command like `wc`
+
+`$ wc brainstorm.txt > length.txt`
+
+You can also use `>` with `echo` to assign text directly, e.g.  
+
+`$ echo Some text describing my science > my_file.txt`  
+
+will assign the line of text to the file `my_file.txt` we created earlier. If the  
+file did not already exist, it would create a new file. 
+
+Try using `echo` and `>` to assign a second line of text to the same file. 
+
+The double bracket `>>` appends text to existing content, rather than overwriting.  
+So, if we have a new thought to add to the `abstract.txt` file, we can use  
+
+`$ echo A new thought to frame my scientific result >> abstract.txt`  
+
+instead of opening the file in a text editor. 
 
 ### Moving and copying files
 
@@ -280,10 +342,57 @@ Caution, there's no 'undo' for deleting files! Use the `-i` option to give an
 interactive confirmation you want to remove a file.
 </p>
 
-Deleting directories requires using an option with `rm`. The `-d` option will  
-allow for removing directories, but again with no warning. Combine the `-d` with  
+Deleting directories requires using an option with `rm`. The `-r` option will  
+allow for removing directories, but again with no warning. Combine the `-r` with  
 `-i` to get an interactive warning before deleting. 
 
-`$ rm -d -i data/figs/high-res`
+`$ rm -ri data/figs/high-res`
 
 will first ask if you want to delete the `high-res` directory. Hit <kbd>Y</kbd> to confirm.
+
+### Locking files  
+
+Keeping raw data safe is important for maintaining reproducibility. One way to  
+keep raw data safe is by changing the permissions to read-only on a back-up copy.  
+
+We can demonstrate with the `temperature.csv` file in the `data` directory.  
+
+First, move into the `data` directory and use `ls -l` to look at the permissions  
+for `temperature.csv`. The first portion of the output gives information on the  
+file's permissions. There are 10 slots in the permissions list. The first character  
+relates to the file type, which we can disregard. The next three characters show  
+the file owner's permissions, with `r` for read, `w` for write, and `x` for execute.  
+
+Most likely, you have permissions to read and write for this file, i.e. `rw-`.
+
+Use the command `chmod` (change mode) to change permissions, with the option `-w`  
+to remove write permission.
+
+`$ chmod -w temperature.csv`
+
+Now we can assess the file permissions again (use the arrow keys to recall the `ls -l`  
+command you ran previously). The permissions have changed to `r--`, indicating  
+read-only permission.
+
+If you try and delete this file with `rm`, you'll get an interactive warning  
+asking if you want to override permissions to remove the file. This extra step can  
+help prevent accidentally deleting or modifying your raw data. You might consider  
+having copies of the raw data files that are locked as back-ups to copies you modify.
+
+## Exercises
+Consider a scenario where you are using the data from the `temperature.csv` file  
+as the basis for an analysis workflow.
+
+ 1. Create a directory structure for your new project. Consider the subfolders that   
+will help keep your project organized. 
+ 2. Copy the data file `temperature.csv` from the shell_intro folder into a reasonable  
+location in your new project directory
+ 3. Create a locked copy of the data file with a useful name
+ 4. Create a copy of the data file for editing with a useful name. Remove the last  
+four rows of the data frame (perhaps these measurements occurred after you brought  
+the sensor into the lab).
+ 5. Bonus - create a new file that contains a log of the commands you just used to  
+set up the project and edit the files (hint, you can do this with `echo` and `history`).  
+Consider where to save this log file in your project directory. 
+
+

@@ -382,3 +382,17 @@ Jenny Bryan, the author of Happy Git for the useR, gives a good run-down of the
 [reasons to use a Git client]().
 
 [reasons to use a Git client]: https://happygitwithr.com/git-client.html
+
+## Exercises
+
+Working in either the command line or a Git client:
+
+ 1. Create a new repository named `bio` and initialize version control
+ 2. Create a text file named `my_bio.txt` and add at least three lines about yourself.
+ 3. Commit the changes to `my_bio.txt`
+ 4. Edit `my_bio.txt` by changing one of the previous lines and adding a fourth  
+ line of text
+ 5. Display the differences between the last commit and the updated version
+ 6. Use the alternative tool (command line or client) to commit the new changes  
+ and check the status of the repo
+ 7. Delete the `bio` repo and contents from your computer using the command line.
