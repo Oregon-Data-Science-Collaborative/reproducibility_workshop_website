@@ -30,6 +30,10 @@ This lesson is adapted in part from the [Software Carpentries][] and [Data Carpe
 [Software Carpentries]: https://swcarpentry.github.io/shell-novice/
 [Data Carpentries]:https://datacarpentry.org/shell-genomics/
 
+Slides from the workshop are [available here][]
+
+[available here]:https://github.com/lillian-aoki/workshop_website/blob/master/slides/02_intro_shell.pdf
+
 ## Getting started
 
 When you open the shell, you will see some **text** followed by a **prompt symbol** and a **cursor**.  

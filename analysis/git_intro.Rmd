@@ -36,8 +36,10 @@ Other useful resources for learning Git include:
 [Think Like a Git]: http://think-like-a-git.net/
 [Git Cheatsheet]: https://www.atlassian.com/git/tutorials/atlassian-git-cheatsheet
 
-Slides presented during the workshop are available here and give more conceptual  
+Slides presented during the workshop are [available here][] and give more conceptual  
 background into using Git for version control.
+
+[available here]: https://github.com/lillian-aoki/workshop_website/blob/master/slides/03_version_control.pdf
 
 ## Getting started
 
