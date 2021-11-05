@@ -109,7 +109,7 @@ but its presence tells you that you've initiated version control over the parent
 
 ### Check the project status
 
-One of the useful basic commands is `checkout` which will give you the status of  
+One of the useful basic commands is `status` which will give you the status of  
 your git repo. 
 
 `$ git status`
@@ -318,9 +318,9 @@ An alternative to running Git from the command line is to use a Git client, such
 as GitHub Desktop. The client will give a more visual experience, which can be  
 helpful to stay organized as you are learning Git. 
 
-You can download [GitHub Desktop]() if you have not already. When you open the application,  
+You can download [GitHub Desktop][] if you have not already. When you open the application,  
 it will ask you to authenticate using your username and password on GitHub.com.  
-If you get stuck, there are [instructions from GitHub here]().
+If you get stuck, there are [instructions from GitHub here][].
 
 [GitHub Desktop]: https://desktop.github.com/
 [instructions from Github here]: https://docs.github.com/en/desktop/installing-and-configuring-github-desktop/installing-and-authenticating-to-github-desktop/authenticating-to-github
@@ -379,7 +379,7 @@ within RStudio as well, so it is easy to use both the command line and a client
 to access Git as needed. 
 
 Jenny Bryan, the author of Happy Git for the useR, gives a good run-down of the  
-[reasons to use a Git client]().
+[reasons to use a Git client][].
 
 [reasons to use a Git client]: https://happygitwithr.com/git-client.html
 
