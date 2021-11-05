@@ -437,7 +437,8 @@ easier to read, but you can still scroll up to see your previous work.</p>
 by running <code>man</code> and the command:</p>
 <p><code>$ man ls</code></p>
 <p>gives as output the manual for the <code>ls</code> command.</p>
-<p>You can navigate through the manual using the <kbd>↑</kbd> and <kbd>↓</kbd> arrow keys, <kbd>page up</kbd> and <kbd>page down</kbd>, or <kbd>space</kbd> and <kbd>B</kbd>.</p>
+<p>You can navigate through the manual using the <kbd>↑</kbd> and <kbd>↓</kbd> arrow keys,<br />
+<kbd>page up</kbd> and <kbd>page down</kbd>, or <kbd>space</kbd> and <kbd>B</kbd>.</p>
 <p>Type <kbd>Q</kbd> to quit the manual.</p>
 <p class="text-success">
 Note, on a Windows machine running Git Bash, you may need to use the <code>--help</code> option instead of <code>man</code> to access documentation.
@@ -452,9 +453,25 @@ Variables start with <code>$</code>, e.g. the variable <code>$USER</code> ident
 <p>returns your username.</p>
 <p>You can access all environment variables using <code>env</code> and you can set environment variables using <code>export</code>.</p>
 <p><code>$ export greeting=hello</code></p>
-<p>returns no output to the console but saves the variable value. Access the new value with the <code>echo</code> command:</p>
+<p>returns no output to the console but saves the variable value. Access the new value<br />
+with the <code>echo</code> command:</p>
 <p><code>$ echo $greeting</code></p>
 <p>Exiting and opening a new session of the shell will reset the variables.</p>
+</div>
+<div id="using-history" class="section level3">
+<h3>Using history</h3>
+<p>Often it is useful to look at commands you’ve just entered in the shell. You can<br />
+access the previous lines you ran sequentially by using the <kbd>↑</kbd> arrow key.<br />
+This can be useful if you need to re-run a command with a slight change. You can<br />
+also use the <kbd>↓</kbd> arrow key to return to an empty line.</p>
+<p>You can also use the <code>history</code> command to look at your previous commands.</p>
+<p><code>$ history</code></p>
+<p>produces a numbered output of your previous commands in the session. You can re-run<br />
+a specific command using the number. For example, if your history shows that you<br />
+used <code>ls</code> to list files:</p>
+<p><code>15 ls -a</code></p>
+<p>you can re-run that specific command (with the same options) using the syntax</p>
+<p><code>!15</code></p>
 </div>
 </div>
 <div id="navigating-files-and-directories" class="section level2">
@@ -464,7 +481,7 @@ Variables start with <code>$</code>, e.g. the variable <code>$USER</code> ident
 your computer. Individual files are organized within <strong>directories</strong> (aka folders),<br />
 and directories are organized hierarchically. For example, your Desktop may contain<br />
 several files and folders, and within those folders there may be additional subfolders.<br />
-If you downloaded the <a href="">data files</a> for this tutorial, you have a folder called<br />
+If you downloaded the <a href="https://github.com/lillian-aoki/workshop_website/raw/master/data/shell_intro.zip">data files</a> for this tutorial, you have a folder called<br />
 <code>shell_intro</code> on your Desktop, which contains additional subfolders and files.</p>
 <p>You already used <code>pwd</code> to print the working directory - where you are in the<br />
 filesystem. Most likely, your default directory is <code>/Users/[my username]</code> on a Mac.<br />
@@ -523,6 +540,16 @@ of lines to print. To print the first five lines of the file ’brainstorm.txt`:
 <p>For large files, an alternative to <code>cat</code> is <code>less</code> which opens the file as a<br />
 read-only copy and allows you to navigate the file, using the same tools as for<br />
 the <code>man</code> help pages.</p>
+<p>Compare viewing the <code>temperature.csv</code> file in the <code>data</code> subfolder using <code>cat</code> and <code>less</code></p>
+<p>Another useful command is <code>wc</code> which counts the number of lines, words, and characters<br />
+in a file.</p>
+<p><code>wc data/temperature.csv</code></p>
+<p>will give the following output:</p>
+<p><code>35      69    1275 data/temperature.csv</code></p>
+<p>If we are only interested in the number of lines, we can use the option <code>-l</code> which<br />
+shows that the file has 35 lines. Note that words are counted based on white space,<br />
+and this file is a CSV with commas separating information, so the word count isn’t<br />
+particularly relevant.</p>
 </div>
 <div id="creating-files-and-directories" class="section level3">
 <h3>Creating files and directories</h3>
@@ -540,6 +567,19 @@ is <code>shell_intro</code> on the desktop,</p>
 <p>will create a file called <code>abstract.txt</code> and open that file in the Nano text editor.</p>
 <p>You can type some sample text in the file, then hit <kbd>Ctrl</kbd> + <kbd>X</kbd> to exit. Nano will ask<br />
 if you want to save the changes. Type <kbd>Y</kbd> and then <kbd>Enter</kbd> to save changes.</p>
+<p>Another way to assign content to files is using the <code>&gt;</code> and <code>&gt;&gt;</code> redirection operators.<br />
+The greater-than symbol <code>&gt;</code> redirects the command’s output. For example, you can<br />
+create a new file from the output of a command like <code>wc</code></p>
+<p><code>$ wc brainstorm.txt &gt; length.txt</code></p>
+<p>You can also use <code>&gt;</code> with <code>echo</code> to assign text directly, e.g. </p>
+<p><code>$ echo Some text describing my science &gt; my_file.txt</code></p>
+<p>will assign the line of text to the file <code>my_file.txt</code> we created earlier. If the<br />
+file did not already exist, it would create a new file.</p>
+<p>Try using <code>echo</code> and <code>&gt;</code> to assign a second line of text to the same file.</p>
+<p>The double bracket <code>&gt;&gt;</code> appends text to existing content, rather than overwriting.<br />
+So, if we have a new thought to add to the <code>abstract.txt</code> file, we can use</p>
+<p><code>$ echo A new thought to frame my scientific result &gt;&gt; abstract.txt</code></p>
+<p>instead of opening the file in a text editor.</p>
 </div>
 <div id="moving-and-copying-files" class="section level3">
 <h3>Moving and copying files</h3>
@@ -572,11 +612,52 @@ current directory as follows:</p>
 Caution, there’s no ‘undo’ for deleting files! Use the <code>-i</code> option to give an<br />
 interactive confirmation you want to remove a file.
 </p>
-<p>Deleting directories requires using an option with <code>rm</code>. The <code>-d</code> option will<br />
-allow for removing directories, but again with no warning. Combine the <code>-d</code> with<br />
+<p>Deleting directories requires using an option with <code>rm</code>. The <code>-r</code> option will<br />
+allow for removing directories, but again with no warning. Combine the <code>-r</code> with<br />
 <code>-i</code> to get an interactive warning before deleting.</p>
-<p><code>$ rm -d -i data/figs/high-res</code></p>
+<p><code>$ rm -ri data/figs/high-res</code></p>
 <p>will first ask if you want to delete the <code>high-res</code> directory. Hit <kbd>Y</kbd> to confirm.</p>
+</div>
+<div id="locking-files" class="section level3">
+<h3>Locking files</h3>
+<p>Keeping raw data safe is important for maintaining reproducibility. One way to<br />
+keep raw data safe is by changing the permissions to read-only on a back-up copy.</p>
+<p>We can demonstrate with the <code>temperature.csv</code> file in the <code>data</code> directory.</p>
+<p>First, move into the <code>data</code> directory and use <code>ls -l</code> to look at the permissions<br />
+for <code>temperature.csv</code>. The first portion of the output gives information on the<br />
+file’s permissions. There are 10 slots in the permissions list. The first character<br />
+relates to the file type, which we can disregard. The next three characters show<br />
+the file owner’s permissions, with <code>r</code> for read, <code>w</code> for write, and <code>x</code> for execute.</p>
+<p>Most likely, you have permissions to read and write for this file, i.e. <code>rw-</code>.</p>
+<p>Use the command <code>chmod</code> (change mode) to change permissions, with the option <code>-w</code><br />
+to remove write permission.</p>
+<p><code>$ chmod -w temperature.csv</code></p>
+<p>Now we can assess the file permissions again (use the arrow keys to recall the <code>ls -l</code><br />
+command you ran previously). The permissions have changed to <code>r--</code>, indicating<br />
+read-only permission.</p>
+<p>If you try and delete this file with <code>rm</code>, you’ll get an interactive warning<br />
+asking if you want to override permissions to remove the file. This extra step can<br />
+help prevent accidentally deleting or modifying your raw data. You might consider<br />
+having copies of the raw data files that are locked as back-ups to copies you modify.</p>
+</div>
+</div>
+<div id="exercises" class="section level2">
+<h2>Exercises</h2>
+<p>Consider a scenario where you are using the data from the <code>temperature.csv</code> file<br />
+as the basis for an analysis workflow.</p>
+<ol style="list-style-type: decimal">
+<li>Create a directory structure for your new project. Consider the subfolders that<br />
+will help keep your project organized.</li>
+<li>Copy the data file <code>temperature.csv</code> from the shell_intro folder into a reasonable<br />
+location in your new project directory</li>
+<li>Create a locked copy of the data file with a useful name</li>
+<li>Create a copy of the data file for editing with a useful name. Remove the last<br />
+four rows of the data frame (perhaps these measurements occurred after you brought<br />
+the sensor into the lab).</li>
+<li>Bonus - create a new file that contains a log of the commands you just used to<br />
+set up the project and edit the files (hint, you can do this with <code>echo</code> and <code>history</code>).<br />
+Consider where to save this log file in your project directory.</li>
+</ol>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -612,7 +693,6 @@ loaded via a namespace (and not attached):
 [25] fs_1.5.0         glue_1.4.2       evaluate_0.14    rmarkdown_2.11  
 [29] stringi_1.7.4    compiler_4.1.1   pillar_1.6.4     httpuv_1.6.3    
 [33] pkgconfig_2.0.3 </code></pre>
-</div>
 </div>
 </div>
 
