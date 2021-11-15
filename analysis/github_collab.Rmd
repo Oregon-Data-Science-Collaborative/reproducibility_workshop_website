@@ -69,7 +69,10 @@ pair of keys (two long sets of character strings).
 If you've never used GitHub before, HTTPS and a personal access token is probably  
 slightly easier to get started. 
 
-Follow the [instructions on this page][] to generate the personal access token (PAT):
+Follow the [instructions on this page][] to generate the personal access token (PAT).  
+You can name the PAT something like 'my laptop' or 'research workshop' - a short  
+name that gives you some info about how you are using it. When you are asked to  
+select the scope, select "repo", "user" and "workflow". 
 
 [instructions on this page]:https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
 
@@ -122,8 +125,8 @@ If you are using SSH instead, the URL will use the format
 
 You'll see some output stating the result of cloning the directory. 
 
-Now, make this new repo yoru working directory by navigating into it, listing the  
-files, viewing the head of the Readme file
+Now, make this new repo yoru working directory by navigating into it, then list the  
+files, and view the head of the Readme file
 
 `$ cd test_repo`  
 `$ ls`  
@@ -252,7 +255,17 @@ You can also do these two steps in one line: `$ git checkout -b <branch name>`
 
 In this new branch, you can develop code to address a specific issue or to advance  
 part of your analysis. You should commit your work regularly on the branch as you  
-would on the main branch. When you are ready to merge the branch back into `main`,  
+would on the main branch. As a demonstration, let's add another line to the README  
+file, although this would not actually address a coding issue in real life!
+
+`$ echo "A new line added from the feature branch issue-1" >> README.md`  
+
+We can then stage and commit this edit as usual:  
+
+`$ git add README.md`  
+`$ git commit -m "Add edit from new branch"`  
+
+When you are ready to merge the branch back into `main`,  
 first you switch to the main branch, and then merge the feature branch:  
 
 `$ git checkout main`  
@@ -425,6 +438,8 @@ and resources (including cognitive load) required to implement these tools.
 
 I highly recommend the BitBucket tutorial [comparing workflows][] to compare some  
 alternative structured workflows.
+
+[comparing workflows]:https://www.atlassian.com/git/tutorials/comparing-workflows
 
 I also recommend that researchers who are starting out with Git and GitHub focus  
 on getting a basic workflow in place for themselves before building a collaborative  

@@ -37,7 +37,8 @@ A good read on developing a coding mindset from the MIT Comm Lab
 
 [The Carpentries][] - great training material for introductory computational skills
 
-[Happy Git for the useR][] - detailed guidance on integrating Git into your R workflow
+[Happy Git for the useR][] - detailed guidance on integrating Git into your R workflow, with lots of useful  
+information for non-R users (including detailed examples of command line Git and troubleshooting).
 
 [Introduction to Open Data Science][] - an online training from the Ocean Health Index team, using Git and  
 Github with R and RStudio
@@ -45,10 +46,16 @@ Github with R and RStudio
 [Introduction to Earth Data Science][] - an open, online textbook of tutorials for learning reproducible  
 science tools (especially Python) from the Earth Lab at CU Boulder.  
 
+[Git Tutorials from Bitbucket][] - Bitbucket is another Git hosting service, similar to GitHub.  
+These tutorials provide a lot of detailed information about Git, including breaking down each command  
+and comparing workflows. I find these very valuable, although the target audience is software developers,  
+so some of the use cases and language don't apply to scientific research teams.
+
 [The Carpentries]: https://carpentries.org/
 [Introduction to Open Data Science]:http://ohi-science.org/data-science-training/
 [Happy Git for the useR]:https://happygitwithr.com/
 [Introduction to Earth Data Science]:https://www.earthdatascience.org/courses/intro-to-earth-data-science/
+[Git Tutorials from Bitbucket]: https://www.atlassian.com/git/tutorials/setting-up-a-repository
 
 ### Other resource lists
 
