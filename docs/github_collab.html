@@ -432,7 +432,10 @@ token, which operates much like a password. Using SSH requires generating a<br /
 pair of keys (two long sets of character strings).</p>
 <p>If you’ve never used GitHub before, HTTPS and a personal access token is probably<br />
 slightly easier to get started.</p>
-<p>Follow the <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token">instructions on this page</a> to generate the personal access token (PAT):</p>
+<p>Follow the <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token">instructions on this page</a> to generate the personal access token (PAT).<br />
+You can name the PAT something like ‘my laptop’ or ‘research workshop’ - a short<br />
+name that gives you some info about how you are using it. When you are asked to<br />
+select the scope, select “repo”, “user” and “workflow”.</p>
 <p class="text-success">
 Note, when you generate the PAT, keep your browser window open. You won’t be able<br />
 to access the PAT again once you’ve navigated away. For the purposes of this workshop,<br />
@@ -472,8 +475,8 @@ test repo. For example, you could use folder <code>temp</code> in Desktop or Doc
 <p>If you are using SSH instead, the URL will use the format<br />
 <code>git@github.com:YOUR-USERNAME/YOUR-REPOSITORY.git</code></p>
 <p>You’ll see some output stating the result of cloning the directory.</p>
-<p>Now, make this new repo yoru working directory by navigating into it, listing the<br />
-files, viewing the head of the Readme file</p>
+<p>Now, make this new repo yoru working directory by navigating into it, then list the<br />
+files, and view the head of the Readme file</p>
 <p><code>$ cd test_repo</code><br />
 <code>$ ls</code><br />
 <code>$ head README.md</code></p>
@@ -573,7 +576,13 @@ the code, use</p>
 <p>You can also do these two steps in one line: <code>$ git checkout -b &lt;branch name&gt;</code></p>
 <p>In this new branch, you can develop code to address a specific issue or to advance<br />
 part of your analysis. You should commit your work regularly on the branch as you<br />
-would on the main branch. When you are ready to merge the branch back into <code>main</code>,<br />
+would on the main branch. As a demonstration, let’s add another line to the README<br />
+file, although this would not actually address a coding issue in real life!</p>
+<p><code>$ echo "A new line added from the feature branch issue-1" &gt;&gt; README.md</code></p>
+<p>We can then stage and commit this edit as usual:</p>
+<p><code>$ git add README.md</code><br />
+<code>$ git commit -m "Add edit from new branch"</code></p>
+<p>When you are ready to merge the branch back into <code>main</code>,<br />
 first you switch to the main branch, and then merge the feature branch:</p>
 <p><code>$ git checkout main</code><br />
 <code>$ git merge issue-1</code></p>
@@ -718,7 +727,7 @@ various teaching resources for scientists implementing Git. However, it can<br /
 introduce complexity into your workflow, especially if everyone on your team is<br />
 learning to use Git. It’s important to balance the utility of GitHub with the time<br />
 and resources (including cognitive load) required to implement these tools.</p>
-<p>I highly recommend the BitBucket tutorial [comparing workflows][] to compare some<br />
+<p>I highly recommend the BitBucket tutorial <a href="https://www.atlassian.com/git/tutorials/comparing-workflows">comparing workflows</a> to compare some<br />
 alternative structured workflows.</p>
 <p>I also recommend that researchers who are starting out with Git and GitHub focus<br />
 on getting a basic workflow in place for themselves before building a collaborative<br />
