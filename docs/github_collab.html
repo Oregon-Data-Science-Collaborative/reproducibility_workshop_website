@@ -402,56 +402,363 @@ However, we will cover the basics of syncing Git and GitHub.</p>
 </div>
 <div id="sources" class="section level3">
 <h3>Sources</h3>
+<p>The <a href="https://docs.github.com/en">GitHub documentation</a>is a great resource.</p>
+<p>A useful <a href="https://www.atlassian.com/git/tutorials/comparing-workflows">comparison of workflows</a> is here - note this is from BitBucket, which is<br />
+an alternative Git hosting service to GitHub, but the ideas transfer.</p>
+<p><a href="https://happygitwithr.com">Happy Git with R</a> - gives a ton of guidance and trouble-shooting, useful for non-R<br />
+users as well.</p>
+<p><a href="https://www.earthdatascience.org/courses/intro-to-earth-data-science/git-github/">Section 3</a> of the Intro Earth Data Science textbook has detailed instructions for<br />
+using Git and GitHub for scientific collaboration.</p>
 </div>
 </div>
 <div id="getting-started" class="section level2">
 <h2>Getting started</h2>
+<p>The first building block of using GitHub for collaboration is making sure that<br />
+Git, GitHub, and your Git client can all connect and interact. Note, you don’t<br />
+have to use a Git client, but it can make certain elements easier as you start<br />
+working with GitHub.</p>
+<p>We will run through a series of steps to create a remote repository, clone (download)<br />
+to your local machine, and make sure Git is tracking changes made locally and<br />
+in the remote repository.</p>
+<p>These steps will also involve setting up access to GitHub using either HTTPS or<br />
+SSH keys. This is slightly fiddly if you’ve never done it before.</p>
+<div id="set-up-github-access" class="section level3">
+<h3>Set up GitHub access</h3>
+<p>There are two options for setting up credentials for GitHub to talk to your local<br />
+machine: SSH or HTTPS. Using HTTPS means you need to create a personal access<br />
+token, which operates much like a password. Using SSH requires generating a<br />
+pair of keys (two long sets of character strings).</p>
+<p>If you’ve never used GitHub before, HTTPS and a personal access token is probably<br />
+slightly easier to get started.</p>
+<p>Follow the <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token">instructions on this page</a> to generate the personal access token (PAT):</p>
+<p class="text-success">
+Note, when you generate the PAT, keep your browser window open. You won’t be able<br />
+to access the PAT again once you’ve navigated away. For the purposes of this workshop,<br />
+copy the PAT to a text file so that you’ll be able to copy and paste it as needed.
+</p>
+<p>If you prefer to use SSH, you can follow the <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh">instructions provided here</a>. Note<br />
+that you have an option to add another layer of security to SSH by including a passphrase;<br />
+for the workshop, I would recommend <em>not</em> including a passphrase. You can add it<br />
+later if you feel so inclined.</p>
+</div>
 <div id="create-a-remote-repository" class="section level3">
 <h3>Create a remote repository</h3>
-<p>Start by logging in to GitHub in your web browser. Create a new repository</p>
-</div>
-<div id="ssh-keys" class="section level3">
-<h3>SSH keys</h3>
+<p>The next step is to create a new repository. Return to you GitHub account in your<br />
+browser and click the green <code>New repo</code> button. Make the following selections:</p>
+<ul>
+<li>No template</li>
+<li>Repository name: use something short like ‘my_repo’ or ‘test_repo’</li>
+<li>Add a line to the description (this will appear in your ReadMe file)</li>
+<li>Public</li>
+<li>Add a ReadMe file</li>
+</ul>
+<p>Click <code>Create repository</code>. GitHub will immediately create that new repo, with the<br />
+text from your description displayed in the ReadMe.</p>
+<p>Next, you want to clone this remote repo to your local machine. Click the green<br />
+<code>Code</code> button in the upper right of screen. You’ll need to select HTTPS or SSH,<br />
+depending on the credentials you are using. Next, click the button with two squares<br />
+to copy the URL.</p>
 </div>
 <div id="connecting-your-local-repo-to-a-remote" class="section level3">
 <h3>Connecting your local repo to a remote</h3>
+<p>Open the terminal, and navigate to a logical place in your filesystem for this<br />
+test repo. For example, you could use folder <code>temp</code> in Desktop or Documents.</p>
+<p>Clone the remote repo to your computer using the following syntax:</p>
+<p><code>$ git clone &lt;paste the URL you copied&gt;</code></p>
+<p>The pasted URL should include your GitHub username and the name of the repo, e.g.<br />
+<code>https://github.com/YOUR-USERNAME/YOUR-REPOSITORY.git</code></p>
+<p>If you are using SSH instead, the URL will use the format<br />
+<code>git@github.com:YOUR-USERNAME/YOUR-REPOSITORY.git</code></p>
+<p>You’ll see some output stating the result of cloning the directory.</p>
+<p>Now, make this new repo yoru working directory by navigating into it, listing the<br />
+files, viewing the head of the Readme file</p>
+<p><code>$ cd test_repo</code><br />
+<code>$ ls</code><br />
+<code>$ head README.md</code></p>
+<p>The output from these commands should be familiar from the basics of working in<br />
+the shell. Next, show some information about the connection to Github by typing:</p>
+<p><code>$ git remote show origin</code></p>
+<p>You should see output similar to the following (note the URLs should match what<br />
+the URL you copied before using the <code>clone</code> command)</p>
+<p><code>* remote origin</code><br />
+<code>Fetch URL: git@github.com:lillian-aoki/new-test.git</code><br />
+<code>Push  URL: git@github.com:lillian-aoki/new-test.git</code><br />
+<code>HEAD branch: main</code><br />
+<code>Remote branch:</code><br />
+<code>main tracked</code><br />
+<code>Local branch configured for 'git pull':</code><br />
+<code>main merges with remote main</code><br />
+<code>Local ref configured for 'git push':</code><br />
+<code>main pushes to main (up to date)</code></p>
 </div>
 <div id="pushing-and-pulling-changes" class="section level3">
 <h3>Pushing and pulling changes</h3>
+<p>Once you’ve connected your local machine to the remote repo on GitHub, you can start<br />
+pushing and pulling changes between the local and remote branches.</p>
+<p>From the command line, we can add a new line to the Readme:</p>
+<p><code>$ echo "A line I wrote on my local computer" &gt;&gt; README.md</code></p>
+<p>Check the <code>git status</code>, then use <code>git add</code> to stage the changes and <code>git commit</code><br />
+to commit the changes. Remember to use the <code>-m</code> option with <code>commit</code> and to write<br />
+a succinct commit message, like <code>Add a change from my local computer</code></p>
+<p>Once the changes have been committed, check the <code>status</code> again. You should see a<br />
+line stating that your branch is ahead of ‘origin/main’ by 1 commit. This means<br />
+the local copy of the repository has changes that have not been propagated to the<br />
+remote copy on Github. Propagate changes using the <code>push</code> command</p>
+<p><code>$ git push</code></p>
+<p>At this point, you will likely be asked for your username and password, if you are<br />
+using HTTPS. Enter your GitHub username and the PAT (copy and paste from your text file).<br />
+If you are using SSH keys, you will not need to enter a password unless you set up<br />
+extra security with a passphrase for SSH.</p>
+<p>Now when you check <code>git status</code> it should state that your branch is up to date with<br />
+origin/main, i.e. the local and rmeote branches are synced.</p>
+<p>Go to your browser and refresh the repository page. You should see the edited text<br />
+appear in your ReadMe.</p>
+<p>We can also propagate changes from the remote copy to the local copy of the repo.<br />
+Click the pencil icon in the corner of your ReadMe file to edit the file in your<br />
+browser. Add another line of text, such as ‘A new line from the remote repo’.</p>
+<p>Scroll to the bottom of the screen, and you’ll see an option to add a commit message.<br />
+You can leave the default message, or edit it, then click <code>Commit changes</code>.</p>
+<p>Return to the homepage of your repository, and you’ll see new information with the<br />
+commit identifier and message indicating which files were edited in this commit.</p>
+<p>If you click on the number of commits in the upper right, you’ll see a change log,<br />
+showing the commits you’ve made via GitHub and on your local computer. This visual<br />
+might be easier to understand than using <code>git log</code> in the command line!</p>
+<p>Now, we need to propagate the changes from this commit to the local copy. Return<br />
+to the command line and use the <code>pull</code> command:</p>
+<p><code>$ git pull</code></p>
+<p>This will download the changes recorded in the last commit you made locally. Use<br />
+<code>cat</code> or another command to view the ReadMe file to verify that the changes have<br />
+propagated.</p>
+<p>Note that <code>git pull</code> is actually performing two actions, first downloading the<br />
+changes to files from the remote repo, then integrating those changes into the<br />
+local files. You can also perform these actions individually using <code>git fetch</code> to<br />
+download changes and <code>git merge</code> to merge those changes with local files.<br />
+As you are starting out getting used to <code>git</code>, using <code>git pull</code> is less likely<br />
+to cause issues, but it can be useful to know that these actions can be separated.</p>
+</div>
+<div id="remote-as-back-up" class="section level3">
+<h3>Remote as back-up</h3>
+<p>Once you’ve connected your repo to the remote on GitHub, you can think of the version<br />
+on GitHub as your backup. If something happens to your local files or computer,<br />
+you can always clone the remote repo from GitHub. This means you’ll want to push<br />
+your local commits to GitHub regularly, so that the version on GitHub stays up to<br />
+date.</p>
+<p>Generally, it’s good practice to pull any changes from GitHub before pushing a<br />
+new commit. Your standard workflow may be to make changes locally, saving<br />
+changes to your files as you go. Once you’ve made a substantive change, commit that<br />
+change locally. Then, when you want to propagate to GitHub, first pull any new<br />
+changes from the remote, then push your recent commits. This can be especially<br />
+important if multiple users are making changes locally and pushing to the same remote.</p>
 </div>
 <div id="using-branches" class="section level3">
 <h3>Using branches</h3>
-<p>Small and easily merged</p>
+<p>Branches are an important feature of Git. Each branch is a series of commits,<br />
+independent from the commits in the main branch. You can use branches to focus on<br />
+developing a particular area of your project incrementally. Multiple users can<br />
+also work in parallel branches without overwriting each other’s work.</p>
+<p>However, it is <em>very</em> easy for branches to get messy. Multiple collaborators can<br />
+develop branches in different ways that make it hard to merge those branches back<br />
+into the main stream of the repo. When you create a branch, it’s good to have a<br />
+clear idea of what you want to accomplish with that branch, and when you will merge<br />
+it back into the main branch. Short branches that are easily and frequently merged<br />
+will make collaborating easier rather than harder.</p>
+<p>You can easily create a branch using the command <code>branch</code> and give it any name.<br />
+For example, to create a new branch in your repo related to a specific issue in<br />
+the code, use</p>
+<p><code>$ git branch issue-1</code></p>
+<p>Switch to the new branch using <code>checkout</code>:</p>
+<p><code>$ git checkout issue-1</code></p>
+<p>You can also do these two steps in one line: <code>$ git checkout -b &lt;branch name&gt;</code></p>
+<p>In this new branch, you can develop code to address a specific issue or to advance<br />
+part of your analysis. You should commit your work regularly on the branch as you<br />
+would on the main branch. When you are ready to merge the branch back into <code>main</code>,<br />
+first you switch to the main branch, and then merge the feature branch:</p>
+<p><code>$ git checkout main</code><br />
+<code>$ git merge issue-1</code></p>
+<p>Ideally, this will go smoothly. However, you might run into a merge conflict if<br />
+the branches you want to merge contain edits to the same parts of the same files.</p>
+</div>
+<div id="merge-conflicts" class="section level3">
+<h3>Merge conflicts</h3>
+<p>Merge conflicts are often small and easily resolved. You will get an error message<br />
+if you have a merge conflict, stating that the automatic merge has failed. You can<br />
+then use <code>status</code> to identify which files have conflicts.</p>
+<p>Open the file with a merge conflict, e.g. in your text editor. You’ll see that the<br />
+areas of conflict are highlighted with makers: <code>&lt;&lt;&lt;&lt;&lt;&lt;</code> indicates the beginning of<br />
+the conflict, followed by content from the branch you are currently on (e.g. <code>main</code>).<br />
+The marker <code>======</code> indicates the end of content from the <code>main</code> branch and the<br />
+start of content from the feature branch (e.g. <code>issue-1</code> in this example). The end<br />
+of the conflicting content is marked by <code>&gt;&gt;&gt;&gt;&gt;</code>.</p>
+<p>Edit the content between the <code>&lt;&lt;&lt;&lt;&lt;</code> and <code>&gt;&gt;&gt;&gt;&gt;</code> markers to the version you want<br />
+to keep. Make sure to delete the conflict makers and any content you do not want<br />
+to keep.</p>
+<p>Then, make sure to stage and commit these changes using <code>git add</code> and <code>git commit</code>.<br />
+This completes your merge.</p>
 </div>
 </div>
 <div id="working-with-others" class="section level2">
 <h2>Working with others</h2>
-<div id="giving-access" class="section level3">
-<h3>Giving access</h3>
+<div id="what-are-your-needs-for-collaboration" class="section level3">
+<h3>What are your needs for collaboration?</h3>
+<p>When using GitHub for collaboration, it’s important to work out what your needs are.<br />
+Some examples are below:</p>
+<ul>
+<li>A grad student creates a repo to share analysis results with their PI<br />
+</li>
+<li>A research group uses a shared repo to manage data collected annually in a long-term<br />
+project, with different contributors over time<br />
+</li>
+<li>Authors create a GitHub repo to publish code as part of an open-access manuscript<br />
+</li>
+<li>A researcher develops a new package with tools for analysis or visualization and<br />
+shares via GitHub</li>
+</ul>
+<p>In these examples, the needs of the collaborators may be different, and therefore<br />
+the workflow and set-up of a collaboration through GitHub may also differ. Some<br />
+things to consider as you incorporate GitHub into your research workflow:</p>
+<ul>
+<li>Who are your collaborators?<br />
+</li>
+<li>What do they need access to - data, code, analysis results?<br />
+</li>
+<li>What will your collaborators contribute - cleaning data, writing code, etc?</li>
+</ul>
+<p>As always, include your future self as a collaborator!</p>
 </div>
-<div id="forking-vs.-cloning" class="section level3">
-<h3>Forking vs. cloning</h3>
+<div id="fork-and-clone-workflow" class="section level3">
+<h3>Fork-and-clone workflow</h3>
+<p>If you are working on a project with collaborators who will be contributing, the<br />
+fork-and-clone workflow is a common approach. This workflow allows multiple<br />
+users to contribute to a shared project, to keep track of each others changes,<br />
+and to flag issues.</p>
+<p>For purposes of the workshop, we can practice the fork-and-clone workflow using<br />
+the demo GitHub repo <code>practice-workflow</code></p>
+<p>Navigate to the home page of the <code>practice-workflow</code> repo on Github.</p>
+<p>In the upper right, click on <code>Fork</code> to create a fork of the repo. This will fully<br />
+copy the contents of the repo to <em>your</em> github account.</p>
+<p>Clone the forked copy from <em>your account</em>. Do so by clicking the green button,<br />
+choosing HTTPS or SSH as appropriate to copy the URL. Then navigate to the command<br />
+line, and in a reasonable directory on your computer, create the new repo using</p>
+<p><code>$ git clone &lt;URL&gt;</code></p>
+<p>At this point, you have a local copy of the repo on your machine. This repo is<br />
+tracking the remote copy on your GitHub account. You can commit changes to your<br />
+local repo and push those changes to GitHub, following the same procedures as before.<br />
+In addition, because the remote on GitHub is a fork of the source repository, you can<br />
+send changes that you make back to the source repository as pull requests.</p>
 </div>
 <div id="pull-requests" class="section level3">
 <h3>Pull requests</h3>
+<p>A pull request submits changes to a shared project that you’ve made in your fork<br />
+of the project repo back to the source repo (where the project ultimately lives).<br />
+When you submit a pull request, whoever maintains the source repo (e.g. your<br />
+collaborator), can review the changes and decide to incorporate them into the<br />
+source repo.</p>
+<p>Make some local changes to your repo by following the instructions in the file<br />
+<code>exercise.md</code>. You will make a new branch, then create a new file with some demo<br />
+text. Commit this change to your local repo, then push the change to your remote repo.</p>
+<p>Initiate a pull request by navigating to homepage of your remote repo, and clicking<br />
+<code>Pull request</code> in the upper right.</p>
+<p>You need to identify the <em>base</em> repository and the <em>head</em> repository. The base is<br />
+the repo that you want to update (the source repo you had forked earlier) and the<br />
+head is the repo with content you want to use in the update (your forked copy).</p>
+<p>Then click <code>create new pull request</code>. You will need to add a title and description<br />
+to your pull request - like a commit message, the tile should be short but informative.</p>
+<p>Finally click the green <code>Create pull request</code>. This will create the request and<br />
+submit it to the source repo.</p>
+<p>Your colleague who maintains the source repo can then review the changes in the<br />
+request before merging with the repo. You can also use the GitHub interface to<br />
+leave comments to adjust changes before finalizing the changes and merging.</p>
 </div>
-<div id="merge-conflicts" class="section level3">
-<h3>Merge conflicts</h3>
+<div id="using-branches-in-fork-and-clone" class="section level3">
+<h3>Using branches in fork-and-clone</h3>
+<p>An important point about the fork and clone workflow is that it is best practice<br />
+to do your work in a feature branch, not the main branch. For example, in the<br />
+exercise, you made a new branch named <code>exercise-YOURNAME</code>, then went through the<br />
+the whole workflow (commit, push, pull request) from that branch.</p>
+<p>There are two reasons to work in a feature branch with fork and clone. First, it<br />
+keeps your main branch clean so that you can pull any new changes from the upstream<br />
+source repo. This is covered below. Second, it is slightly easier to manage pull<br />
+requests that come from feature branches.</p>
+<p>However, using branches does increase the complexity of the workflow, which can<br />
+create a challenge to incorprating GitHub into a team collaboration.</p>
 </div>
+<div id="getting-upstream-changes" class="section level3">
+<h3>Getting upstream changes</h3>
+<p>A final element of the fork and clone workflow is that you will likely want to set<br />
+up your fork to track changes that occur in the source repo. For example, if new<br />
+data are added over time, or other collaborators contribute changes to the source<br />
+repo, you want to keep your local copy up to date.</p>
+<p>The way to do this is to add the source repo as another remote to your local repo.</p>
+<p>In the shell, navigate into your local copy of the repo of interest. Check the<br />
+status to make sure you are on the main branch and your working tree is clean<br />
+(no changes since the last commit).</p>
+<p>List your current remotes: <code>$ git remote -v</code></p>
+<p>You should see something like</p>
+<p><code>origin &lt;URL for your repo&gt; (fetch)</code><br />
+<code>origin &lt;URL for your repo&gt; (push)</code></p>
+<p>In a web browser, navigate to the <em>source</em> repo (the one you forked from before).<br />
+Use the green ‘Clone or download’ button to copy the URL for the source repo.</p>
+<p>Add this URL as a remote:</p>
+<p><code>$ git remote add upstream &lt;URL for source repo&gt;</code></p>
+<p>Now, check your remotes again using <code>git remote -v</code></p>
+<p>You should see output with new lines indicating the upstream remote</p>
+<p><code>origin &lt;URL for your repo&gt; (fetch)</code><br />
+<code>origin &lt;URL for your repo&gt; (push)</code><br />
+<code>upstream &lt;URL for source repo&gt; (fetch)</code><br />
+<code>upstream &lt;URL for source repo&gt; (push)</code></p>
+<p>Now you can pull changes from the upstream remote into your local copy and keep<br />
+everything up to date.</p>
+</div>
+<div id="other-workflows" class="section level3">
+<h3>Other workflows</h3>
+<p>Fork and clone is a popular workflow for open source projects and is promoted by<br />
+various teaching resources for scientists implementing Git. However, it can<br />
+introduce complexity into your workflow, especially if everyone on your team is<br />
+learning to use Git. It’s important to balance the utility of GitHub with the time<br />
+and resources (including cognitive load) required to implement these tools.</p>
+<p>I highly recommend the BitBucket tutorial [comparing workflows][] to compare some<br />
+alternative structured workflows.</p>
+<p>I also recommend that researchers who are starting out with Git and GitHub focus<br />
+on getting a basic workflow in place for themselves before building a collaborative<br />
+project. There’s huge utility in having a GitHub repo that serves as a backup,<br />
+allows you to share code, outputs, and visualizations easily, and imposes some<br />
+deliberate organization on your project. Even if you do not have any collaborators<br />
+working on the same repo, there’s still a lot to gain from using GitHub.</p>
+</div>
+<div id="giving-access" class="section level3">
+<h3>Giving access</h3>
+<p>You may need to give collaborators access to a repository. The default setting<br />
+for your repos is Public, which means anyone can view it. If you want specific<br />
+collaborators to be able to commit directly to your repository, you can change the<br />
+permissions.</p>
+<p>In your browser, navigate to your repository and go to Settings (in the menu bar<br />
+for the repo). Click on <code>Manage access</code> and then click on the green button to add<br />
+people. You will need their GitHub username or email to add them.</p>
+<p>You might also have a private repository, which is not visible to the public. You<br />
+will need to add collaborators to the private repository in order for them to view<br />
+the content.</p>
+</div>
+</div>
+<div id="project-management-in-github" class="section level2">
+<h2>Project Management in GitHub</h2>
+<p>Beyond the structure of version control, GitHub also provides some tools for project<br />
+management. These can be fairly basic, such as using Issues (or the new Discussions)<br />
+to faciliate communication about the project. There are also additional tools for<br />
+project management, such as project boards (similar to other project management<br />
+programs like Trello) and assigning milestones. These tools may become more useful<br />
+for larger projects with many collaborators who are all using GitHub.</p>
 <div id="using-issues" class="section level3">
 <h3>Using Issues</h3>
-</div>
-</div>
-<div id="github-workflows" class="section level2">
-<h2>GitHub workflows</h2>
-<div id="centralized-workflow" class="section level3">
-<h3>Centralized workflow</h3>
-</div>
-<div id="forking-workflow" class="section level3">
-<h3>Forking workflow</h3>
-</div>
-<div id="what-are-your-needs-for-collaboration" class="section level3">
-<h3>What are your needs for collaboration?</h3>
+<p>Issues provide a way to flag elements of the project that need attention, and also provide<br />
+an avenue for discussion with your collaborators. It can be helpful to use issues<br />
+to discuss changes, then when you submit a pull request you can reference the issue<br />
+that your changes address.</p>
+<p>Practice using issues in the practice-workflow repo by going to <code>Issues</code> in the upper left<br />
+of the menu bar. You’ll see an open issue, essentially as a comment chain.</p>
+<p>Add a new comment to the open issue.</p>
+<p>You can also use tags to organize issues, and integrate them with email for improved<br />
+communication. GitHub has recently introduced Discussions, which fucntion similarly<br />
+to Issues but are oriented toward more general discussion, rather than bug fixes.</p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -474,19 +781,16 @@ locale:
 attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
-other attached packages:
-[1] workflowr_1.6.2
-
 loaded via a namespace (and not attached):
- [1] Rcpp_1.0.7       knitr_1.36       magrittr_2.0.1   R6_2.5.1        
- [5] rlang_0.4.11     fastmap_1.1.0    fansi_0.5.0      stringr_1.4.0   
- [9] tools_4.1.1      xfun_0.26        utf8_1.2.2       git2r_0.28.0    
-[13] jquerylib_0.1.4  htmltools_0.5.2  ellipsis_0.3.2   rprojroot_2.0.2 
-[17] yaml_2.2.1       digest_0.6.28    tibble_3.1.5     lifecycle_1.0.1 
-[21] crayon_1.4.1     later_1.3.0      vctrs_0.3.8      promises_1.2.0.1
-[25] fs_1.5.0         glue_1.4.2       evaluate_0.14    rmarkdown_2.11  
-[29] stringi_1.7.4    compiler_4.1.1   pillar_1.6.4     httpuv_1.6.3    
-[33] pkgconfig_2.0.3 </code></pre>
+ [1] Rcpp_1.0.7       knitr_1.36       magrittr_2.0.1   workflowr_1.6.2 
+ [5] R6_2.5.1         rlang_0.4.11     fastmap_1.1.0    fansi_0.5.0     
+ [9] stringr_1.4.0    tools_4.1.1      xfun_0.26        utf8_1.2.2      
+[13] git2r_0.28.0     jquerylib_0.1.4  htmltools_0.5.2  ellipsis_0.3.2  
+[17] rprojroot_2.0.2  yaml_2.2.1       digest_0.6.28    tibble_3.1.5    
+[21] lifecycle_1.0.1  crayon_1.4.1     later_1.3.0      vctrs_0.3.8     
+[25] promises_1.2.0.1 fs_1.5.0         glue_1.4.2       evaluate_0.14   
+[29] rmarkdown_2.11   stringi_1.7.4    compiler_4.1.1   pillar_1.6.4    
+[33] httpuv_1.6.3     pkgconfig_2.0.3 </code></pre>
 </div>
 </div>
 </div>
