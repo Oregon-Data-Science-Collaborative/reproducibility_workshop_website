@@ -45,6 +45,11 @@ using Git and GitHub for scientific collaboration.
 [GitHub documentation]: https://docs.github.com/en
 [comparison of workflows]:https://www.atlassian.com/git/tutorials/comparing-workflows
 
+### Slides
+
+Slides presented during the workshop will be available [here](https://github.com/lillian-aoki/workshop_website/blob/master/slides/04_github_collaboration.pdf)
+
+
 ## Getting started
 
 The first building block of using GitHub for collaboration is making sure that  
