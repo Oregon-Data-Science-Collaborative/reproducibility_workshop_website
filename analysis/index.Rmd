@@ -11,13 +11,26 @@ editor_options:
 *Note, this site is under construction, with more content to be added soon!*
 </p>
 
+
+
 ### Overview 
-This series of workshops will introduce tools and practices for conducting reproducible research with quantitative data. Topics covered include principles of reproducible workflows, using Git for version control and GitHub for collaboration, and best practices for project management. For Fall 2021, we are piloting these workshops and will continue to expand the series in future terms.
+This series of workshops will introduce tools and practices for conducting reproducible research with quantitative data. Topics covered include principles of reproducible workflows, using Git for version control and GitHub for collaboration, and best practices for project management. For Fall 2021-Winter 2022, we are piloting these workshops and will continue to expand the series in future terms.
 
 ### Audience 
-For the Fall 2021 pilot, we are targeting graduate students, and we are particularly interested in gaining feedback on what kinds of data science training will most benefit the graduate researcher community. No programming experience is needed but basic familiarity with any coding language and environment (R, Python, Matlab) will be helpful.
+For the Fall 2021-Winter 2022 pilot, we are targeting graduate students, and we are particularly interested in gaining feedback on what kinds of data science training will most benefit the graduate researcher community. No programming experience is needed but basic familiarity with any coding language and environment (R, Python, Matlab) will be helpful. The exception is the RMarkdown workshop - basic experience using R and RStudio is highly recommended for this workshop.  
 
-### Schedule
+### Schedule {.tabset}
+
+#### Winter 2022
+
+Workshops for Winter 2022 will be held on Wednesdays from 1-3 pm. 
+
+> Feb 2 - Metadata and Data Documentation  
+Feb 9 - Reproducible Reports with RMarkdown  
+Feb 16 - Accessing Data Repositories  
+Feb 23 - Publishing Data and Code
+
+#### Fall 2021
 
 For the Fall 2021 pilot, we will offer three workshops in the series:
 
@@ -37,6 +50,18 @@ Working in the shell is a succinct way to navigate files and run programs and is
 
 *Git + GitHub for Collaboration*  
 While version control with Git enhances reproducibility, GitHub takes it to the next level by facilitating collaboration. In this workshop, participants will practice collaborating on GitHub, including pushing and pulling changes to a shared repository. We will also explore some of GitHub’s additional functionality (e.g. using Issues) that can support scientific teams.
+
+*Metadata and Data Documentation*  
+Data documentation is a critical step in creating reproducible research but is often overlooked. Through this workshop, participants will learn about different elements of data documentation, including ReadMe files, data dictionaries, and metadata standards. Participants will apply documentation best practices to their own or demonstration data.  
+
+*Reproducible Reports with RMarkdown*  
+RMarkdown is a useful extension of the Markdown language that combines text and executable code in one document for literate programming. This workshop will introduce RMarkdown and demonstrate ways to incorporate RMarkdown files into a reproducible workflow, including through collaboration on GitHub. Familiarity with R, RStudio, and GitHub, or participation in earlier workshops, is recommended; the first 20 min of the workshop will include a rapid overview of RStudio and the RStudio interface with Git/GitHub.  
+
+*Accessing Data Repositories*  
+In the era of big data and open science, more data are available across a range of fields than ever before. In this workshop, we will cover the basics of accessing different data repositories and discuss best practices for finding, using, and citing publicly available data.  
+
+*Publishing Your Data and Code*  
+In many scientific disciplines, it is now common or expected to publish your underlying data and code along with manuscripts (and it is in fact required by many funders). In this workshop, we will discuss different methods of publishing and archiving data and code, including using Zenodo to archive a GitHub repository with a DOI, and identifying appropriate repositories for different types of data.  
 
 ### License
 
