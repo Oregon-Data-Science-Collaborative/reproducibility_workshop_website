@@ -14,12 +14,33 @@ editor_options:
 
 
 ### Overview 
-This series of workshops will introduce tools and practices for conducting reproducible research with quantitative data. Topics covered include principles of reproducible workflows, using Git for version control and GitHub for collaboration, and best practices for project management. For Fall 2021-Winter 2022, we are piloting these workshops and will continue to expand the series in future terms.
+This series of workshops will introduce tools and practices for conducting reproducible research with quantitative data. Topics covered include principles of reproducible workflows, using Git for version control and GitHub for collaboration, and best practices for project management. These foundational data science skills can improve research practices across disciplines and support efficient and effective collaboration.
 
 ### Audience 
-For the Fall 2021-Winter 2022 pilot, we are targeting graduate students, and we are particularly interested in gaining feedback on what kinds of data science training will most benefit the graduate researcher community. No programming experience is needed but basic familiarity with any coding language and environment (R, Python, Matlab) will be helpful. The exception is the RMarkdown workshop - basic experience using R and RStudio is highly recommended for this workshop.  
+Workshops are open to graduate students, postdocs, and researchers at University of Oregon, Oregon State University, and Portland State University. No programming experience is needed but basic familiarity with any coding language and environment (R, Python, Matlab) will be helpful. The exception is the RMarkdown workshop - basic experience using R and RStudio is highly recommended for this workshop.  
 
 ### Schedule {.tabset}
+
+#### Spring 2022
+
+Workshops for Spring 2022 will be held on Tuesdays from 2-4 pm.  
+
+> March 29 - Reproducible Research Workflows  
+April 5 - Intro to the Command Line  
+April 12 - Git for Version Control  
+April 19 - GitHub for Collaboration  
+April 26 - Metadata and Data Documentation  
+May 3 - Reproducible Reports with RMarkdown  
+May 10 - Accessing Data Repositories  
+May 17 - Publishing Data and Code  
+
+
+<button type="button" class="btn btn-link btn-lg">[Register]()</button>  
+
+[Register]: https://uoregon.zoom.us/meeting/register/tJAkdeuurTkjH9w7P6t9mmMq3Gu0VUz3Vt7m  
+
+
+Workshops are modular - please register and attend any and all sessions that are of interest.   
 
 #### Winter 2022
 
@@ -39,6 +60,14 @@ For the Fall 2021 pilot, we will offer three workshops in the series:
 4.	Git + GitHub for Collaboration  
 
 In future iterations of the workshop series, we plan to cover additional topics such as using RMarkdown for reproducible reports, metadata and data documentation, and working with external data repositories. We are actively seeking input from the Oregon research community to understand what kinds of training can benefit researchers – suggestions are welcome!
+
+### Location
+
+The workshop format is hybrid - participants can join in-person at UO in Eugene and remotely over Zoom. The in-person location is Pacific Hall 204.  
+
+### Instructor
+
+Workshops are led by Lillian Aoki, data scientist and ecologist at UO's Data Science Initiative. She received her PhD in Environmental Sciences from the University of Virginia where she studied coastal ecosystem restoration and resilience. Her research interests include leveraging datasets across spatial and temporal scales to understand ecosystem dynamics.   
 
 ### Workshop descriptions
 
