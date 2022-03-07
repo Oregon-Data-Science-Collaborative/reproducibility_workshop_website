@@ -35,7 +35,7 @@ May 10 - Accessing Data Repositories
 May 17 - Publishing Data and Code  
 
 
-<button type="button" class="btn btn-link btn-lg">[Register]()</button>  
+<button type="button" class="btn btn-link btn-lg">[Register][]</button>  
 
 [Register]: https://uoregon.zoom.us/meeting/register/tJAkdeuurTkjH9w7P6t9mmMq3Gu0VUz3Vt7m  
 
@@ -94,7 +94,7 @@ In many scientific disciplines, it is now common or expected to publish your und
 
 ### License
 
-This material is available under the [Open Source Initiative]()'s [BSD-3-Clause license]().  
+This material is available under the [Open Source Initiative][]'s [BSD-3-Clause license][].  
 See the full text of the license [here](license.html).
 
 [Open Source Initiative]: https://opensource.org/about
