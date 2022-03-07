@@ -34,13 +34,18 @@ May 3 - Reproducible Reports with RMarkdown
 May 10 - Accessing Data Repositories  
 May 17 - Publishing Data and Code  
 
-
-<button type="button" class="btn btn-link btn-lg">[Register][]</button>  
-
-[Register]: https://uoregon.zoom.us/meeting/register/tJAkdeuurTkjH9w7P6t9mmMq3Gu0VUz3Vt7m  
-
-
 Workshops are modular - please register and attend any and all sessions that are of interest.   
+
+
+<button type="button" class="btn btn-primary btn-lg" 
+onclick="window.location.href= 'https://uoregon.zoom.us/meeting/register/tJAkdeuurTkjH9w7P6t9mmMq3Gu0VUz3Vt7m';">
+Register
+</button>    
+
+
+<!-- <button type="button" class="btn btn-link btn-lg">[Register][]</button>   -->
+
+<!-- [Register]: https://uoregon.zoom.us/meeting/register/tJAkdeuurTkjH9w7P6t9mmMq3Gu0VUz3Vt7m   -->
 
 #### Winter 2022
 
