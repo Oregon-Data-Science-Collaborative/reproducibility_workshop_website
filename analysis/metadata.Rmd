@@ -1,0 +1,32 @@
+---
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Metadata and data documentation
+Data documentation is a critical step in creating reproducible research but is often overlooked. Through this workshop, participants will learn about different elements of data documentation, including ReadMe files, data dictionaries, and metadata standards. Participants will apply documentation best practices to their own or demonstration data.  
+
+### Learning objectives
+The target audience for this workshop is any researcher looking to improve their data documentation practices. During the workshop, participants will  
+
+- Understand the purpose and value of different types of metadata  
+- Learn about best practices for data documentation  
+- Create metadata for their own or a demonstration project  
+
+### Resources
+
+[Cornell University Data Management - README guide + template](https://data.research.cornell.edu/content/readme)  
+[Dryad - Good Data Practices](https://datadryad.org/stash/best_practices#describe)  
+[EDI - Best Practices for Keywords](https://environmentaldatainitiative.org/five-phases-of-data-publishing/phase-3/keyword-best-practices/)  
+[ezEML tool for Ecological Metadata Language](https://ezeml.edirepository.org/eml/)
+
+## Workshop materials  
+
+### Slides
+
+[Slides are available here]()
+
+

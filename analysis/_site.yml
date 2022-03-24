@@ -16,6 +16,8 @@ navbar:
       href: git_intro.html
     - text: "Module 4: Collaboration with GitHub"
       href: github_collab.html
+    - text: "Module 5: Metadata and data documentation"
+      href: metadata.html
   - text: Resources
     href: resources.html
   - text: Installation

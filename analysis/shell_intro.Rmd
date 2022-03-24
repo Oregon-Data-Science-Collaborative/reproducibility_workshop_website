@@ -3,20 +3,15 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, eval = FALSE, purl = FALSE)
 ```
 
 ## Working in the shell
 
-Working in the shell is a succinct way to navigate files and run programs,  
-is fundamental for some advanced computing tasks, and is increasingly used for  
-analysis of big data across fields. This tutorial gives a brief introduction to  
-working in the shell, taught as part of a Reproducible Research workshop series  
-at the University of Oregon. 
+Working in the shell is a succinct way to navigate files and run programs, is fundamental for some advanced computing tasks, and is increasingly used for analysis of big data across fields. This tutorial gives a brief introduction to working in the shell, taught as part of a Reproducible Research workshop series at the University of Oregon.  
 
 ### Learning objectives
-The target audience for this module is a researcher with little to no experience  
-using the shell/command line. During the workshop, participants will
+The target audience for this module is a researcher with little to no experience using the shell/command line. During the workshop, participants will
 
 - Gain basic familiarity with the shell and learn to run commands
 - Practice navigating the filesystem using the shell
@@ -48,15 +43,17 @@ After you type a command, hit the <kbd>Enter</kbd> key to run the command.
 
 The command `echo` will display a line of text. If you type the following and hit enter  
 
-`$ echo hello!`  
+```{r, eval=FALSE, purl=FALSE}
+$ echo hello!
+```
 
 you should see the **output** on the next line as  
-
-`hello!`
+```{r, eval=FALSE, purl=FALSE}
+hello!
+```
 
 <p class="text-success">
-Note, in this documentation, the `$` prompt is included but you don't need to type the  
-prompt itself, just the commands that follow it.</p>
+Note, in this documentation, the `$` prompt is included but you don't need to type the prompt itself, just the commands that follow it.</p>
 
 ### A few basic commands
 
@@ -64,8 +61,7 @@ prompt itself, just the commands that follow it.</p>
 
 `ls` returns a list of files in the current (working) directory  
 
-`clear` will scroll up your screen to give you a clean space to work it. This makes it  
-easier to read, but you can still scroll up to see your previous work.
+`clear` will scroll up your screen to give you a clean space to work it. This makes it easier to read, but you can still scroll up to see your previous work.
 
 Try running `ls` to see the files in your current directory.
 
@@ -75,93 +71,90 @@ When you run a command, you can add **options** (also known as **flags**) to mod
 
 For example, use the option `-l`  for the command `ls` to display more information.
 
-`$ ls -l` 
+```{r, eval=FALSE, purl=FALSE}
+$ ls -l
+```
 
-Use the option `-a` to 'show all' files, including hidden files in the directory that begin with  
-`.` These include files used to configure programs, for example.
+Use the option `-a` to 'show all' files, including hidden files in the directory that begin with `.` These include files used to configure programs, for example.
 
-To find out what options are available for a command, access the manual (i.e. the **documentation**)  
-by running `man` and the command:  
+To find out what options are available for a command, access the manual (i.e. the **documentation**) by running `man` and the command:  
 
-`$ man ls`
+```{r, eval=FALSE, purl=FALSE}
+$ man ls
+```
 
 gives as output the manual for the `ls` command. 
 
-You can navigate through the manual using the <kbd>&#x2191;</kbd> and <kbd>&#x2193;</kbd>
-arrow keys,  
-<kbd>page up</kbd> and <kbd>page down</kbd>, or <kbd>space</kbd> and <kbd>B</kbd>.  
+You can navigate through the manual using the <kbd>&#x2191;</kbd> and <kbd>&#x2193;</kbd> arrow keys, <kbd>page up</kbd> and <kbd>page down</kbd>, or <kbd>space</kbd> and <kbd>B</kbd>.  
 
 Type <kbd>Q</kbd> to quit the manual.
 
 <p class="text-success">
-Note, on a Windows machine running Git Bash, you may need to use the `--help` option 
-instead of `man` to access documentation. 
+Note, on a Windows machine running Git Bash, you may need to use the `--help` option instead of `man` to access documentation. 
 </p>
 
 ### Environment variables
 
-**Environment variables** are pieces of information that are stored in your shell session.  
-Variables start with `$`, e.g. the variable `$USER` identifies the user (you).  
+**Environment variables** are pieces of information that are stored in your shell session. Variables start with `$`, e.g. the variable `$USER` identifies the user (you).  
 
 Access variables individually using the echo command:
 
-`$ echo $USER`
+```{r, eval=FALSE, purl=FALSE}
+$ echo $USER
+```
 
 returns your username.
 
-You can access all environment variables using `env` and you can set 
-environment variables using `export`.
+You can access all environment variables using `env` and you can set environment variables using `export`.
 
-`$ export greeting=hello`
+```{r, eval=FALSE, purl=FALSE}
+$ export greeting=hello
+```
+Assigning a variable with export returns no output to the console but saves the variable value. Access the new value with the `echo` command:
 
-returns no output to the console but saves the variable value. Access the new value   
-with the `echo` command:
-
-`$ echo $greeting`
+```{r, eval=FALSE, purl=FALSE}
+$ echo $greeting
+```
 
 Exiting and opening a new session of the shell will reset the variables.
 
 ### Using history
 
-Often it is useful to look at commands you've just entered in the shell. You can  
-access the previous lines you ran sequentially by using the <kbd>&#x2191;</kbd> arrow key.  
-This can be useful if you need to re-run a command with a slight change. You can  
-also use the <kbd>&#x2193;</kbd> arrow key to return to an empty line.  
+Often it is useful to look at commands you've just entered in the shell. You can access the previous lines you ran sequentially by using the <kbd>&#x2191;</kbd> arrow key. This can be useful if you need to re-run a command with a slight change. You can also use the <kbd>&#x2193;</kbd> arrow key to return to an empty line.  
 
 You can also use the `history` command to look at your previous commands.  
 
-`$ history`  
+```{r, eval=FALSE, purl=FALSE}
+$ history
+```
 
-produces a numbered output of your previous commands in the session. You can re-run  
-a specific command using the number. For example, if your history shows that you  
-used `ls` to list files:
+produces a numbered output of your previous commands in the session. You can re-run a specific command using the number. For example, if your history shows that you used `ls` to list files:
 
-`15 ls -a`
+```{r, eval=FALSE, purl=FALSE}
+15 ls -a
+```
 
 you can re-run that specific command (with the same options) using the syntax  
 
-`!15`
+```{r, eval=FALSE, purl=FALSE}
+!15
+```
 
 ## Navigating files and directories
 
 You may be used to navigating the file system using Finder or Windows Explorer.
 
-The command line provides an alternative way to navigate the files stored on  
-your computer. Individual files are organized within **directories** (aka folders),  
-and directories are organized hierarchically. For example, your Desktop may contain  
-several files and folders, and within those folders there may be additional subfolders.  
-If you downloaded the [data files][] for this tutorial, you have a folder called  
-`shell_intro` on your Desktop, which contains additional subfolders and files. 
+The command line provides an alternative way to navigate the files stored on your computer. Individual files are organized within **directories** (aka folders), and directories are organized hierarchically. For example, your Desktop may contain several files and folders, and within those folders there may be additional subfolders. If you downloaded the [data files][] for this tutorial, you have a folder called `shell_intro` on your Desktop, which contains additional subfolders and files. 
 
 [data files]:  https://github.com/lillian-aoki/workshop_website/raw/master/data/shell_intro.zip
 
-You already used `pwd` to print the working directory - where you are in the  
-filesystem. Most likely, your default directory is `/Users/[my username]` on a Mac.  
-On a Windows machine, it may be something like `C:\Users\[my username]`.
+You already used `pwd` to print the working directory - where you are in the filesystem. Most likely, your default directory is `/Users/[my username]` on a Mac. On a Windows machine, it may be something like `C:\Users\[my username]`.
 
 A key command to navigate the filesystem is `cd` - change directory.
 
-`$ cd ~/Desktop/shell_intro`  
+```{r, eval=FALSE, purl=FALSE}
+$ cd ~/Desktop/shell_intro
+```
 
 will change your working directory to the shell_intro directory on your Desktop.
 
@@ -169,22 +162,23 @@ Run `ls` after you move into a new directory to see the sub-folders and files.
 
 You can move further into the sub-folders by running `cd` again:
 
-`$ cd data`
+```{r, eval=FALSE, purl=FALSE}
+$ cd data
+```
 
-And you can navigate 'up' in the file system using `..` to move one level up (from  
-`data` back up to `shell_intro`, the parent directory of `data`)
+And you can navigate 'up' in the file system using `..` to move one level up (from `data` back up to `shell_intro`, the parent directory of `data`)
 
-To return to your home (default) directory, you can type the absolute file path,  
-e.g. `cd /Users/[my username]` or you can use a short-cut with the HOME environment variable:
+To return to your home (default) directory, you can type the absolute file path, e.g. `cd /Users/[my username]` or you can use a short-cut with the HOME environment variable:
 
-`$ cd $HOME`
+```{r, eval=FALSE, purl=FALSE}
+$ cd $HOME
+```
 
 will take you back to your home directory.
 
 ### Some other shortcuts
 
-The `~` (tilde) stands for the home directory, so `~/Desktop` is equivalent to  
-`/Users/[my username]/Desktop`
+The `~` (tilde) stands for the home directory, so `~/Desktop` is equivalent to `/Users/[my username]/Desktop`
 
 The `.` stands for the current directory. 
 
@@ -192,37 +186,34 @@ A double period, `..` stands for the *parent* of the current directory (one leve
 
 Running `cd` without a path specified will also take you to the home directory.
 
-Running `cd -` (dash) will take you to the previous directory you were in - not  
-'up' the file system, but backwards in time to the last directory you were in. 
+Running `cd -` (dash) will take you to the previous directory you were in - not 'up' the file system, but backwards in time to the last directory you were in. 
 
-Tab completion can make writing paths easier. As you type the name of a directory,  
-you can hit <kbd>Tab</kbd> once and the shell will auto-complete the name, if  
-there is only one option. If there is more than one option (e.g. more than one  
-file in a folder), hit <kbd>Tab</kbd> a second time to display the possibilities
+Tab completion can make writing paths easier. As you type the name of a directory, you can hit <kbd>Tab</kbd> once and the shell will auto-complete the name, if there is only one option. If there is more than one option (e.g. more than one file in a folder), hit <kbd>Tab</kbd> a second time to display the possibilities
 
 ## Manipulating files and directories
 
 ### Viewing files
 
-From the home directory, you can use `cd` to change the working directory to  
-`shell_intro` and `ls` to look at the contents of the new working directory. Use  
-the option `-F` with `ls` to indicate which paths are a directory (end in /).  
+From the home directory, you can use `cd` to change the working directory to `shell_intro` and `ls` to look at the contents of the new working directory. Use the option `-F` with `ls` to indicate which paths are a directory (end in /).  
 
-`$ cd ~/Desktop/shell_intro`  
-`$ ls -F`  
+```{r, eval=FALSE, purl=FALSE}
+$ cd ~/Desktop/shell_intro  
+$ ls -F  
+```
 
 returns output  
 
-`brainstorm.txt   data/    draft/`  
+```{r, eval=FALSE, purl=FALSE}
+brainstorm.txt   data/    draft/
+```
 
 You can also use `ls` to look at the contents of directories that are NOT the  
 working directory. For example,  
 
-`$ ls data`  
-
-will return the contents of the `data` directory, which is a subfolder of the  
-current working directory `shell_intro`. To view the contents of a folder that   
-is not a subfolder of the current directory, use `ls` with the full path.
+```{r, eval=FALSE, purl=FALSE}
+$ ls data  
+```
+will return the contents of the `data` directory, which is a subfolder of the current working directory `shell_intro`. To view the contents of a folder that is not a subfolder of the current directory, use `ls` with the full path.
 
 There are several commands you can use to view the contents of a file:  
 
@@ -230,108 +221,103 @@ There are several commands you can use to view the contents of a file:
 `head` prints the first lines of the file (default is 10 lines).  
 `tail` prints the last lines of the file (default is 10 lines).  
 
-Both `head` and `tail` can be modified using the `-n` option to specify the number  
-of lines to print. To print the first five lines of the file 'brainstorm.txt`:
+Both `head` and `tail` can be modified using the `-n` option to specify the number of lines to print. To print the first five lines of the file 'brainstorm.txt`:
 
-`$ head -n 5 brainstorm.txt`
-
-For large files, an alternative to `cat` is `less` which opens the file as a  
-read-only copy and allows you to navigate the file, using the same tools as for  
-the `man` help pages.
+```{r, eval=FALSE, purl=FALSE}
+$ head -n 5 brainstorm.txt
+```
+For large files, an alternative to `cat` is `less` which opens the file as a read-only copy and allows you to navigate the file, using the same tools as for the `man` help pages.
 
 Compare viewing the `temperature.csv` file in the `data` subfolder using `cat` and `less`  
 
-Another useful command is `wc` which counts the number of lines, words, and characters    
-in a file.
+Another useful command is `wc` which counts the number of lines, words, and characters in a file.
 
-`wc data/temperature.csv`  
+```{r, eval=FALSE, purl=FALSE}
+wc data/temperature.csv
+```
 
 will give the following output:
 
-`35      69    1275 data/temperature.csv`  
+```{r, eval=FALSE, purl=FALSE}
+35      69    1275 data/temperature.csv
+```
 
-If we are only interested in the number of lines, we can use the option `-l` which  
-shows that the file has 35 lines. Note that words are counted based on white space,  
-and this file is a CSV with commas separating information, so the word count isn't  
-particularly relevant. 
+If we are only interested in the number of lines, we can use the option `-l` which shows that the file has 35 lines. Note that words are counted based on white space, and this file is a CSV with commas separating information, so the word count isn't particularly relevant. 
 
 ### Creating files and directories
 
-The command to create a new directory is `mkdir`. You can create multiple directories  
-in a hierarchy by specifying the full path. For example, if the working directory  
-is `shell_intro` on the desktop,
+The command to create a new directory is `mkdir`. You can create multiple directories in a hierarchy by specifying the full path. For example, if the working directory is `shell_intro` on the desktop,  
+```{r, eval=FALSE, purl=FALSE}
+$ mkdir figs 
+```
+creates a directory `figs` within the current directory. If the folder  `figs` already exists, then you can run 
+```{r, eval=FALSE, purl=FALSE}
+$ mkdir figs/high-res/ 
+```
+to create `high-res` inside `figs`.  
 
-`$ mkdir figs` creates a directory `figs` within the current directory. If the folder  
-`figs` already exists, then you can run 
-`$ mkdir figs/high-res/` to create `high-res` inside `figs`.
-
-Note, there is no output from `mkdir` but you can check it worked with `ls`.
+Note, there is no output from `mkdir` but you can check it worked with `ls`.  
 
 You can use the command `touch` to create an empty file.
 
-`$ touch my_file.txt`  
+```{r, eval=FALSE, purl=FALSE}
+$ touch my_file.txt
+```
 
 creates an empty text file in the current directory. 
 
 You can also use a text editor to create files. Using the text editor Nano,  
-
-`$ nano abstract.txt`  
-
+```{r, eval=FALSE, purl=FALSE}
+$ nano abstract.txt  
+```
 will create a file called `abstract.txt` and open that file in the Nano text editor. 
 
-You can type some sample text in the file, then hit <kbd>Ctrl</kbd> + <kbd>X</kbd> to exit. Nano will ask  
-if you want to save the changes. Type <kbd>Y</kbd> and then <kbd>Enter</kbd> to save changes.  
+You can type some sample text in the file, then hit <kbd>Ctrl</kbd> + <kbd>X</kbd> to exit. Nano will ask if you want to save the changes. Type <kbd>Y</kbd> and then <kbd>Enter</kbd> to save changes.  
 
-Another way to assign content to files is using the `>` and `>>` redirection operators.  
-The greater-than symbol `>` redirects the command's output. For example, you can  
-create a new file from the output of a command like `wc`
-
-`$ wc brainstorm.txt > length.txt`
-
+Another way to assign content to files is using the `>` and `>>` redirection operators. The greater-than symbol (also known as angle bracket) `>` redirects the command's output. For example, you can create a new file from the output of a command like `wc`
+```{r, eval=FALSE, purl=FALSE}
+$ wc brainstorm.txt > length.txt
+```
 You can also use `>` with `echo` to assign text directly, e.g.  
 
+```{r, eval=FALSE, purl=FALSE}
 `$ echo Some text describing my science > my_file.txt`  
+```
+will assign the line of text to the file `my_file.txt` we created earlier. If the file did not already exist, it would create a new file. 
 
-will assign the line of text to the file `my_file.txt` we created earlier. If the  
-file did not already exist, it would create a new file. 
+Try using `echo` and `>` to assign a second line of text to the same `my_file.txt` file. 
 
-Try using `echo` and `>` to assign a second line of text to the same file. 
+The double bracket `>>` appends text to existing content, rather than overwriting. So, if we have a new thought to add to the `abstract.txt` file, we can use  
 
-The double bracket `>>` appends text to existing content, rather than overwriting.  
-So, if we have a new thought to add to the `abstract.txt` file, we can use  
-
-`$ echo A new thought to frame my scientific result >> abstract.txt`  
-
+```{r, eval=FALSE, purl=FALSE}
+$ echo A new thought to frame my scientific result >> abstract.txt  
+```
 instead of opening the file in a text editor. 
 
 ### Moving and copying files
 
-To copy files or directories, use the `mv` command. Specify the file to move  
-and the new destination. For example,  
+To copy files or directories, use the `mv` command. Specify the file to move and the new destination. For example,  
 
-`$ mv brainstorm.txt draft`  
+```{r, eval=FALSE, purl=FALSE}
+$ mv brainstorm.txt draft
+```
+will move the file `brainstorm.txt` into the `draft` folder. What if you want to move the file back to the main `shell_intro` folder?  
 
-will move the file `brainstorm.txt` into the `draft` folder. What if you want to  
-move the file back to the main `shell_intro` folder?  
-
-`$ mv draft/brainstorm.txt .`  
-
-will identify the file based on the path and move it to the current directory   
-(using `.` as the shortcut for the current directory)
+```{r, eval=FALSE, purl=FALSE}
+$ mv draft/brainstorm.txt .  
+```
+will identify the file based on the path and move it to the current directory (using `.` as the shortcut for the current directory)
 
 <p class="text-success">
-Note, `mv` will overwrite any existing files with the same name! Double-check  
-names before moving files, or use `mv -i`, the interactive option which will  
-ask you before overwriting existing files. 
+Note, `mv` will overwrite any existing files with the same name! Double-check names before moving files, or use `mv -i`, the interactive option which will ask you before overwriting existing files. 
 </p>
 
-To copy files or directories, use the `cp` command, which is similar to `mv`.  
-Specify the file or directory to copy and the location for the copy. To create  
-a duplicate, such as a back-up file, you can simply specify a new name in the  
-current directory as follows:  
+To copy files or directories, use the `cp` command, which is similar to `mv`. Specify the file or directory to copy and the location for the copy.   
+To create a duplicate, such as a back-up file, you can simply specify a new name in the current directory as follows:  
 
-`$ cp abstract.txt abstract_backup.txt`  
-
+```{r, eval=FALSE, purl=FALSE}
+$ cp abstract.txt abstract_backup.txt  
+```
 will create a second copy of your text file, named `abstract_backup.txt`
 
 ### Deleting files and directories
@@ -343,61 +329,40 @@ Deleting files is easy using the `rm` command.
 will remove the second text file you just created. 
 
 <p class="text-success">
-Caution, there's no 'undo' for deleting files! Use the `-i` option to give an  
-interactive confirmation you want to remove a file.
+Caution, there's no 'undo' for deleting files! Use the `-i` option to give an interactive confirmation you want to remove a file.
 </p>
 
-Deleting directories requires using an option with `rm`. The `-r` option will  
-allow for removing directories, but again with no warning. Combine the `-r` with  
-`-i` to get an interactive warning before deleting. 
+Deleting directories requires using an option with `rm`. The `-r` (recursive) option will allow for removing directories, but again with no warning. Combine the `-r` and `-i` options to get an interactive warning before deleting. 
 
-`$ rm -ri data/figs/high-res`
-
+```{r, eval=FALSE, purl=FALSE}
+$ rm -ri data/figs/high-res
+```
 will first ask if you want to delete the `high-res` directory. Hit <kbd>Y</kbd> to confirm.
 
 ### Locking files  
 
-Keeping raw data safe is important for maintaining reproducibility. One way to  
-keep raw data safe is by changing the permissions to read-only on a back-up copy.  
+Keeping raw data safe is important for maintaining reproducibility. One way to keep raw data safe is by changing the permissions to read-only on a back-up copy.  
 
 We can demonstrate with the `temperature.csv` file in the `data` directory.  
 
-First, move into the `data` directory and use `ls -l` to look at the permissions  
-for `temperature.csv`. The first portion of the output gives information on the  
-file's permissions. There are 10 slots in the permissions list. The first character  
-relates to the file type, which we can disregard. The next three characters show  
-the file owner's permissions, with `r` for read, `w` for write, and `x` for execute.  
+First, move into the `data` directory and use `ls -l` to look at the permissions for `temperature.csv`. The first portion of the output gives information on the file's permissions. There are 10 slots in the permissions list. The first character relates to the file type, which we can disregard. The next three characters show the file owner's permissions, with `r` for read, `w` for write, and `x` for execute.  
 
 Most likely, you have permissions to read and write for this file, i.e. `rw-`.
 
-Use the command `chmod` (change mode) to change permissions, with the option `-w`  
-to remove write permission.
+Use the command `chmod` (change mode) to change permissions, with the option `-w` to remove write permission.
+```{r, eval=FALSE, purl=FALSE}
+$ chmod -w temperature.csv
+```
+Now we can assess the file permissions again (use the arrow keys to recall the `ls -l` command you ran previously). The permissions have changed to `r--`, indicating read-only permission.
 
-`$ chmod -w temperature.csv`
-
-Now we can assess the file permissions again (use the arrow keys to recall the `ls -l`  
-command you ran previously). The permissions have changed to `r--`, indicating  
-read-only permission.
-
-If you try and delete this file with `rm`, you'll get an interactive warning  
-asking if you want to override permissions to remove the file. This extra step can  
-help prevent accidentally deleting or modifying your raw data. You might consider  
-having copies of the raw data files that are locked as back-ups to copies you modify.
+If you try and delete this file with `rm`, you'll get an interactive warning asking if you want to override permissions to remove the file. This extra step can help prevent accidentally deleting or modifying your raw data. You might consider having copies of the raw data files that are locked as back-ups to copies you modify.
 
 ## Exercises
 Consider a scenario where you are using the data from the `temperature.csv` file  
 as the basis for an analysis workflow.
 
- 1. Create a directory structure for your new project. Consider the subfolders that   
-will help keep your project organized. 
- 2. Copy the data file `temperature.csv` from the shell_intro folder into a reasonable  
-location in your new project directory
+ 1. Create a directory structure for your new project. Consider the subfolders that will help keep your project organized. 
+ 2. Copy the data file `temperature.csv` from the shell_intro folder into a reasonable location in your new project directory
  3. Create a locked copy of the data file with a useful name
- 4. Create a copy of the data file for editing with a useful name. Remove the last  
-four rows of the data frame (perhaps these measurements occurred after you brought  
-the sensor into the lab).
- 5. Bonus - create a new file that contains a log of the commands you just used to  
-set up the project and edit the files (hint, you can do this with `echo` and `history`).  
-Consider where to save this log file in your project directory. 
-
-
+ 4. Create a copy of the data file for editing with a useful name. Remove the last four rows of the data frame (perhaps these measurements occurred after you brought the sensor into the lab).
+ 5. Bonus - create a new file that contains a log of the commands you just used to set up the project and edit the files (hint, you can do this with `echo` and `history`). Consider where to save this log file in your project directory. 

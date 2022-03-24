@@ -352,6 +352,9 @@ div.tocify {
     <li>
       <a href="github_collab.html">Module 4: Collaboration with GitHub</a>
     </li>
+    <li>
+      <a href="metadata.html">Module 5: Metadata and data documentation</a>
+    </li>
   </ul>
 </li>
 <li>
@@ -384,15 +387,10 @@ div.tocify {
 
 <div id="working-in-the-shell" class="section level2">
 <h2>Working in the shell</h2>
-<p>Working in the shell is a succinct way to navigate files and run programs,<br />
-is fundamental for some advanced computing tasks, and is increasingly used for<br />
-analysis of big data across fields. This tutorial gives a brief introduction to<br />
-working in the shell, taught as part of a Reproducible Research workshop series<br />
-at the University of Oregon.</p>
+<p>Working in the shell is a succinct way to navigate files and run programs, is fundamental for some advanced computing tasks, and is increasingly used for analysis of big data across fields. This tutorial gives a brief introduction to working in the shell, taught as part of a Reproducible Research workshop series at the University of Oregon.</p>
 <div id="learning-objectives" class="section level3">
 <h3>Learning objectives</h3>
-<p>The target audience for this module is a researcher with little to no experience<br />
-using the shell/command line. During the workshop, participants will</p>
+<p>The target audience for this module is a researcher with little to no experience using the shell/command line. During the workshop, participants will</p>
 <ul>
 <li>Gain basic familiarity with the shell and learn to run commands</li>
 <li>Practice navigating the filesystem using the shell</li>
@@ -414,34 +412,29 @@ using the shell/command line. During the workshop, participants will</p>
 <p>The cursor indicates where you can begin typing commands.</p>
 <p>After you type a command, hit the <kbd>Enter</kbd> key to run the command.</p>
 <p>The command <code>echo</code> will display a line of text. If you type the following and hit enter</p>
-<p><code>$ echo hello!</code></p>
+<pre class="r"><code>$ echo hello!</code></pre>
 <p>you should see the <strong>output</strong> on the next line as</p>
-<p><code>hello!</code></p>
+<pre class="r"><code>hello!</code></pre>
 <p class="text-success">
-Note, in this documentation, the <code>$</code> prompt is included but you don’t need to type the<br />
-prompt itself, just the commands that follow it.
+Note, in this documentation, the <code>$</code> prompt is included but you don’t need to type the prompt itself, just the commands that follow it.
 </p>
 <div id="a-few-basic-commands" class="section level3">
 <h3>A few basic commands</h3>
 <p><code>pwd</code> prints the working directory (the folder you are working in)</p>
 <p><code>ls</code> returns a list of files in the current (working) directory</p>
-<p><code>clear</code> will scroll up your screen to give you a clean space to work it. This makes it<br />
-easier to read, but you can still scroll up to see your previous work.</p>
+<p><code>clear</code> will scroll up your screen to give you a clean space to work it. This makes it easier to read, but you can still scroll up to see your previous work.</p>
 <p>Try running <code>ls</code> to see the files in your current directory.</p>
 </div>
 <div id="options-and-documentation" class="section level3">
 <h3>Options and documentation</h3>
 <p>When you run a command, you can add <strong>options</strong> (also known as <strong>flags</strong>) to modify the output.</p>
 <p>For example, use the option <code>-l</code> for the command <code>ls</code> to display more information.</p>
-<p><code>$ ls -l</code></p>
-<p>Use the option <code>-a</code> to ‘show all’ files, including hidden files in the directory that begin with<br />
-<code>.</code> These include files used to configure programs, for example.</p>
-<p>To find out what options are available for a command, access the manual (i.e. the <strong>documentation</strong>)<br />
-by running <code>man</code> and the command:</p>
-<p><code>$ man ls</code></p>
+<pre class="r"><code>$ ls -l</code></pre>
+<p>Use the option <code>-a</code> to ‘show all’ files, including hidden files in the directory that begin with <code>.</code> These include files used to configure programs, for example.</p>
+<p>To find out what options are available for a command, access the manual (i.e. the <strong>documentation</strong>) by running <code>man</code> and the command:</p>
+<pre class="r"><code>$ man ls</code></pre>
 <p>gives as output the manual for the <code>ls</code> command.</p>
-<p>You can navigate through the manual using the <kbd>↑</kbd> and <kbd>↓</kbd> arrow keys,<br />
-<kbd>page up</kbd> and <kbd>page down</kbd>, or <kbd>space</kbd> and <kbd>B</kbd>.</p>
+<p>You can navigate through the manual using the <kbd>↑</kbd> and <kbd>↓</kbd> arrow keys, <kbd>page up</kbd> and <kbd>page down</kbd>, or <kbd>space</kbd> and <kbd>B</kbd>.</p>
 <p>Type <kbd>Q</kbd> to quit the manual.</p>
 <p class="text-success">
 Note, on a Windows machine running Git Bash, you may need to use the <code>--help</code> option instead of <code>man</code> to access documentation.
@@ -449,161 +442,117 @@ Note, on a Windows machine running Git Bash, you may need to use the <code>--hel
 </div>
 <div id="environment-variables" class="section level3">
 <h3>Environment variables</h3>
-<p><strong>Environment variables</strong> are pieces of information that are stored in your shell session.<br />
-Variables start with <code>$</code>, e.g. the variable <code>$USER</code> identifies the user (you).</p>
+<p><strong>Environment variables</strong> are pieces of information that are stored in your shell session. Variables start with <code>$</code>, e.g. the variable <code>$USER</code> identifies the user (you).</p>
 <p>Access variables individually using the echo command:</p>
-<p><code>$ echo $USER</code></p>
+<pre class="r"><code>$ echo $USER</code></pre>
 <p>returns your username.</p>
 <p>You can access all environment variables using <code>env</code> and you can set environment variables using <code>export</code>.</p>
-<p><code>$ export greeting=hello</code></p>
-<p>returns no output to the console but saves the variable value. Access the new value<br />
-with the <code>echo</code> command:</p>
-<p><code>$ echo $greeting</code></p>
+<pre class="r"><code>$ export greeting=hello</code></pre>
+<p>Assigning a variable with export returns no output to the console but saves the variable value. Access the new value with the <code>echo</code> command:</p>
+<pre class="r"><code>$ echo $greeting</code></pre>
 <p>Exiting and opening a new session of the shell will reset the variables.</p>
 </div>
 <div id="using-history" class="section level3">
 <h3>Using history</h3>
-<p>Often it is useful to look at commands you’ve just entered in the shell. You can<br />
-access the previous lines you ran sequentially by using the <kbd>↑</kbd> arrow key.<br />
-This can be useful if you need to re-run a command with a slight change. You can<br />
-also use the <kbd>↓</kbd> arrow key to return to an empty line.</p>
+<p>Often it is useful to look at commands you’ve just entered in the shell. You can access the previous lines you ran sequentially by using the <kbd>↑</kbd> arrow key. This can be useful if you need to re-run a command with a slight change. You can also use the <kbd>↓</kbd> arrow key to return to an empty line.</p>
 <p>You can also use the <code>history</code> command to look at your previous commands.</p>
-<p><code>$ history</code></p>
-<p>produces a numbered output of your previous commands in the session. You can re-run<br />
-a specific command using the number. For example, if your history shows that you<br />
-used <code>ls</code> to list files:</p>
-<p><code>15 ls -a</code></p>
+<pre class="r"><code>$ history</code></pre>
+<p>produces a numbered output of your previous commands in the session. You can re-run a specific command using the number. For example, if your history shows that you used <code>ls</code> to list files:</p>
+<pre class="r"><code>15 ls -a</code></pre>
 <p>you can re-run that specific command (with the same options) using the syntax</p>
-<p><code>!15</code></p>
+<pre class="r"><code>!15</code></pre>
 </div>
 </div>
 <div id="navigating-files-and-directories" class="section level2">
 <h2>Navigating files and directories</h2>
 <p>You may be used to navigating the file system using Finder or Windows Explorer.</p>
-<p>The command line provides an alternative way to navigate the files stored on<br />
-your computer. Individual files are organized within <strong>directories</strong> (aka folders),<br />
-and directories are organized hierarchically. For example, your Desktop may contain<br />
-several files and folders, and within those folders there may be additional subfolders.<br />
-If you downloaded the <a href="https://github.com/lillian-aoki/workshop_website/raw/master/data/shell_intro.zip">data files</a> for this tutorial, you have a folder called<br />
-<code>shell_intro</code> on your Desktop, which contains additional subfolders and files.</p>
-<p>You already used <code>pwd</code> to print the working directory - where you are in the<br />
-filesystem. Most likely, your default directory is <code>/Users/[my username]</code> on a Mac.<br />
-On a Windows machine, it may be something like <code>C:\Users\[my username]</code>.</p>
+<p>The command line provides an alternative way to navigate the files stored on your computer. Individual files are organized within <strong>directories</strong> (aka folders), and directories are organized hierarchically. For example, your Desktop may contain several files and folders, and within those folders there may be additional subfolders. If you downloaded the <a href="https://github.com/lillian-aoki/workshop_website/raw/master/data/shell_intro.zip">data files</a> for this tutorial, you have a folder called <code>shell_intro</code> on your Desktop, which contains additional subfolders and files.</p>
+<p>You already used <code>pwd</code> to print the working directory - where you are in the filesystem. Most likely, your default directory is <code>/Users/[my username]</code> on a Mac. On a Windows machine, it may be something like <code>C:\Users\[my username]</code>.</p>
 <p>A key command to navigate the filesystem is <code>cd</code> - change directory.</p>
-<p><code>$ cd ~/Desktop/shell_intro</code></p>
+<pre class="r"><code>$ cd ~/Desktop/shell_intro</code></pre>
 <p>will change your working directory to the shell_intro directory on your Desktop.</p>
 <p>Run <code>ls</code> after you move into a new directory to see the sub-folders and files.</p>
 <p>You can move further into the sub-folders by running <code>cd</code> again:</p>
-<p><code>$ cd data</code></p>
-<p>And you can navigate ‘up’ in the file system using <code>..</code> to move one level up (from<br />
-<code>data</code> back up to <code>shell_intro</code>, the parent directory of <code>data</code>)</p>
-<p>To return to your home (default) directory, you can type the absolute file path,<br />
-e.g. <code>cd /Users/[my username]</code> or you can use a short-cut with the HOME environment variable:</p>
-<p><code>$ cd $HOME</code></p>
+<pre class="r"><code>$ cd data</code></pre>
+<p>And you can navigate ‘up’ in the file system using <code>..</code> to move one level up (from <code>data</code> back up to <code>shell_intro</code>, the parent directory of <code>data</code>)</p>
+<p>To return to your home (default) directory, you can type the absolute file path, e.g. <code>cd /Users/[my username]</code> or you can use a short-cut with the HOME environment variable:</p>
+<pre class="r"><code>$ cd $HOME</code></pre>
 <p>will take you back to your home directory.</p>
 <div id="some-other-shortcuts" class="section level3">
 <h3>Some other shortcuts</h3>
-<p>The <code>~</code> (tilde) stands for the home directory, so <code>~/Desktop</code> is equivalent to<br />
-<code>/Users/[my username]/Desktop</code></p>
+<p>The <code>~</code> (tilde) stands for the home directory, so <code>~/Desktop</code> is equivalent to <code>/Users/[my username]/Desktop</code></p>
 <p>The <code>.</code> stands for the current directory.</p>
 <p>A double period, <code>..</code> stands for the <em>parent</em> of the current directory (one level up).</p>
 <p>Running <code>cd</code> without a path specified will also take you to the home directory.</p>
-<p>Running <code>cd -</code> (dash) will take you to the previous directory you were in - not<br />
-‘up’ the file system, but backwards in time to the last directory you were in.</p>
-<p>Tab completion can make writing paths easier. As you type the name of a directory,<br />
-you can hit <kbd>Tab</kbd> once and the shell will auto-complete the name, if<br />
-there is only one option. If there is more than one option (e.g. more than one<br />
-file in a folder), hit <kbd>Tab</kbd> a second time to display the possibilities</p>
+<p>Running <code>cd -</code> (dash) will take you to the previous directory you were in - not ‘up’ the file system, but backwards in time to the last directory you were in.</p>
+<p>Tab completion can make writing paths easier. As you type the name of a directory, you can hit <kbd>Tab</kbd> once and the shell will auto-complete the name, if there is only one option. If there is more than one option (e.g. more than one file in a folder), hit <kbd>Tab</kbd> a second time to display the possibilities</p>
 </div>
 </div>
 <div id="manipulating-files-and-directories" class="section level2">
 <h2>Manipulating files and directories</h2>
 <div id="viewing-files" class="section level3">
 <h3>Viewing files</h3>
-<p>From the home directory, you can use <code>cd</code> to change the working directory to<br />
-<code>shell_intro</code> and <code>ls</code> to look at the contents of the new working directory. Use<br />
-the option <code>-F</code> with <code>ls</code> to indicate which paths are a directory (end in /).</p>
-<p><code>$ cd ~/Desktop/shell_intro</code><br />
-<code>$ ls -F</code></p>
+<p>From the home directory, you can use <code>cd</code> to change the working directory to <code>shell_intro</code> and <code>ls</code> to look at the contents of the new working directory. Use the option <code>-F</code> with <code>ls</code> to indicate which paths are a directory (end in /).</p>
+<pre class="r"><code>$ cd ~/Desktop/shell_intro  
+$ ls -F  </code></pre>
 <p>returns output</p>
-<p><code>brainstorm.txt   data/    draft/</code></p>
+<pre class="r"><code>brainstorm.txt   data/    draft/</code></pre>
 <p>You can also use <code>ls</code> to look at the contents of directories that are NOT the<br />
 working directory. For example,</p>
-<p><code>$ ls data</code></p>
-<p>will return the contents of the <code>data</code> directory, which is a subfolder of the<br />
-current working directory <code>shell_intro</code>. To view the contents of a folder that<br />
-is not a subfolder of the current directory, use <code>ls</code> with the full path.</p>
+<pre class="r"><code>$ ls data  </code></pre>
+<p>will return the contents of the <code>data</code> directory, which is a subfolder of the current working directory <code>shell_intro</code>. To view the contents of a folder that is not a subfolder of the current directory, use <code>ls</code> with the full path.</p>
 <p>There are several commands you can use to view the contents of a file:</p>
 <p><code>cat</code> prints the entire contents of the file<br />
 <code>head</code> prints the first lines of the file (default is 10 lines).<br />
 <code>tail</code> prints the last lines of the file (default is 10 lines).</p>
-<p>Both <code>head</code> and <code>tail</code> can be modified using the <code>-n</code> option to specify the number<br />
-of lines to print. To print the first five lines of the file ’brainstorm.txt`:</p>
-<p><code>$ head -n 5 brainstorm.txt</code></p>
-<p>For large files, an alternative to <code>cat</code> is <code>less</code> which opens the file as a<br />
-read-only copy and allows you to navigate the file, using the same tools as for<br />
-the <code>man</code> help pages.</p>
+<p>Both <code>head</code> and <code>tail</code> can be modified using the <code>-n</code> option to specify the number of lines to print. To print the first five lines of the file ’brainstorm.txt`:</p>
+<pre class="r"><code>$ head -n 5 brainstorm.txt</code></pre>
+<p>For large files, an alternative to <code>cat</code> is <code>less</code> which opens the file as a read-only copy and allows you to navigate the file, using the same tools as for the <code>man</code> help pages.</p>
 <p>Compare viewing the <code>temperature.csv</code> file in the <code>data</code> subfolder using <code>cat</code> and <code>less</code></p>
-<p>Another useful command is <code>wc</code> which counts the number of lines, words, and characters<br />
-in a file.</p>
-<p><code>wc data/temperature.csv</code></p>
+<p>Another useful command is <code>wc</code> which counts the number of lines, words, and characters in a file.</p>
+<pre class="r"><code>wc data/temperature.csv</code></pre>
 <p>will give the following output:</p>
-<p><code>35      69    1275 data/temperature.csv</code></p>
-<p>If we are only interested in the number of lines, we can use the option <code>-l</code> which<br />
-shows that the file has 35 lines. Note that words are counted based on white space,<br />
-and this file is a CSV with commas separating information, so the word count isn’t<br />
-particularly relevant.</p>
+<pre class="r"><code>35      69    1275 data/temperature.csv</code></pre>
+<p>If we are only interested in the number of lines, we can use the option <code>-l</code> which shows that the file has 35 lines. Note that words are counted based on white space, and this file is a CSV with commas separating information, so the word count isn’t particularly relevant.</p>
 </div>
 <div id="creating-files-and-directories" class="section level3">
 <h3>Creating files and directories</h3>
-<p>The command to create a new directory is <code>mkdir</code>. You can create multiple directories<br />
-in a hierarchy by specifying the full path. For example, if the working directory<br />
-is <code>shell_intro</code> on the desktop,</p>
-<p><code>$ mkdir figs</code> creates a directory <code>figs</code> within the current directory. If the folder<br />
-<code>figs</code> already exists, then you can run <code>$ mkdir figs/high-res/</code> to create <code>high-res</code> inside <code>figs</code>.</p>
+<p>The command to create a new directory is <code>mkdir</code>. You can create multiple directories in a hierarchy by specifying the full path. For example, if the working directory is <code>shell_intro</code> on the desktop,</p>
+<pre class="r"><code>$ mkdir figs </code></pre>
+<p>creates a directory <code>figs</code> within the current directory. If the folder <code>figs</code> already exists, then you can run</p>
+<pre class="r"><code>$ mkdir figs/high-res/ </code></pre>
+<p>to create <code>high-res</code> inside <code>figs</code>.</p>
 <p>Note, there is no output from <code>mkdir</code> but you can check it worked with <code>ls</code>.</p>
 <p>You can use the command <code>touch</code> to create an empty file.</p>
-<p><code>$ touch my_file.txt</code></p>
+<pre class="r"><code>$ touch my_file.txt</code></pre>
 <p>creates an empty text file in the current directory.</p>
 <p>You can also use a text editor to create files. Using the text editor Nano,</p>
-<p><code>$ nano abstract.txt</code></p>
+<pre class="r"><code>$ nano abstract.txt  </code></pre>
 <p>will create a file called <code>abstract.txt</code> and open that file in the Nano text editor.</p>
-<p>You can type some sample text in the file, then hit <kbd>Ctrl</kbd> + <kbd>X</kbd> to exit. Nano will ask<br />
-if you want to save the changes. Type <kbd>Y</kbd> and then <kbd>Enter</kbd> to save changes.</p>
-<p>Another way to assign content to files is using the <code>&gt;</code> and <code>&gt;&gt;</code> redirection operators.<br />
-The greater-than symbol <code>&gt;</code> redirects the command’s output. For example, you can<br />
-create a new file from the output of a command like <code>wc</code></p>
-<p><code>$ wc brainstorm.txt &gt; length.txt</code></p>
+<p>You can type some sample text in the file, then hit <kbd>Ctrl</kbd> + <kbd>X</kbd> to exit. Nano will ask if you want to save the changes. Type <kbd>Y</kbd> and then <kbd>Enter</kbd> to save changes.</p>
+<p>Another way to assign content to files is using the <code>&gt;</code> and <code>&gt;&gt;</code> redirection operators. The greater-than symbol (also known as angle bracket) <code>&gt;</code> redirects the command’s output. For example, you can create a new file from the output of a command like <code>wc</code></p>
+<pre class="r"><code>$ wc brainstorm.txt &gt; length.txt</code></pre>
 <p>You can also use <code>&gt;</code> with <code>echo</code> to assign text directly, e.g. </p>
-<p><code>$ echo Some text describing my science &gt; my_file.txt</code></p>
-<p>will assign the line of text to the file <code>my_file.txt</code> we created earlier. If the<br />
-file did not already exist, it would create a new file.</p>
-<p>Try using <code>echo</code> and <code>&gt;</code> to assign a second line of text to the same file.</p>
-<p>The double bracket <code>&gt;&gt;</code> appends text to existing content, rather than overwriting.<br />
-So, if we have a new thought to add to the <code>abstract.txt</code> file, we can use</p>
-<p><code>$ echo A new thought to frame my scientific result &gt;&gt; abstract.txt</code></p>
+<pre class="r"><code>`$ echo Some text describing my science &gt; my_file.txt`  </code></pre>
+<p>will assign the line of text to the file <code>my_file.txt</code> we created earlier. If the file did not already exist, it would create a new file.</p>
+<p>Try using <code>echo</code> and <code>&gt;</code> to assign a second line of text to the same <code>my_file.txt</code> file.</p>
+<p>The double bracket <code>&gt;&gt;</code> appends text to existing content, rather than overwriting. So, if we have a new thought to add to the <code>abstract.txt</code> file, we can use</p>
+<pre class="r"><code>$ echo A new thought to frame my scientific result &gt;&gt; abstract.txt  </code></pre>
 <p>instead of opening the file in a text editor.</p>
 </div>
 <div id="moving-and-copying-files" class="section level3">
 <h3>Moving and copying files</h3>
-<p>To copy files or directories, use the <code>mv</code> command. Specify the file to move<br />
-and the new destination. For example,</p>
-<p><code>$ mv brainstorm.txt draft</code></p>
-<p>will move the file <code>brainstorm.txt</code> into the <code>draft</code> folder. What if you want to<br />
-move the file back to the main <code>shell_intro</code> folder?</p>
-<p><code>$ mv draft/brainstorm.txt .</code></p>
-<p>will identify the file based on the path and move it to the current directory<br />
-(using <code>.</code> as the shortcut for the current directory)</p>
+<p>To copy files or directories, use the <code>mv</code> command. Specify the file to move and the new destination. For example,</p>
+<pre class="r"><code>$ mv brainstorm.txt draft</code></pre>
+<p>will move the file <code>brainstorm.txt</code> into the <code>draft</code> folder. What if you want to move the file back to the main <code>shell_intro</code> folder?</p>
+<pre class="r"><code>$ mv draft/brainstorm.txt .  </code></pre>
+<p>will identify the file based on the path and move it to the current directory (using <code>.</code> as the shortcut for the current directory)</p>
 <p class="text-success">
-Note, <code>mv</code> will overwrite any existing files with the same name! Double-check<br />
-names before moving files, or use <code>mv -i</code>, the interactive option which will<br />
-ask you before overwriting existing files.
+Note, <code>mv</code> will overwrite any existing files with the same name! Double-check names before moving files, or use <code>mv -i</code>, the interactive option which will ask you before overwriting existing files.
 </p>
-<p>To copy files or directories, use the <code>cp</code> command, which is similar to <code>mv</code>.<br />
-Specify the file or directory to copy and the location for the copy. To create<br />
-a duplicate, such as a back-up file, you can simply specify a new name in the<br />
-current directory as follows:</p>
-<p><code>$ cp abstract.txt abstract_backup.txt</code></p>
+<p>To copy files or directories, use the <code>cp</code> command, which is similar to <code>mv</code>. Specify the file or directory to copy and the location for the copy.<br />
+To create a duplicate, such as a back-up file, you can simply specify a new name in the current directory as follows:</p>
+<pre class="r"><code>$ cp abstract.txt abstract_backup.txt  </code></pre>
 <p>will create a second copy of your text file, named <code>abstract_backup.txt</code></p>
 </div>
 <div id="deleting-files-and-directories" class="section level3">
@@ -612,36 +561,22 @@ current directory as follows:</p>
 <p><code>$ rm abstract_backup.txt</code></p>
 <p>will remove the second text file you just created.</p>
 <p class="text-success">
-Caution, there’s no ‘undo’ for deleting files! Use the <code>-i</code> option to give an<br />
-interactive confirmation you want to remove a file.
+Caution, there’s no ‘undo’ for deleting files! Use the <code>-i</code> option to give an interactive confirmation you want to remove a file.
 </p>
-<p>Deleting directories requires using an option with <code>rm</code>. The <code>-r</code> option will<br />
-allow for removing directories, but again with no warning. Combine the <code>-r</code> with<br />
-<code>-i</code> to get an interactive warning before deleting.</p>
-<p><code>$ rm -ri data/figs/high-res</code></p>
+<p>Deleting directories requires using an option with <code>rm</code>. The <code>-r</code> (recursive) option will allow for removing directories, but again with no warning. Combine the <code>-r</code> and <code>-i</code> options to get an interactive warning before deleting.</p>
+<pre class="r"><code>$ rm -ri data/figs/high-res</code></pre>
 <p>will first ask if you want to delete the <code>high-res</code> directory. Hit <kbd>Y</kbd> to confirm.</p>
 </div>
 <div id="locking-files" class="section level3">
 <h3>Locking files</h3>
-<p>Keeping raw data safe is important for maintaining reproducibility. One way to<br />
-keep raw data safe is by changing the permissions to read-only on a back-up copy.</p>
+<p>Keeping raw data safe is important for maintaining reproducibility. One way to keep raw data safe is by changing the permissions to read-only on a back-up copy.</p>
 <p>We can demonstrate with the <code>temperature.csv</code> file in the <code>data</code> directory.</p>
-<p>First, move into the <code>data</code> directory and use <code>ls -l</code> to look at the permissions<br />
-for <code>temperature.csv</code>. The first portion of the output gives information on the<br />
-file’s permissions. There are 10 slots in the permissions list. The first character<br />
-relates to the file type, which we can disregard. The next three characters show<br />
-the file owner’s permissions, with <code>r</code> for read, <code>w</code> for write, and <code>x</code> for execute.</p>
+<p>First, move into the <code>data</code> directory and use <code>ls -l</code> to look at the permissions for <code>temperature.csv</code>. The first portion of the output gives information on the file’s permissions. There are 10 slots in the permissions list. The first character relates to the file type, which we can disregard. The next three characters show the file owner’s permissions, with <code>r</code> for read, <code>w</code> for write, and <code>x</code> for execute.</p>
 <p>Most likely, you have permissions to read and write for this file, i.e. <code>rw-</code>.</p>
-<p>Use the command <code>chmod</code> (change mode) to change permissions, with the option <code>-w</code><br />
-to remove write permission.</p>
-<p><code>$ chmod -w temperature.csv</code></p>
-<p>Now we can assess the file permissions again (use the arrow keys to recall the <code>ls -l</code><br />
-command you ran previously). The permissions have changed to <code>r--</code>, indicating<br />
-read-only permission.</p>
-<p>If you try and delete this file with <code>rm</code>, you’ll get an interactive warning<br />
-asking if you want to override permissions to remove the file. This extra step can<br />
-help prevent accidentally deleting or modifying your raw data. You might consider<br />
-having copies of the raw data files that are locked as back-ups to copies you modify.</p>
+<p>Use the command <code>chmod</code> (change mode) to change permissions, with the option <code>-w</code> to remove write permission.</p>
+<pre class="r"><code>$ chmod -w temperature.csv</code></pre>
+<p>Now we can assess the file permissions again (use the arrow keys to recall the <code>ls -l</code> command you ran previously). The permissions have changed to <code>r--</code>, indicating read-only permission.</p>
+<p>If you try and delete this file with <code>rm</code>, you’ll get an interactive warning asking if you want to override permissions to remove the file. This extra step can help prevent accidentally deleting or modifying your raw data. You might consider having copies of the raw data files that are locked as back-ups to copies you modify.</p>
 </div>
 </div>
 <div id="exercises" class="section level2">
@@ -649,17 +584,11 @@ having copies of the raw data files that are locked as back-ups to copies you mo
 <p>Consider a scenario where you are using the data from the <code>temperature.csv</code> file<br />
 as the basis for an analysis workflow.</p>
 <ol style="list-style-type: decimal">
-<li>Create a directory structure for your new project. Consider the subfolders that<br />
-will help keep your project organized.</li>
-<li>Copy the data file <code>temperature.csv</code> from the shell_intro folder into a reasonable<br />
-location in your new project directory</li>
+<li>Create a directory structure for your new project. Consider the subfolders that will help keep your project organized.</li>
+<li>Copy the data file <code>temperature.csv</code> from the shell_intro folder into a reasonable location in your new project directory</li>
 <li>Create a locked copy of the data file with a useful name</li>
-<li>Create a copy of the data file for editing with a useful name. Remove the last<br />
-four rows of the data frame (perhaps these measurements occurred after you brought<br />
-the sensor into the lab).</li>
-<li>Bonus - create a new file that contains a log of the commands you just used to<br />
-set up the project and edit the files (hint, you can do this with <code>echo</code> and <code>history</code>).<br />
-Consider where to save this log file in your project directory.</li>
+<li>Create a copy of the data file for editing with a useful name. Remove the last four rows of the data frame (perhaps these measurements occurred after you brought the sensor into the lab).</li>
+<li>Bonus - create a new file that contains a log of the commands you just used to set up the project and edit the files (hint, you can do this with <code>echo</code> and <code>history</code>). Consider where to save this log file in your project directory.</li>
 </ol>
 <br>
 <p>
@@ -669,33 +598,6 @@ Consider where to save this log file in your project directory.</li>
 </p>
 <div id="workflowr-sessioninfo" class="collapse">
 <pre class="r"><code>sessionInfo()</code></pre>
-<pre><code>R version 4.1.1 (2021-08-10)
-Platform: x86_64-apple-darwin17.0 (64-bit)
-Running under: macOS Big Sur 10.16
-
-Matrix products: default
-BLAS:   /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRblas.0.dylib
-LAPACK: /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRlapack.dylib
-
-locale:
-[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
-
-attached base packages:
-[1] stats     graphics  grDevices utils     datasets  methods   base     
-
-other attached packages:
-[1] workflowr_1.6.2
-
-loaded via a namespace (and not attached):
- [1] Rcpp_1.0.7       knitr_1.36       magrittr_2.0.1   R6_2.5.1        
- [5] rlang_0.4.11     fastmap_1.1.0    fansi_0.5.0      stringr_1.4.0   
- [9] tools_4.1.1      xfun_0.26        utf8_1.2.2       git2r_0.28.0    
-[13] jquerylib_0.1.4  htmltools_0.5.2  ellipsis_0.3.2   rprojroot_2.0.2 
-[17] yaml_2.2.1       digest_0.6.28    tibble_3.1.5     lifecycle_1.0.1 
-[21] crayon_1.4.1     later_1.3.0      vctrs_0.3.8      promises_1.2.0.1
-[25] fs_1.5.0         glue_1.4.2       evaluate_0.14    rmarkdown_2.11  
-[29] stringi_1.7.4    compiler_4.1.1   pillar_1.6.4     httpuv_1.6.3    
-[33] pkgconfig_2.0.3 </code></pre>
 </div>
 </div>
 
