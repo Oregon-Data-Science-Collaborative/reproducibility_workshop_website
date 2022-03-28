@@ -18,10 +18,11 @@ The target audience for this workshop is any researcher looking to improve their
 
 ### Resources
 
-[Cornell University Data Management - README guide + template](https://data.research.cornell.edu/content/readme)  
-[Dryad - Good Data Practices](https://datadryad.org/stash/best_practices#describe)  
-[EDI - Best Practices for Keywords](https://environmentaldatainitiative.org/five-phases-of-data-publishing/phase-3/keyword-best-practices/)  
-[ezEML tool for Ecological Metadata Language](https://ezeml.edirepository.org/eml/)
+Cornell University Data Management - [README guide + template](https://data.research.cornell.edu/content/readme)  
+Dryad - [Good Data Practices](https://datadryad.org/stash/best_practices#describe)  
+Environmental Data Initiative - [Best Practices for Keywords](https://environmentaldatainitiative.org/five-phases-of-data-publishing/phase-3/keyword-best-practices/)  
+Ecological Metadata Language - [ezEML tool](https://ezeml.edirepository.org/eml/)  
+Research Data Alliance - [compilation of metadata standards for different fields](http://rd-alliance.github.io/metadata-directory/standards/)
 
 ## Workshop materials  
 
