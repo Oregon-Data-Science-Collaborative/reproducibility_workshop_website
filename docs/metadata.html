@@ -341,7 +341,7 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="research_workflow.html">Module 1: Reproducible Workflows</a>
+      <a href="research_workflow.html">Module 1: Reproducible workflows</a>
     </li>
     <li>
       <a href="shell_intro.html">Module 2: Working in the shell</a>
@@ -355,6 +355,9 @@ div.tocify {
     <li>
       <a href="metadata.html">Module 5: Metadata and data documentation</a>
     </li>
+    <li class="dropdown-header">Module 6: Reproducible reports</li>
+    <li class="dropdown-header">Module 7: Accessing data repositories</li>
+    <li class="dropdown-header">Module 8: Publishing data and code</li>
   </ul>
 </li>
 <li>
@@ -410,9 +413,72 @@ Research Data Alliance - <a href="http://rd-alliance.github.io/metadata-director
 </div>
 <div id="workshop-materials" class="section level2">
 <h2>Workshop materials</h2>
+<div id="data" class="section level3">
+<h3>Data</h3>
+<p>During the workshop, participants will practice creating metadata for a project and a tabular dataset. You can either use your own project and data or a demonstration project. The demo project we will use is available from the Knowledge Network for Biocomplexity:<br />
+<a href="https://knb.ecoinformatics.org/view/urn%3Auuid%3A0255141e-b0b0-4dbe-8586-8838f2ac9048">Compiled annual statewide Alaskan salmon escapement counts, 1921-2017.</a></p>
+<ul>
+<li>You will need to download the file ‘CompiledEsc.csv’<br />
+</li>
+<li>Keep the repository webpage open during the workshop for easy access to the metadata</li>
+</ul>
+</div>
 <div id="slides" class="section level3">
 <h3>Slides</h3>
-<p><a href="">Slides are available here</a></p>
+<p><a href="https://github.com/lillian-aoki/workshop_website/blob/master/slides/05_metadata.pdf">Slides are available here</a></p>
+</div>
+<div id="exercises" class="section level3">
+<h3>Exercises</h3>
+<div id="readme" class="section level4">
+<h4>README</h4>
+<p>Review sample READMEs</p>
+<ul>
+<li><a href="https://osf.io/f46sm/">Example 1 – University of Arizona</a><br />
+</li>
+<li><a href="https://osf.io/f46sm/">Example 2 – Hack for California</a><br />
+</li>
+<li><a href="https://datadryad.org/stash/dataset/doi:10.5061/dryad.j17pm">Example 3 - Kriebel et al. 2018</a><br />
+(click on ‘October 19, 2018’ under ‘Download dataset’, then click the ‘README’ link)</li>
+</ul>
+<p>What is effective about these READMEs? What would you change?</p>
+</div>
+<div id="data-dictionary" class="section level4">
+<h4>Data dictionary</h4>
+<p>For your own project and dataset, use these guidelines to start drafting a data dictionary:</p>
+<ul>
+<li>List all the variables in the dataset<br />
+</li>
+<li>Include a definition, data type, and units<br />
+</li>
+<li>Include range or list of accepted values<br />
+</li>
+<li>Include missing value codes</li>
+</ul>
+<p>Consider what other information to include, such as flags for quality control.</p>
+<p>Do you encounter any unexpected properties of your data?</p>
+<p>For the demo data, visit the project repository.</p>
+<ul>
+<li>Scroll down to the “Data Table” details and click through the different attributes</li>
+</ul>
+<p>Are any of the variables unclear? Is any information missing?</p>
+</div>
+<div id="structured-metadata-standards" class="section level4">
+<h4>Structured metadata standards</h4>
+<p>Practice building a metadata document using the EML metadata standard.</p>
+<ul>
+<li>Open the <a href="https://ezeml.edirepository.org/eml/">ezEML tool</a><br />
+</li>
+<li>Log in with your GitHub, ORCID, or Google account<br />
+</li>
+<li>Click ‘EML Documents’ and select ‘New’<br />
+</li>
+<li>Enter a name for your EML document – ‘Demo EML document’ or name with your project data<br />
+</li>
+<li>Upload a data table – either your own tabular data or the demo CSV<br />
+</li>
+<li>Work through the ezEML wizard to enter information and validate the metadata</li>
+</ul>
+<p>What are the most challenging parts of using the metadata standard?</p>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -435,19 +501,17 @@ locale:
 attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
-other attached packages:
-[1] workflowr_1.6.2
-
 loaded via a namespace (and not attached):
- [1] Rcpp_1.0.7       knitr_1.36       magrittr_2.0.1   R6_2.5.1        
- [5] rlang_0.4.11     fastmap_1.1.0    fansi_0.5.0      stringr_1.4.0   
- [9] tools_4.1.1      xfun_0.26        utf8_1.2.2       git2r_0.28.0    
-[13] jquerylib_0.1.4  htmltools_0.5.2  ellipsis_0.3.2   rprojroot_2.0.2 
-[17] yaml_2.2.1       digest_0.6.28    tibble_3.1.5     lifecycle_1.0.1 
-[21] crayon_1.4.1     later_1.3.0      vctrs_0.3.8      promises_1.2.0.1
-[25] fs_1.5.0         glue_1.4.2       evaluate_0.14    rmarkdown_2.11  
-[29] stringi_1.7.4    compiler_4.1.1   pillar_1.6.4     httpuv_1.6.3    
-[33] pkgconfig_2.0.3 </code></pre>
+ [1] Rcpp_1.0.7       knitr_1.36       magrittr_2.0.1   workflowr_1.6.2 
+ [5] R6_2.5.1         rlang_0.4.11     fastmap_1.1.0    fansi_0.5.0     
+ [9] stringr_1.4.0    tools_4.1.1      xfun_0.26        utf8_1.2.2      
+[13] git2r_0.28.0     jquerylib_0.1.4  htmltools_0.5.2  ellipsis_0.3.2  
+[17] rprojroot_2.0.2  yaml_2.2.1       digest_0.6.28    tibble_3.1.5    
+[21] lifecycle_1.0.1  crayon_1.4.1     later_1.3.0      vctrs_0.3.8     
+[25] promises_1.2.0.1 fs_1.5.0         glue_1.4.2       evaluate_0.14   
+[29] rmarkdown_2.11   stringi_1.7.4    compiler_4.1.1   pillar_1.6.4    
+[33] httpuv_1.6.3     pkgconfig_2.0.3 </code></pre>
+</div>
 </div>
 </div>
 </div>

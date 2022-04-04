@@ -341,7 +341,7 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="research_workflow.html">Module 1: Reproducible Workflows</a>
+      <a href="research_workflow.html">Module 1: Reproducible workflows</a>
     </li>
     <li>
       <a href="shell_intro.html">Module 2: Working in the shell</a>
@@ -355,6 +355,9 @@ div.tocify {
     <li>
       <a href="metadata.html">Module 5: Metadata and data documentation</a>
     </li>
+    <li class="dropdown-header">Module 6: Reproducible reports</li>
+    <li class="dropdown-header">Module 7: Accessing data repositories</li>
+    <li class="dropdown-header">Module 8: Publishing data and code</li>
   </ul>
 </li>
 <li>
@@ -480,12 +483,23 @@ Note, on a Windows machine running Git Bash, you may need to use the <code>--hel
 <p>will take you back to your home directory.</p>
 <div id="some-other-shortcuts" class="section level3">
 <h3>Some other shortcuts</h3>
-<p>The <code>~</code> (tilde) stands for the home directory, so <code>~/Desktop</code> is equivalent to <code>/Users/[my username]/Desktop</code></p>
+<p>The <code>~</code> (tilde) stands for the home directory, so if <code>/Users/[my username]</code> is the current user’s home directory, then <code>~/Desktop</code> is equivalent to <code>/Users/[my username]/Desktop</code></p>
 <p>The <code>.</code> stands for the current directory.</p>
 <p>A double period, <code>..</code> stands for the <em>parent</em> of the current directory (one level up).</p>
 <p>Running <code>cd</code> without a path specified will also take you to the home directory.</p>
 <p>Running <code>cd -</code> (dash) will take you to the previous directory you were in - not ‘up’ the file system, but backwards in time to the last directory you were in.</p>
 <p>Tab completion can make writing paths easier. As you type the name of a directory, you can hit <kbd>Tab</kbd> once and the shell will auto-complete the name, if there is only one option. If there is more than one option (e.g. more than one file in a folder), hit <kbd>Tab</kbd> a second time to display the possibilities</p>
+</div>
+<div id="relative-paths" class="section level3">
+<h3>Relative paths</h3>
+<p>In the commands above, you have been navigating the file system using <strong>relative</strong> paths, which means you are looking for files or moving between directories relative to the current location. For example, when you type</p>
+<pre class="r"><code>$ ls draft </code></pre>
+<p>the command lists the files in the directory <code>draft</code> that is a sub-directory of your current location.</p>
+<p>To use <strong>absolute</strong> paths instead, you can type the entire path from the root directory. The absolute path starts with the leading <code>/</code> symbolizing the root directory, and then you can complete the full path using tab completion.</p>
+<p>Use tab completion to move into the directory <code>~/Desktop/shell-intro/data/figs</code>:</p>
+<pre class="r"><code>$ cd /Users/[my username]/Desktop/shell_intro/data/figs</code></pre>
+<p>Check that you ended up where you wanted to be with <code>pwd</code>.</p>
+<p>Why might you want to use relative paths rather than absolute paths?</p>
 </div>
 </div>
 <div id="manipulating-files-and-directories" class="section level2">
@@ -497,8 +511,7 @@ Note, on a Windows machine running Git Bash, you may need to use the <code>--hel
 $ ls -F  </code></pre>
 <p>returns output</p>
 <pre class="r"><code>brainstorm.txt   data/    draft/</code></pre>
-<p>You can also use <code>ls</code> to look at the contents of directories that are NOT the<br />
-working directory. For example,</p>
+<p>You can also use <code>ls</code> to look at the contents of directories that are NOT the working directory. For example,</p>
 <pre class="r"><code>$ ls data  </code></pre>
 <p>will return the contents of the <code>data</code> directory, which is a subfolder of the current working directory <code>shell_intro</code>. To view the contents of a folder that is not a subfolder of the current directory, use <code>ls</code> with the full path.</p>
 <p>There are several commands you can use to view the contents of a file:</p>
@@ -581,8 +594,22 @@ Caution, there’s no ‘undo’ for deleting files! Use the <code>-i</code> opt
 </div>
 <div id="exercises" class="section level2">
 <h2>Exercises</h2>
-<p>Consider a scenario where you are using the data from the <code>temperature.csv</code> file<br />
-as the basis for an analysis workflow.</p>
+<div id="navigating-the-file-structure" class="section level3">
+<h3>1. Navigating the file structure</h3>
+<ol style="list-style-type: decimal">
+<li>Navigate to the <code>shell_intro</code> directory.<br />
+</li>
+<li>Use the command <code>ls</code> to list the contents, and use the <code>-t</code> option to list the contents in order of the time of the last change. Combine the <code>-t</code> and <code>-l</code> options to identify the size of the most recently changed file.<br />
+</li>
+<li>Rerun the command you just ran and add the option <code>-h</code>. What changes in the output? Look up the <code>-h</code> option in the manual for <code>ls</code>. What does this option do?<br />
+</li>
+<li>Navigate to the <code>data</code> sub-directory of the <code>shell_intro</code> folder. From here, identify four ways to navigate to your home directory with one command. Pick your favorite way and move to the home directory.</li>
+<li>Toggle back to the <code>data</code> directory using a single command.</li>
+</ol>
+</div>
+<div id="manipulating-files" class="section level3">
+<h3>2. Manipulating files</h3>
+<p>Consider a scenario where you are using the data from the <code>temperature.csv</code> file as the basis for an analysis workflow.</p>
 <ol style="list-style-type: decimal">
 <li>Create a directory structure for your new project. Consider the subfolders that will help keep your project organized.</li>
 <li>Copy the data file <code>temperature.csv</code> from the shell_intro folder into a reasonable location in your new project directory</li>
@@ -598,6 +625,7 @@ as the basis for an analysis workflow.</p>
 </p>
 <div id="workflowr-sessioninfo" class="collapse">
 <pre class="r"><code>sessionInfo()</code></pre>
+</div>
 </div>
 </div>
 

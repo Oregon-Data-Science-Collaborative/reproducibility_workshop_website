@@ -8,7 +8,7 @@ navbar:
   - text: Modules
     href: modules.html
     menu:
-    - text: "Module 1: Reproducible Workflows"
+    - text: "Module 1: Reproducible workflows"
       href: research_workflow.html
     - text: "Module 2: Working in the shell"
       href: shell_intro.html
@@ -18,6 +18,9 @@ navbar:
       href: github_collab.html
     - text: "Module 5: Metadata and data documentation"
       href: metadata.html
+    - text: "Module 6: Reproducible reports"
+    - text: "Module 7: Accessing data repositories"
+    - text: "Module 8: Publishing data and code"
   - text: Resources
     href: resources.html
   - text: Installation

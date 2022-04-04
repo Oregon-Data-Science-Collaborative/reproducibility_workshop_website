@@ -174,11 +174,11 @@ To return to your home (default) directory, you can type the absolute file path,
 $ cd $HOME
 ```
 
-will take you back to your home directory.
+will take you back to your home directory.  
 
 ### Some other shortcuts
 
-The `~` (tilde) stands for the home directory, so `~/Desktop` is equivalent to `/Users/[my username]/Desktop`
+The `~` (tilde) stands for the home directory, so if `/Users/[my username]` is the current user's home directory, then `~/Desktop` is equivalent to `/Users/[my username]/Desktop`
 
 The `.` stands for the current directory. 
 
@@ -189,6 +189,27 @@ Running `cd` without a path specified will also take you to the home directory.
 Running `cd -` (dash) will take you to the previous directory you were in - not 'up' the file system, but backwards in time to the last directory you were in. 
 
 Tab completion can make writing paths easier. As you type the name of a directory, you can hit <kbd>Tab</kbd> once and the shell will auto-complete the name, if there is only one option. If there is more than one option (e.g. more than one file in a folder), hit <kbd>Tab</kbd> a second time to display the possibilities
+
+### Relative paths  
+
+In the commands above, you have been navigating the file system using **relative** paths, which means you are looking for files or moving between directories relative to the current location. For example, when you type 
+```{r, eval=FALSE, purl=FALSE}
+$ ls draft 
+```
+
+the command lists the files in the directory `draft` that is a sub-directory of your current location.  
+
+To use **absolute** paths instead, you can type the entire path from the root directory. The absolute path starts with the leading `/` symbolizing the root directory, and then you can complete the full path using tab completion. 
+
+Use tab completion to move into the directory `~/Desktop/shell-intro/data/figs`:  
+
+```{r, eval=FALSE, purl=FALSE}
+$ cd /Users/[my username]/Desktop/shell_intro/data/figs
+```
+
+Check that you ended up where you wanted to be with `pwd`.  
+
+Why might you want to use relative paths rather than absolute paths?  
 
 ## Manipulating files and directories
 
@@ -207,8 +228,7 @@ returns output
 brainstorm.txt   data/    draft/
 ```
 
-You can also use `ls` to look at the contents of directories that are NOT the  
-working directory. For example,  
+You can also use `ls` to look at the contents of directories that are NOT the working directory. For example,  
 
 ```{r, eval=FALSE, purl=FALSE}
 $ ls data  
@@ -358,8 +378,17 @@ Now we can assess the file permissions again (use the arrow keys to recall the `
 If you try and delete this file with `rm`, you'll get an interactive warning asking if you want to override permissions to remove the file. This extra step can help prevent accidentally deleting or modifying your raw data. You might consider having copies of the raw data files that are locked as back-ups to copies you modify.
 
 ## Exercises
-Consider a scenario where you are using the data from the `temperature.csv` file  
-as the basis for an analysis workflow.
+
+### 1. Navigating the file structure  
+  
+1. Navigate to the `shell_intro` directory.  
+2. Use the command `ls` to list the contents, and use the `-t` option to list the contents in order of the time of the last change. Combine the `-t` and `-l` options to identify the size of the most recently changed file.  
+3. Rerun the command you just ran and add the option `-h`. What changes in the output? Look up the `-h` option in the manual for `ls`. What does this option do?    
+4. Navigate to the `data` sub-directory of the `shell_intro` folder. From here, identify four ways to navigate to your home directory with one command. Pick your favorite way and move to the home directory.
+5. Toggle back to the `data` directory using a single command.
+
+### 2. Manipulating files
+Consider a scenario where you are using the data from the `temperature.csv` file as the basis for an analysis workflow.
 
  1. Create a directory structure for your new project. Consider the subfolders that will help keep your project organized. 
  2. Copy the data file `temperature.csv` from the shell_intro folder into a reasonable location in your new project directory
