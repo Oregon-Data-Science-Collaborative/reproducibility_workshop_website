@@ -24,9 +24,7 @@ If you have a Windows machine, you can install the Bash shell and Git together,
 following the instructions from Software Carepntries [here](https://carpentries.github.io/workshop-template/#shell)
 
 Step-by-step instructions for installing Git for Windows are also available at  
-this [link](), if you get stuck.
-
-[link]:https://github.com/lillian-aoki/workshop_website/blob/master/slides/Download_git_instructions.pdf
+this [link](https://github.com/lillian-aoki/workshop_website/blob/master/slides/Download_git_instructions.pdf), if you get stuck.
 
 Check your installation by opening Terminal on Mac (in /`Applications/Utilities`)  
 or by opening the Git Bash program on Windows from the start menu. Type  
