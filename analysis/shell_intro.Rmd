@@ -61,7 +61,7 @@ Note, in this documentation, the `$` prompt is included but you don't need to ty
 
 `ls` returns a list of files in the current (working) directory  
 
-`clear` will scroll up your screen to give you a clean space to work it. This makes it easier to read, but you can still scroll up to see your previous work.
+`clear` will scroll up your screen to give you a clean space to work it.  
 
 Try running `ls` to see the files in your current directory.
 
