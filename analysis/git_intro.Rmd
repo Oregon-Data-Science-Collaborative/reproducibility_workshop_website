@@ -197,7 +197,7 @@ This repo is for demonstration purposes.
 Another line of text adds more detail."  
 ```
 
-Remember, the first two lines have been added to the previous commit, so they are captured by Git. But the third line you just added is a new modifcation, and has not been added (staged) and committed yet. 
+Remember, the first two lines have been added to the previous commit, so they are captured by Git. But the third line you just added is a new modification, and has not been added (staged) and committed yet. 
 
 You can assess the difference between the changes in the current working directory and the last commit using the identifier `HEAD`. `HEAD` refers to the most recent commit. So, if you want to compare the current changes to the last commit, you can use the following syntax:
 
@@ -241,9 +241,7 @@ To specify that we do not want to track these files, we create a `.gitignore` fi
 ```{r, eval=FALSE, purl=FALSE}
 $ nano .gitignore
 ```
-In the text editor, you can list the exact file names, `a.dat` and `b.dat`, separated  
-by a return. Or, you can use a wildcard (*) to indicate all files with names ending  
-in `dat` should not be tracked.  
+In the text editor, you can list the exact file names, `a.dat` and `b.dat`, separated by a return. Or, you can use a wildcard (*) to indicate all files with names ending in `dat` should not be tracked.  
 
 `*.dat`
 
@@ -259,6 +257,60 @@ However, you can use the option `-f` to force Git to track a file that is listed
 $ git add -f a.dat
 ```
 You can also add a directory to a `.gitignore` file, so we could have simply listed `temp/` in the `.gitignore` file to exclude all files in the `temp` folder. 
+
+## More Git actions
+
+### Amending commits
+
+Often when working on a coding or data problem, it's useful to break the problem down into small pieces and solve each piece incrementally. As you incorporate version control into your computational workflow, you might end up with many small commits. _There is nothing wrong with having many small commits!_ But, you can also choose to `amend` prior commits, so that you have a simpler Git history. 
+
+Practice amending a prior commit by first making a change to your README file (e.g. using `echo`). Commit this change using `git add` and `git commit`.
+
+Now, make a second change to your README file. To add this change to the prior commit, use the following syntax: 
+```{r, eval=FALSE, purl=FALSE}
+git commit --amend --no-edit
+```
+
+This will amend your previous commit, without changing the commit message you entered previously.  
+
+You can also change the commit message when you amend a previous commit. You can run this command with a new message, even if you did not edit the files. For example, if you made a typo in your commit message, you can fix it by ammending the previous commit. 
+
+```{r, eval=FALSE, purl=FALSE}
+git commit --amend -m "New commit message"
+```
+You can amend the previous commit multiple times, for example as you solve incremental parts of a problem. Note a repeated amend gives you a cleaner git history, but it does not track the amendments. Make individual commits if you want to revisit intermediate steps in your process.  
+
+### Resetting  
+
+Anther useful Git process to know is how to reset, or step backward. You can reset in different ways, depending what you want to 'undo'. 
+
+Take a look at your README file using `cat` so you know where you are starting from. Check the commit identifier and commit message of the latest commit using `git log`.  
+
+Make a new change to your README file, by adding something like, "A line of text to practice resetting". Stage and commit this change. 
+
+To step backward to the moment right before you committed, use a "soft" reset: 
+```{r, eval=FALSE, purl=FALSE}
+git reset --soft HEAD^
+```
+This will keep the changes to your files, and will keep the changes staged, but it will undo the commit. Verify the change using `git status`  
+
+Commit your staged changes (again) so that you can practice resetting again.  
+
+To step backward to the moment before you staged the files, use the syntax:
+```{r, eval=FALSE, purl=FALSE}
+git rest HEAD^
+```
+This will keep the changes to your files, but it will undo the commit and unstage the changes.  
+
+Add and commit these unstaged changes to get ready to reset again.  
+
+To step backward all the way to before you made any changes, use a "hard" reset: 
+```{r, eval=FALSE, purl=FALSE}
+git reset --hard HEAD^
+```
+This will undo the commit, unstage the changes, **and remove the changes since the commit-before-last!**  
+
+Run a hard reset to revert back to the commit you started with. Check the message and commit identifier using `git log`. Does it match what you looked up before? 
 
 ## Using a Git client
 
@@ -310,12 +362,37 @@ Jenny Bryan, the author of Happy Git for the useR, gives a good run-down of the 
 
 ## Exercises
 
-Working in either the command line or a Git client:
+#### Git basics
 
- 1. Create a new repository named `bio` and initialize version control
- 2. Create a text file named `my_bio.txt` and add at least three lines about yourself.
- 3. Commit the changes to `my_bio.txt`
- 4. Edit `my_bio.txt` by changing one of the previous lines and adding a fourth line of text
- 5. Display the differences between the last commit and the updated version
- 6. Use the alternative tool (command line or client) to commit the new changes and check the status of the repo
- 7. Delete the `bio` repo and contents from your computer using the command line.
+Working in the command line:
+
+ 1. Create a new repository named `bio` and initialize version control  
+ 2. Create a text file named `my_bio.txt` and add at least three lines about yourself.  
+ 3. Commit the changes to `my_bio.txt`  
+ 4. Edit `my_bio.txt` by changing one of the previous lines and adding a fourth line of text  
+ 5. Display the differences between the last commit and the updated version  
+ 6. Commit the new changes and check the status of the repo  
+ 
+
+#### Amending and resetting
+
+ 1. Navigate to the `bio` repo you created earlier from the command line.  
+ 2. Edit the `my_bio.txt` file and stage and commit the changes. Use the commit message "Commit message with a typo"  
+ 3. Amend the commit message of the prior commit to "Commit message without a typo"  
+ 4. Use a soft reset to undo your commit. 
+ 5. Commit the changes with the message "Final commit message".
+ 6. Check the history of your commits. What commit message do you expect to see? Is that what you see in the log?   
+ 7. Delete the `bio` repo and contents from your computer using the command line.  
+
+#### Git client
+
+Start from GitHub Desktop
+
+ 1. Create a new repository named `science` and save in a useful location.  
+ 2. From GitHub Desktop, open the repository in the Terminal. Create a text file called `ideas.txt` and add a few lines of some science ideas.  
+ 3. Return to GitHub Desktop, and stage and commit the changes you've made to the ideas file.  
+ 4. Navigate to the history pane. Where is the commit identifier?  
+ 5. Return to the command line and make a second file, perhaps `more_ideas.txt`.  
+ 6. Return to GitHub Desktop and add the second file to the `.gitignore`. (There are multiple ways to do this).  
+ 7. Commit the new changes.  
+ 8. Remove the `science` repo from GitHub Desktop (under Repository). What happens to the files?  
