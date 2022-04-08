@@ -341,7 +341,7 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="research_workflow.html">Module 1: Reproducible Workflows</a>
+      <a href="research_workflow.html">Module 1: Reproducible workflows</a>
     </li>
     <li>
       <a href="shell_intro.html">Module 2: Working in the shell</a>
@@ -355,6 +355,9 @@ div.tocify {
     <li>
       <a href="metadata.html">Module 5: Metadata and data documentation</a>
     </li>
+    <li class="dropdown-header">Module 6: Reproducible reports</li>
+    <li class="dropdown-header">Module 7: Accessing data repositories</li>
+    <li class="dropdown-header">Module 8: Publishing data and code</li>
   </ul>
 </li>
 <li>
@@ -509,7 +512,7 @@ $ git commit -m &#39;Add more detail to readme&#39;</code></pre>
 <pre class="r"><code>&quot;A Read Me file for the practice_repo  
 This repo is for demonstration purposes.  
 Another line of text adds more detail.&quot;  </code></pre>
-<p>Remember, the first two lines have been added to the previous commit, so they are captured by Git. But the third line you just added is a new modifcation, and has not been added (staged) and committed yet.</p>
+<p>Remember, the first two lines have been added to the previous commit, so they are captured by Git. But the third line you just added is a new modification, and has not been added (staged) and committed yet.</p>
 <p>You can assess the difference between the changes in the current working directory and the last commit using the identifier <code>HEAD</code>. <code>HEAD</code> refers to the most recent commit. So, if you want to compare the current changes to the last commit, you can use the following syntax:</p>
 <pre class="r"><code>$ git diff HEAD readme.md</code></pre>
 <p>Of course, this is the same as if you used only <code>git diff readme.md</code> as we did previously. However, you can also compare to earlier commits with the <code>HEAD</code> syntax.</p>
@@ -534,9 +537,7 @@ $ touch temp/a.dat temp/b.dat  </code></pre>
 <p>Git isn’t tracking these files yet - because you haven’t added them to the staging area with <code>add</code>. However, having lots of untracked files can clutter up the <code>status</code> output and generally make things more confusing.</p>
 <p>To specify that we do not want to track these files, we create a <code>.gitignore</code> file, and we can list these filenames in the <code>.gitignore</code></p>
 <pre class="r"><code>$ nano .gitignore</code></pre>
-<p>In the text editor, you can list the exact file names, <code>a.dat</code> and <code>b.dat</code>, separated<br />
-by a return. Or, you can use a wildcard (*) to indicate all files with names ending<br />
-in <code>dat</code> should not be tracked.</p>
+<p>In the text editor, you can list the exact file names, <code>a.dat</code> and <code>b.dat</code>, separated by a return. Or, you can use a wildcard (*) to indicate all files with names ending in <code>dat</code> should not be tracked.</p>
 <p><code>*.dat</code></p>
 <p>Next, add and commit the <code>.gitignore</code> file:</p>
 <pre class="r"><code>$ git add .gitignore  
@@ -545,6 +546,38 @@ $ git commit -m &quot;create .gitignore to ignore .dat files&quot;</code></pre>
 <p>However, you can use the option <code>-f</code> to force Git to track a file that is listed in the <code>.gitignore</code></p>
 <pre class="r"><code>$ git add -f a.dat</code></pre>
 <p>You can also add a directory to a <code>.gitignore</code> file, so we could have simply listed <code>temp/</code> in the <code>.gitignore</code> file to exclude all files in the <code>temp</code> folder.</p>
+</div>
+</div>
+<div id="more-git-actions" class="section level2">
+<h2>More Git actions</h2>
+<div id="amending-commits" class="section level3">
+<h3>Amending commits</h3>
+<p>Often when working on a coding or data problem, it’s useful to break the problem down into small pieces and solve each piece incrementally. As you incorporate version control into your computational workflow, you might end up with many small commits. <em>There is nothing wrong with having many small commits!</em> But, you can also choose to <code>amend</code> prior commits, so that you have a simpler Git history.</p>
+<p>Practice amending a prior commit by first making a change to your README file (e.g. using <code>echo</code>). Commit this change using <code>git add</code> and <code>git commit</code>.</p>
+<p>Now, make a second change to your README file. To add this change to the prior commit, use the following syntax:</p>
+<pre class="r"><code>git commit --amend --no-edit</code></pre>
+<p>This will amend your previous commit, without changing the commit message you entered previously.</p>
+<p>You can also change the commit message when you amend a previous commit. You can run this command with a new message, even if you did not edit the files. For example, if you made a typo in your commit message, you can fix it by ammending the previous commit.</p>
+<pre class="r"><code>git commit --amend -m &quot;New commit message&quot;</code></pre>
+<p>You can amend the previous commit multiple times, for example as you solve incremental parts of a problem. Note a repeated amend gives you a cleaner git history, but it does not track the amendments. Make individual commits if you want to revisit intermediate steps in your process.</p>
+</div>
+<div id="resetting" class="section level3">
+<h3>Resetting</h3>
+<p>Anther useful Git process to know is how to reset, or step backward. You can reset in different ways, depending what you want to ‘undo’.</p>
+<p>Take a look at your README file using <code>cat</code> so you know where you are starting from. Check the commit identifier and commit message of the latest commit using <code>git log</code>.</p>
+<p>Make a new change to your README file, by adding something like, “A line of text to practice resetting”. Stage and commit this change.</p>
+<p>To step backward to the moment right before you committed, use a “soft” reset:</p>
+<pre class="r"><code>git reset --soft HEAD^</code></pre>
+<p>This will keep the changes to your files, and will keep the changes staged, but it will undo the commit. Verify the change using <code>git status</code></p>
+<p>Commit your staged changes (again) so that you can practice resetting again.</p>
+<p>To step backward to the moment before you staged the files, use the syntax:</p>
+<pre class="r"><code>git rest HEAD^</code></pre>
+<p>This will keep the changes to your files, but it will undo the commit and unstage the changes.</p>
+<p>Add and commit these unstaged changes to get ready to reset again.</p>
+<p>To step backward all the way to before you made any changes, use a “hard” reset:</p>
+<pre class="r"><code>git reset --hard HEAD^</code></pre>
+<p>This will undo the commit, unstage the changes, <strong>and remove the changes since the commit-before-last!</strong></p>
+<p>Run a hard reset to revert back to the commit you started with. Check the message and commit identifier using <code>git log</code>. Does it match what you looked up before?</p>
 </div>
 </div>
 <div id="using-a-git-client" class="section level2">
@@ -580,15 +613,58 @@ commit. And if you have an unstaged file, you can right-click and select ‘Add 
 </div>
 <div id="exercises" class="section level2">
 <h2>Exercises</h2>
-<p>Working in either the command line or a Git client:</p>
+<div id="git-basics" class="section level4">
+<h4>Git basics</h4>
+<p>Working in the command line:</p>
 <ol style="list-style-type: decimal">
-<li>Create a new repository named <code>bio</code> and initialize version control</li>
-<li>Create a text file named <code>my_bio.txt</code> and add at least three lines about yourself.</li>
-<li>Commit the changes to <code>my_bio.txt</code></li>
-<li>Edit <code>my_bio.txt</code> by changing one of the previous lines and adding a fourth line of text</li>
-<li>Display the differences between the last commit and the updated version</li>
-<li>Use the alternative tool (command line or client) to commit the new changes and check the status of the repo</li>
+<li>Create a new repository named <code>bio</code> and initialize version control<br />
+</li>
+<li>Create a text file named <code>my_bio.txt</code> and add at least three lines about yourself.<br />
+</li>
+<li>Commit the changes to <code>my_bio.txt</code><br />
+</li>
+<li>Edit <code>my_bio.txt</code> by changing one of the previous lines and adding a fourth line of text<br />
+</li>
+<li>Display the differences between the last commit and the updated version<br />
+</li>
+<li>Commit the new changes and check the status of the repo</li>
+</ol>
+</div>
+<div id="amending-and-resetting" class="section level4">
+<h4>Amending and resetting</h4>
+<ol style="list-style-type: decimal">
+<li>Navigate to the <code>bio</code> repo you created earlier from the command line.<br />
+</li>
+<li>Edit the <code>my_bio.txt</code> file and stage and commit the changes. Use the commit message “Commit message with a typo”<br />
+</li>
+<li>Amend the commit message of the prior commit to “Commit message without a typo”<br />
+</li>
+<li>Use a soft reset to undo your commit.</li>
+<li>Commit the changes with the message “Final commit message”.</li>
+<li>Check the history of your commits. What commit message do you expect to see? Is that what you see in the log?<br />
+</li>
 <li>Delete the <code>bio</code> repo and contents from your computer using the command line.</li>
+</ol>
+</div>
+<div id="git-client" class="section level4">
+<h4>Git client</h4>
+<p>Start from GitHub Desktop</p>
+<ol style="list-style-type: decimal">
+<li>Create a new repository named <code>science</code> and save in a useful location.<br />
+</li>
+<li>From GitHub Desktop, open the repository in the Terminal. Create a text file called <code>ideas.txt</code> and add a few lines of some science ideas.<br />
+</li>
+<li>Return to GitHub Desktop, and stage and commit the changes you’ve made to the ideas file.<br />
+</li>
+<li>Navigate to the history pane. Where is the commit identifier?<br />
+</li>
+<li>Return to the command line and make a second file, perhaps <code>more_ideas.txt</code>.<br />
+</li>
+<li>Return to GitHub Desktop and add the second file to the <code>.gitignore</code>. (There are multiple ways to do this).<br />
+</li>
+<li>Commit the new changes.<br />
+</li>
+<li>Remove the <code>science</code> repo from GitHub Desktop (under Repository). What happens to the files?</li>
 </ol>
 <br>
 <p>
@@ -625,6 +701,7 @@ loaded via a namespace (and not attached):
 [25] fs_1.5.0         glue_1.4.2       evaluate_0.14    rmarkdown_2.11  
 [29] stringi_1.7.4    compiler_4.1.1   pillar_1.6.4     httpuv_1.6.3    
 [33] pkgconfig_2.0.3 </code></pre>
+</div>
 </div>
 </div>
 
