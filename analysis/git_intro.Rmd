@@ -386,9 +386,7 @@ Working in the command line:
 
 #### Git client
 
-Start from GitHub Desktop
-
- 1. Create a new repository named `science` and save in a useful location.  
+ 1. From GitHub Desktop, create a new repository named `science` and save in a useful location.  
  2. From GitHub Desktop, open the repository in the Terminal. Create a text file called `ideas.txt` and add a few lines of some science ideas.  
  3. Return to GitHub Desktop, and stage and commit the changes you've made to the ideas file.  
  4. Navigate to the history pane. Where is the commit identifier?  
