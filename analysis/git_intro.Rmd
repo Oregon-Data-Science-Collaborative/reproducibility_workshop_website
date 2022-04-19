@@ -99,8 +99,7 @@ You'll see a hidden directory named `.git/`. This directory is what Git the prog
 
 ### Check the project status
 
-One of the useful basic commands is `status` which will give you the status of  
-your git repo. 
+One of the useful basic commands is `status` which will give you the status of your git repo. 
 ```{r, eval=FALSE, purl=FALSE}
 $ git status
 ```

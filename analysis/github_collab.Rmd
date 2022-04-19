@@ -230,8 +230,33 @@ Open the file with a merge conflict, e.g. in your text editor. You'll see that t
 
 Edit the content between the `<<<<<` and `>>>>>` markers to the version you want to keep. Make sure to delete the conflict makers and any content you do not want to keep. 
 
-Then, make sure to stage and commit these changes using `git add` and `git commit`. This completes the merge.
- 
+Then, make sure to stage and commit these changes using `git add` and `git commit`. This completes the merge.  
+
+The following steps will show how to create an intentional merge conflict so that you are familiar with the syntax.  
+
+First, make an edit too the first line of your README file on the main branch. Add the text 'New text for merge conflict'. You can do this with `nano`. Then use `git add` and `git commit` to stage and commit this change.  
+
+Now switch to your feature branch using 
+```{r, eval=FALSE, purl=FALSE}
+$ git checkout issue-1
+```
+
+Edit the same file, the README file using nano. Delete the text you added before and write 'Different text to create conflict'. Stage and commit this change on the feature branch.  
+
+Next, return to the main branch and merge the two branches:  
+```{r, eval=FALSE, purl=FALSE}
+$ git checkout issue-1 
+$ git merge
+```
+
+You should receive a warning the merge failed.  
+
+Use `git status` to check which file failed to merge, then open that file with `nano`. You'll see the markers showing where the conflict occurred. Edit the file to eliminate the conflict, save and close. 
+
+Finally, stage and commit the changes you just made. This commit completes the merge you started earlier. If you run `git merge` after the commit, you'll see that the files are up to date.  
+
+If you get into trouble during a merge, you can run `git merge --abort` to stop the merge and go back to the moment before you started merging.  
+
 ## Working with others
 
 ### What are your needs for collaboration?

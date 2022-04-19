@@ -341,7 +341,7 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="research_workflow.html">Module 1: Reproducible Workflows</a>
+      <a href="research_workflow.html">Module 1: Reproducible workflows</a>
     </li>
     <li>
       <a href="shell_intro.html">Module 2: Working in the shell</a>
@@ -355,6 +355,9 @@ div.tocify {
     <li>
       <a href="metadata.html">Module 5: Metadata and data documentation</a>
     </li>
+    <li class="dropdown-header">Module 6: Reproducible reports</li>
+    <li class="dropdown-header">Module 7: Accessing data repositories</li>
+    <li class="dropdown-header">Module 8: Publishing data and code</li>
   </ul>
 </li>
 <li>
@@ -522,6 +525,18 @@ $ git merge issue-1</code></pre>
 <p>Open the file with a merge conflict, e.g. in your text editor. You’ll see that the areas of conflict are highlighted with makers: <code>&lt;&lt;&lt;&lt;&lt;&lt;</code> indicates the beginning of the conflict, followed by content from the branch you are currently on (e.g. <code>main</code>). The marker <code>======</code> indicates the end of content from the <code>main</code> branch and the start of content from the feature branch (e.g. <code>issue-1</code> in this example). The end of the conflicting content is marked by <code>&gt;&gt;&gt;&gt;&gt;</code>.</p>
 <p>Edit the content between the <code>&lt;&lt;&lt;&lt;&lt;</code> and <code>&gt;&gt;&gt;&gt;&gt;</code> markers to the version you want to keep. Make sure to delete the conflict makers and any content you do not want to keep.</p>
 <p>Then, make sure to stage and commit these changes using <code>git add</code> and <code>git commit</code>. This completes the merge.</p>
+<p>The following steps will show how to create an intentional merge conflict so that you are familiar with the syntax.</p>
+<p>First, make an edit too the first line of your README file on the main branch. Add the text ‘New text for merge conflict’. You can do this with <code>nano</code>. Then use <code>git add</code> and <code>git commit</code> to stage and commit this change.</p>
+<p>Now switch to your feature branch using</p>
+<pre class="r"><code>$ git checkout issue-1</code></pre>
+<p>Edit the same file, the README file using nano. Delete the text you added before and write ‘Different text to create conflict’. Stage and commit this change on the feature branch.</p>
+<p>Next, return to the main branch and merge the two branches:</p>
+<pre class="r"><code>$ git checkout issue-1 
+$ git merge</code></pre>
+<p>You should receive a warning the merge failed.</p>
+<p>Use <code>git status</code> to check which file failed to merge, then open that file with <code>nano</code>. You’ll see the markers showing where the conflict occurred. Edit the file to eliminate the conflict, save and close.</p>
+<p>Finally, stage and commit the changes you just made. This commit completes the merge you started earlier. If you run <code>git merge</code> after the commit, you’ll see that the files are up to date.</p>
+<p>If you get into trouble during a merge, you can run <code>git merge --abort</code> to stop the merge and go back to the moment before you started merging.</p>
 </div>
 </div>
 <div id="working-with-others" class="section level2">
@@ -641,19 +656,16 @@ locale:
 attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
-other attached packages:
-[1] workflowr_1.6.2
-
 loaded via a namespace (and not attached):
- [1] Rcpp_1.0.7       knitr_1.36       magrittr_2.0.1   R6_2.5.1        
- [5] rlang_0.4.11     fastmap_1.1.0    fansi_0.5.0      stringr_1.4.0   
- [9] tools_4.1.1      xfun_0.26        utf8_1.2.2       git2r_0.28.0    
-[13] jquerylib_0.1.4  htmltools_0.5.2  ellipsis_0.3.2   rprojroot_2.0.2 
-[17] yaml_2.2.1       digest_0.6.28    tibble_3.1.5     lifecycle_1.0.1 
-[21] crayon_1.4.1     later_1.3.0      vctrs_0.3.8      promises_1.2.0.1
-[25] fs_1.5.0         glue_1.4.2       evaluate_0.14    rmarkdown_2.11  
-[29] stringi_1.7.4    compiler_4.1.1   pillar_1.6.4     httpuv_1.6.3    
-[33] pkgconfig_2.0.3 </code></pre>
+ [1] Rcpp_1.0.7       knitr_1.36       magrittr_2.0.1   workflowr_1.6.2 
+ [5] R6_2.5.1         rlang_0.4.11     fastmap_1.1.0    fansi_0.5.0     
+ [9] stringr_1.4.0    tools_4.1.1      xfun_0.26        utf8_1.2.2      
+[13] git2r_0.28.0     jquerylib_0.1.4  htmltools_0.5.2  ellipsis_0.3.2  
+[17] rprojroot_2.0.2  yaml_2.2.1       digest_0.6.28    tibble_3.1.5    
+[21] lifecycle_1.0.1  crayon_1.4.1     later_1.3.0      vctrs_0.3.8     
+[25] promises_1.2.0.1 fs_1.5.0         glue_1.4.2       evaluate_0.14   
+[29] rmarkdown_2.11   stringi_1.7.4    compiler_4.1.1   pillar_1.6.4    
+[33] httpuv_1.6.3     pkgconfig_2.0.3 </code></pre>
 </div>
 </div>
 </div>
