@@ -19,6 +19,7 @@ navbar:
     - text: "Module 5: Metadata and data documentation"
       href: metadata.html
     - text: "Module 6: Reproducible reports"
+      href: reproducible_reports.html
     - text: "Module 7: Accessing data repositories"
     - text: "Module 8: Publishing data and code"
   - text: Resources
