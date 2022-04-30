@@ -5,6 +5,7 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(knitr)
 ```
 
 ## Reproducible reports using R Markdown
@@ -77,7 +78,15 @@ output:
 
 Below the header, there are code chunks and text. Code chunks open and close with three backticks. Within the curly brackets, the letter `r` indicates the language for the code chunk (other languages like `python` are also supported). The text immediately after the letter `r` is the label for the code chunk. If you click at the bottom of the R Markdown panel, you can see a table of contents and you can use the code chunk labels to navigate the document.
 
-After the label are parameters, for example `echo = FALSE`. This option directs R Markdown not to show the code in that chunk in the rendered output (but R Markdown does show the output of the code). There are lots of options, which you can explore at [this website](https://yihui.org/knitr/options/) or through the vignettes for `knitr`. R Markdown documents include a default `setup` chunk that has the code `knitr::opts_chunk$set(echo = TRUE)` which can set parameters for all code chunks in the document. Note that you can run individual code chunks by clicking the green triangle in the corner. You can also run lines within the chunk using keyboard shortcuts (Ctrl + Enter) or by highlighting the code and clicking `Run` in the upper right.  
+After the label are parameters, for example `echo = FALSE`. This option directs R Markdown not to show the code in that chunk in the rendered output (but R Markdown does show the output of the code). There are lots of options, which you can explore at [this website](https://yihui.org/knitr/options/) or through the vignettes for `knitr`.  
+
+R Markdown documents include a default `setup` chunk that has the code `knitr::opts_chunk$set(echo = TRUE)` which can set parameters for all code chunks in the document. The setup chunk is a good place to load packages that you might need later in the document. Load the `knitr` package in your setup chunk with the code below and run the chunk by clicking the green triangle in the corner.   
+
+```{r eval=FALSE, purl=FALSE}
+library(knitr)
+```
+
+Note that you can also run lines within the chunk using keyboard shortcuts (Ctrl + Enter) or by highlighting the code and clicking `Run` in the upper right. And you can run all chunks above a certain chunk by clicking the green horizontal bar in the upper right. It's a good idea to break up analysis into separate chunks that accomplish specific tasks, such as loading data, and then you can run each chunk individually as needed.   
 
 Try running the `cars` chunk. Notice that the output is placed inline in the R Markdown document and in the console. 
 
@@ -91,7 +100,7 @@ Click the `Knit` button at the top of the page. This will render the document in
 
 The HTML output will show up in a pop-up window in RStudio. You can also open in a browser to see how the text formatting transfers and how the table and plots are integrated into the document.  
 
-Notice how the last line of text includes some special formatting for the words `echo = FALSE`? Return to the `.Rmd` file and look at the final line of text. The words `echo = FALSE` are surrounded by single backticks - this syntax indicates verbatim code that R evaluates inline (rather than in a code chunk). You can put more complex code, e.g. functions, into inline code, and R Markdown will render only the output. We'll demo that later on.    
+Notice how the last line of text includes some special formatting for the words `echo = FALSE`? Return to the `.Rmd` file and look at the final line of text. The words `echo = FALSE` are surrounded by single backticks - this syntax indicates verbatim code that R evaluates inline (rather than in a code chunk). You can put more complex code, e.g. functions, into inline code. We'll demo running and rendering inline code later on.    
 
 Next, look at the options under `Knit` (click on the small arrow to the right of the Knit button). Try knitting to PDF and to a Word Doc. Take a look at how the different elements of the header and the document appear in these different formats. Make a change to your header (e.g. change your name) and click `Knit`. This will output all the file formats that are specified.
 
@@ -127,6 +136,24 @@ Visit your GitHub website and see how the `.md` file appears on the website.
 
 ## More R Markdown features
 
+### Inline code
+
+Earlier we observed that you can include code within the text of an R Markdown docuemnt by surrounding the text with backticks (`` ` ``). This syntax will change how the output is rendered, to show it is `code` rather than text.   
+
+If you want R to evaluate the code, not just change the syntax, you have to include the letter `r` within your backticks with this syntax, which asks R to evaluate the mean of the variable speed in the cars dataset (built into R): 
+```{r eval=FALSE, purl=FALSE}
+`r mean(cars$speed)`
+``` 
+
+In the output document, this will be rendered as `r mean(cars$speed)`
+
+Try using some inline code to render some math, such as `22/7`. Even if you are not familiar with R, you can use the syntax below in your document to produce the evaluated output. Try another math operation to make sure you have the hang of the syntax.  
+
+```{r eval=FALSE, purl=FALSE}
+`r 22/7`
+``` 
+
+
 ### Adding and configuring images
 
 There are multiple ways to add and configure images to an R Markdown document. We've already seen how plots that are created using code in the file are rendered in the output. We can also control how these plots appear by setting the width, height, and aspect ratio of the plot. 
@@ -147,30 +174,128 @@ Change the size of the figure in the `pressure` code chunk using different optio
 
 There are other options that we can use to adjust figures, such as `fig.cap` to add a caption. Try using `fig.cap` in the `pressure` code chunk and rendering the output.  
 
-We can also add figures or images directly in the document using a file path. Try first by right-clicking the image below of the R Markdown logo. Save the image into your local repo. Then insert the image into your R Markdown document using the following syntax:
+We can also add figures or images directly in the document using a file path. Try first by right-clicking the image below of the R Markdown logo. Save the image into your local repo. Then insert the image into your R Markdown document using the following syntax in an R chunk:
 
 ```{r, eval=FALSE, purl=FALSE}
 knitr::include_graphics("path/to/image/file")
 ```
 
-```{r image, out.width='25%', echo=FALSE}
-knitr::include_graphics("~/Desktop/teaching/workshops/workshop_website/docs/assets/rmarkdown_logo.png")
-```
+![](https://raw.githubusercontent.com/lillian-aoki/workshop_website/master/docs/assets/rmarkdown_logo.png)
   
 
-Alternatively, you can also incude a link directly to an image by providing the URL. Right-click the image above, and copy the link to the image. Return to your R Markdown file, and include the image using the following syntax:
+Alternatively, you can also incude a link directly to an image by providing the URL. Right-click the image above, and copy the link to the image. Return to your R Markdown file, and include the image using the following syntax in the document:
 
 ```{r eval=FALSE, purl=FALSE}
-![logo](URL-to-the-file)
+![image caption](URL-to-the-file)
 ```
 
 Render the document and see how it looks. Note that you may have to open the `.md` output in a browser (or commit and push to github) for the image to appear.  
 
+Using `knitr::include_graphics()` in a code chunk gives you more control over the output of the image, but sometimes it's faster to just include the URL.
+
+Note that you can include links that are not images using similar syntax, just without the exclamation point. Put the text you want to hyperlink in square brackets and the URL in parentheses:
+
+```{r eval=FALSE, purl=FALSE}
+[document text to hyperlink](URL for hyperlink)
+```
+
 ### Tables
+
+Often it can be helpful to present a data table in your markdown output, but the default table formatting is not that pretty. For example, if we want to look at the `cars` data (default data that is loaded with R), we can simply return the data frame by running the name `cars` in an r chunk:
+
+```{r eval=FALSE, purl=FALSE}
+cars
+```
+
+```{r echo=FALSE}
+cars
+```
+
+This output isn't that nicely formatted however, so to improve the formatting, we can use the `kable` function in the `knitr` package.
+
+```{r eval=FALSE, purl=FALSE}
+kable(cars)
+```
+
+```{r echo=FALSE}
+kable(cars)
+```
+
+Notice that the out put from kable is rendered interactively in your document, before you knit to the output. The `kable` function has a number of options, and there are many other packages in R that adjust table formatting, such as `kableExtra`. Some info on these table packages is available from [the R Markdown Cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/table-other.html). These packages are  beyond the scope of this workshop, but be sure to check them out!
 
 ### TOC
 
+A useful feature for sharing rendered markdown documents is a table of contents. We can add a TOC to a github_document by adjusting the header.
+
+```{r eval=FALSE, purl=FALSE}
+---
+  output: 
+    github_document:
+      toc: true
+---
+```
+
+Add a TOC to your `Sample 1` file, and render the output. Where do the TOC hyperlinks take you in the document?
+
+We can also set the depth of the TOC - in other words, what level of header the TOC should link to. 
+
+Add a level 3 subheader to your .Rmd file using ### and add the following option to the YAML header:
+
+```{r eval=FALSE, purl=FALSE}
+---
+  output: 
+    github_document:
+      toc: true
+      toc_depth: 3
+---
+```
+
+Render the output to see how the headings transfer to the TOC. Add a level 4 header and render the output. Does the header show up?
+
 ### HTML tags
 
+Another useful feature of an R Markdown document is that you can use HTML tags to alter the rendered output (if you are rendering to .md or .html). 
+
+For example, we can change the font size using the following tags:
+
+```{r eval=FALSE, purl=FALSE}
+<font size = "1"> 
+This text is a lot smaller 
+</font>
+
+<font size = "20">
+This text is a lot bigger
+</font>
+```
+
+Which gives us the following output:
+
+<font size = "1"> 
+This text is a lot smaller 
+</font>
+
+<font size = "20">
+This text is a lot bigger
+</font>
+
+If you're familiar with HTML, you know there are a lot of tags you can use to modify your document. Using a lot of HTML tags might make the .Rmd file a little less manageable, since the beauty of R Markdown is partly in its simplicity. However, including HTML tags can be great for adding color and formatting other elements. 
+
+## Even more R Markdown
+
+These outlines have only scratched the surface of what R Markdown can do. You can write books, create slide presentations, develop interactive Shiny apps, and more with R Markdown. It's a very versatile and handy tool to have. 
+
+A key way that R Markdown can enhance reproducibility and collaboration is through the creating shared reports. By rendering a file into a .md document and pushing the .md document to a GitHub repo, you can easily share your research results with collaborators. And, you can easily incorporate feedback from your collaborators or update your analysis or visualizations. Especially in certain stages of a research project, you might be generating a lot of exploratory plots or model outputs, and it might slow you down to have to create slides or another document for sharing intermediate results. By using an R Markdown file, you can minimize the friction of sharing results and incorporating feedbaack quickly.  
+
+Reproducible reports generated in R Markdown can be more or less formal. A simple .md file with plots and some explanatory text might suite your needs, or you can even write an entire manuscript in R Markdown, with plug ins for citation management. You can build on the basic workflow covered here and incorporate R Markdown into your reproducible research. 
 
 ### Exercises II
+
+#### Create a reproducible report
+
+ 1. Create a new R Markdown document
+ 2. Update the header to render the document as a github_document with a table of contents
+ 3. Create a report with at least three sections using headers and/or other Markdown formatting. 
+ 4. Include text and at least one other element, such as a plot, image, or table in your report. Note, if you are not familiar with R, you can copy the `pressure` chunk to create a plot or use the syntax above to create a table. You can also insert an image from your computer using a file path or from the web using a URL.  
+ 5. Render your report.
+ 6. Commit the report to your repo and push to GitHub (both the .Rmd and the .md files!). Remember to pull before pushing!
+ 
