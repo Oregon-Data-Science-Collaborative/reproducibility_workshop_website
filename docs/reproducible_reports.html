@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>reproducible_reports.knit.md</title>
+
+<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<link rel="icon" href="https://github.com/workflowr/workflowr-assets/raw/master/img/reproducible.png">
+<!-- Add a small amount of space between sections. -->
+<style type="text/css">
+div.section {
+  padding-top: 12px;
+}
+</style>
+
+
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Reproducible Research</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">About</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Modules
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="research_workflow.html">Module 1: Reproducible workflows</a>
+    </li>
+    <li>
+      <a href="shell_intro.html">Module 2: Working in the shell</a>
+    </li>
+    <li>
+      <a href="git_intro.html">Module 3: Version control with Git</a>
+    </li>
+    <li>
+      <a href="github_collab.html">Module 4: Collaboration with GitHub</a>
+    </li>
+    <li>
+      <a href="metadata.html">Module 5: Metadata and data documentation</a>
+    </li>
+    <li class="dropdown-header">Module 6: Reproducible reports</li>
+    <li class="dropdown-header">Module 7: Accessing data repositories</li>
+    <li class="dropdown-header">Module 8: Publishing data and code</li>
+  </ul>
+</li>
+<li>
+  <a href="resources.html">Resources</a>
+</li>
+<li>
+  <a href="installation.html">Installation</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://github.com/lillian-aoki/workshop_website">
+    <span class="fa fa-github"></span>
+     
+    Source code
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+
+</div>
+
+
+<div id="reproducible-reports-using-r-markdown" class="section level2">
+<h2>Reproducible reports using R Markdown</h2>
+<div id="learning-objectives" class="section level3">
+<h3>Learning objectives</h3>
+<p>This workshop is targeted to researchers who want to learn the basics of creating reproducible reports with R Markdown. A working knowledge of R and familiarity with RStudio will be helpful. We will also use GitHub to publish and share reports. During the workshop, participants will:</p>
+<ul>
+<li>Use R Markdown to integrate code, text, and visualizations into cohesive documents</li>
+<li>Use the <code>knitr</code> package to render R Markdown files into different types of output</li>
+<li>Publish R Markdown files and output to GitHub and build a reproducible workflow</li>
+</ul>
+</div>
+<div id="resources" class="section level3">
+<h3>Resources</h3>
+<p><a href="https://bookdown.org/yihui/rmarkdown-cookbook/">R Markdown Cookbook</a> - comprehensive overview from the developers of the rmarkdown and knitr packages</p>
+<p><a href="https://rmarkdown.rstudio.com/lesson-1.html">RStudio guide to R Markdown</a> - covers the basics with lots of detail</p>
+</div>
+<div id="slides" class="section level3">
+<h3>Slides</h3>
+</div>
+</div>
+<div id="getting-started" class="section level2">
+<h2>Getting started</h2>
+<div id="installation" class="section level3">
+<h3>Installation</h3>
+<p>To participate in the workshop, you will need to have R and RStudio installed on your computer. Check to make sure your R version is up to date (at least version 4). You will need the packages <code>knitr</code>, and <code>kableExtra</code> installed as well. Additionally, to render to PDF output, you will need a LaTeX distribution installed. If you are installing LaTeX for this workshop, please use <a href="https://yihui.org/tinytex/">TinyTex</a>. Install the package <code>tinytex</code> and then install the LaTeX distribution TinyTex using the following syntax in R:</p>
+<p><code>tinytex::install_tinytex()</code></p>
+<p>During the workshop, we will practice pushing rendered R Markdown output to GitHub as part of a collaborative workflow. You will need to have Git installed on your computer and you will need a GitHub account. You’ll also need to configure your Git on your computer to make sure your local computer can communicate with your GitHub account. If you attended the Git and GitHub workshops in this series, you are all set. If not, please follow the instructions under <code>Setup GitHub Access</code> <a href="https://lillian-aoki.github.io/workshop_website/github_collab.html#Set_up_GitHub_access">on this page</a>. You can also reference sections 4-14 of the <a href="https://happygitwithr.com/install-intro.html">Happy Git with R website</a>, which has detailed installation and troubleshooting instructions.</p>
+</div>
+<div id="using-rstudio-projects" class="section level3">
+<h3>Using RStudio Projects</h3>
+<p>Before we dive into using R Markdown, we want to set up our collaborative and reproducible workflow. R Markdown outputs interface really well with GitHub, which allows us to have a shareable website with code, visualizations, and other outputs from a project. We can reproduce and iterate these outputs, and continue to share them easily with collaborators through a GitHub repository. The best way to do this is to use RStudio Projects, and to connect the R Project directory to a GitHub repo.</p>
+<p>Start on GitHub, and create a new repository. Name the repo something like <code>markdown-demo-repo</code>, initiate with a ReadMe, and make the repo public.</p>
+<p>Click on the green <code>Code</code> button and copy the repo URL, using HTTPS (if you are using a PAT) or SSH keys.</p>
+<p>Next, open R Studio. Go to <code>File --&gt; New Project --&gt; Version Control --&gt; Git</code>. Paste the URL you copied from your repo. This will automatically fill in the name for the repo on your local machine - note that you could change it but it is best practice to use the same name for your local and remote copies of the same repo. Choose a sensible location to save the new repository. Click <code>Create Project</code>.</p>
+<p>This will clone your remote repository onto your local machine (i.e. copy all the files and the directory structure) while also creating an R Project file (extension .Rproj). The R Project file stores settings and information specific to the project and is helpful to keep things organized in R. For more info, see this chapter on <a href="https://rstats.wtf/project-oriented-workflow.html">project oriented workflows</a></p>
+</div>
+<div id="committing-pushing-and-pulling-from-rstudio" class="section level3">
+<h3>Committing, pushing, and pulling from RStudio</h3>
+<p>The ReadMe file you created on GitHub should have been copied into your new R Project. Look in the files pane, and open the <code>README.md</code> file. Add a line of text to the file and save it.</p>
+<p>Now, we will commit these local changes and push to the remote repo from R Studio. We can use the Terminal window from RStudio, or we can use the Git pane in the upper right. Click on the Git pane, and you’ll see that your <code>README.md</code> file has been modified. Click the checkbox to stage the file. Then click the <code>Commit</code> button. In the dialogue window, you can look at the Diff (changes from the last commit). Add a commit message and click commit. You’ll get a message confirming your commit was successful, then close the dialogue window.</p>
+<p>The Git pane now tells us that our branch is 1 commit ahead of origin/main (the remote repo). We can push the local changes to the remote, but first we want to pull any remote changes down from the remote. Click the downward arrow to pull. You should receive a message you are already up to date. Then click the upward arrow to push. Remember, it’s good to get in the habit of pulling first, then pushing, in case there are existing changes in the remote - from your collaborators, from yourself on a different machine, etc.</p>
+<p>Navigate back to your remote repo on GitHub and confirm the the commit propagated by refreshing the page. Edit the README file on GitHub, for example by adding “a line of text from the remote”, commit the change, and return to RStudio. Pull the change down, and confirm that the README file has updated with the remote change.</p>
+<p>Once we know that RStudio is talking to GitHub and we can commit, push, and pull changes, we are ready to start diving into R Markdown!</p>
+</div>
+</div>
+<div id="r-markdown-basics" class="section level2">
+<h2>R Markdown basics</h2>
+<div id="elements-of-r-markdown-document" class="section level3">
+<h3>Elements of R Markdown document</h3>
+<p>In RStudio, open a new file and select R Markdown. Use the default setting of <code>Document</code>.</p>
+<p>The new document consists of several elements. At the top is a YAML header, indicated by the <code>---</code> separators. The header is mainly metadata, including the output format. You can change the specifications, and in fact YAML headers can become quite complex. For now, change the title from “Untitled” to “Sample 1”.</p>
+<pre class="r"><code>title: &quot;Sample 1&quot;
+author: &quot;LRA&quot;
+date: &quot;4/28/2022&quot;
+output:
+  html_document: default</code></pre>
+<p>Below the header, there are code chunks and text. Code chunks open and close with three backticks. Within the curly brackets, the letter <code>r</code> indicates the language for the code chunk (other languages like <code>python</code> are also supported). The text immediately after the letter <code>r</code> is the label for the code chunk. If you click at the bottom of the R Markdown panel, you can see a table of contents and you can use the code chunk labels to navigate the document.</p>
+<p>After the label are parameters, for example <code>echo = FALSE</code>. This option directs R Markdown not to show the code in that chunk in the rendered output (but R Markdown does show the output of the code). There are lots of options, which you can explore at <a href="https://yihui.org/knitr/options/">this website</a> or through the vignettes for <code>knitr</code>. R Markdown documents include a default <code>setup</code> chunk that has the code <code>knitr::opts_chunk$set(echo = TRUE)</code> which can set parameters for all code chunks in the document. Note that you can run individual code chunks by clicking the green triangle in the corner. You can also run lines within the chunk using keyboard shortcuts (Ctrl + Enter) or by highlighting the code and clicking <code>Run</code> in the upper right.</p>
+<p>Try running the <code>cars</code> chunk. Notice that the output is placed inline in the R Markdown document and in the console.</p>
+<p>The final element of the R Markdown document is text, including some lightweight formatting such as headers and bold text. The <a href="https://raw.githubusercontent.com/rstudio/cheatsheets/main/rmarkdown.pdf">R Markdown cheatsheet</a> is a good reference for basic formatting syntax. R Studio also has a reference sheet for R Markdown under <code>Help</code>. Note that the text headers also show up in the TOC at the bottom of the pane, and you can also view the document outline by clicking on the document symbol in the upper right.</p>
+</div>
+<div id="render-output" class="section level3">
+<h3>Render output</h3>
+<p>Let’s start rendering output to see how these elements appear in different formats.</p>
+<p>Click the <code>Knit</code> button at the top of the page. This will render the document into the output you specified in the header. If there’s no output specified, the document will be rendered as HTML. If you haven’t saved the file yet, you’ll need to save the <code>.Rmd</code> file before the output will render. Once you’ve knitted the document, you’ll see the output file appear in the Files pane (lower right of RStudio) and if you look at the Git pane in the upper right, you’ll see a new <code>.html</code> file that is not tracked by git.</p>
+<p>The HTML output will show up in a pop-up window in RStudio. You can also open in a browser to see how the text formatting transfers and how the table and plots are integrated into the document.</p>
+<p>Notice how the last line of text includes some special formatting for the words <code>echo = FALSE</code>? Return to the <code>.Rmd</code> file and look at the final line of text. The words <code>echo = FALSE</code> are surrounded by single backticks - this syntax indicates verbatim code that R evaluates inline (rather than in a code chunk). You can put more complex code, e.g. functions, into inline code, and R Markdown will render only the output. We’ll demo that later on.</p>
+<p>Next, look at the options under <code>Knit</code> (click on the small arrow to the right of the Knit button). Try knitting to PDF and to a Word Doc. Take a look at how the different elements of the header and the document appear in these different formats. Make a change to your header (e.g. change your name) and click <code>Knit</code>. This will output all the file formats that are specified.</p>
+</div>
+<div id="render-to-github_document" class="section level3">
+<h3>Render to github_document</h3>
+<p>To get the most out of integrating R Markdown into a GitHub workflow, it’s very helpful to render your document as a <code>github_document</code>. This output format will create a <code>.md</code> file that GitHub turns into a beautiful website page without any extra effort on your part.</p>
+<p>Update your header so the output is a github document:</p>
+<pre class="r"><code>title: &quot;Sample 1&quot;
+output:
+  github_document</code></pre>
+<p>Render the document using the Knit button. Then commit and push the <code>.md</code> document to GitHub. Remember to pull first to get in the habit of checking for remote changes.</p>
+<p>Visit your GitHub website and see how the <code>.md</code> file appears on the website.</p>
+</div>
+<div id="exercises-i" class="section level3">
+<h3>Exercises I</h3>
+<div id="practice-markdown-formatting" class="section level4">
+<h4>Practice Markdown formatting</h4>
+<ol style="list-style-type: decimal">
+<li>Create a new R Markdown document.</li>
+<li>Change the output to a github document and rename the document to “My Bio”. Delete the default text in the document<br />
+</li>
+<li>Open the Markdown Quick Reference (under <code>Help</code>)</li>
+<li>Write a short bio or CV about yourself, including any info you want such as your current job or research interests.<br />
+</li>
+<li>Use the guidelines in the Markdown Quick Reference to include at least three formatting elements, such as bold or italic text, headers, lists, block quotes, footnotes, etc.<br />
+</li>
+<li>Render the document to a <code>.md</code> file.</li>
+<li>Commit the document change and push to your remote repo.</li>
+</ol>
+</div>
+<div id="section" class="section level4">
+<h4></h4>
+</div>
+</div>
+</div>
+<div id="more-r-markdown-features" class="section level2">
+<h2>More R Markdown features</h2>
+<div id="adding-and-configuring-images" class="section level3">
+<h3>Adding and configuring images</h3>
+<p>There are multiple ways to add and configure images to an R Markdown document. We’ve already seen how plots that are created using code in the file are rendered in the output. We can also control how these plots appear by setting the width, height, and aspect ratio of the plot.</p>
+<p>Return to the <code>Sample1</code> default R Markdown. Add the <code>fig.width</code> and <code>fig.height</code> options to the code chunk <code>pressure</code> to create a squre figure that is 8 by 8 inches:</p>
+<pre class="r"><code>{r pressure, echo=FALSE, fig.width=8, fig.height=8}</code></pre>
+<p>Render the file and take a look at the figure. How does it look?</p>
+<p>Sizing figures in R Markdown output can be a bit of trial and error. In addition to setting the figure height and width, you can set the aspect ratio using <code>fig.asp</code> and you can align the figure using <code>fig.align</code>. You can also set the size of the figure when it is inserted into the output document, using <code>out.height</code> and <code>out.width</code>. Typically, it’s best not to try and set all the parameters, but to pick 2, e.g width and ratio.</p>
+<p>Some useful thoughts from Hadley Wickham on sizing figures are available in <a href="https://r4ds.had.co.nz/graphics-for-communication.html#learning-more-4">this chpater from R for Data Science</a>.</p>
+<p>Change the size of the figure in the <code>pressure</code> code chunk using different options (not <code>fig.width</code> or <code>fig.height</code>). Render the file, and see how the output looks. Does the size change the way you expect?</p>
+<p>There are other options that we can use to adjust figures, such as <code>fig.cap</code> to add a caption. Try using <code>fig.cap</code> in the <code>pressure</code> code chunk and rendering the output.</p>
+<p>We can also add figures or images directly in the document using a file path. Try first by right-clicking the image below of the R Markdown logo. Save the image into your local repo. Then insert the image into your R Markdown document using the following syntax:</p>
+<pre class="r"><code>knitr::include_graphics(&quot;path/to/image/file&quot;)</code></pre>
+<pre class="r"><code>knitr::include_graphics(&quot;~/Desktop/teaching/workshops/workshop_website/docs/assets/rmarkdown_logo.png&quot;)</code></pre>
+<p><img src="/Users/laoki/Desktop/teaching/workshops/workshop_website/docs/assets/rmarkdown_logo.png" style="display: block; margin: auto;" /></p>
+<p>Alternatively, you can also incude a link directly to an image by providing the URL. Right-click the</p>
+</div>
+<div id="tables" class="section level3">
+<h3>Tables</h3>
+</div>
+<div id="toc" class="section level3">
+<h3>TOC</h3>
+</div>
+<div id="html-tags" class="section level3">
+<h3>HTML tags</h3>
+</div>
+<div id="exercises-ii" class="section level3">
+<h3>Exercises II</h3>
+<br>
+<p>
+<button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
+<span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Session information
+</button>
+</p>
+<div id="workflowr-sessioninfo" class="collapse">
+<pre class="r"><code>sessionInfo()</code></pre>
+<pre><code>R version 4.1.1 (2021-08-10)
+Platform: x86_64-apple-darwin17.0 (64-bit)
+Running under: macOS Big Sur 10.16
+
+Matrix products: default
+BLAS:   /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRblas.0.dylib
+LAPACK: /Library/Frameworks/R.framework/Versions/4.1/Resources/lib/libRlapack.dylib
+
+locale:
+[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] workflowr_1.6.2
+
+loaded via a namespace (and not attached):
+ [1] Rcpp_1.0.7       knitr_1.36       magrittr_2.0.1   R6_2.5.1        
+ [5] rlang_0.4.11     fastmap_1.1.0    fansi_0.5.0      highr_0.9       
+ [9] stringr_1.4.0    tools_4.1.1      xfun_0.26        utf8_1.2.2      
+[13] git2r_0.28.0     jquerylib_0.1.4  htmltools_0.5.2  ellipsis_0.3.2  
+[17] rprojroot_2.0.2  yaml_2.2.1       digest_0.6.28    tibble_3.1.5    
+[21] lifecycle_1.0.1  crayon_1.4.1     later_1.3.0      vctrs_0.3.8     
+[25] promises_1.2.0.1 fs_1.5.0         glue_1.4.2       evaluate_0.14   
+[29] rmarkdown_2.11   stringi_1.7.4    compiler_4.1.1   pillar_1.6.4    
+[33] httpuv_1.6.3     pkgconfig_2.0.3 </code></pre>
+</div>
+</div>
+</div>
+
+
+<!-- Adjust MathJax settings so that all math formulae are shown using
+TeX fonts only; see
+http://docs.mathjax.org/en/latest/configuration.html.  This will make
+the presentation more consistent at the cost of the webpage sometimes
+taking slightly longer to load. Note that this only works because the
+footer is added to webpages before the MathJax javascript. -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

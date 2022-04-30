@@ -1,0 +1,169 @@
+---
+output:
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Reproducible reports using R Markdown
+
+### Learning objectives
+
+This workshop is targeted to researchers who want to learn the basics of creating reproducible reports with R Markdown. A working knowledge of R and familiarity with RStudio will be helpful. We will also use GitHub to publish and share reports. During the workshop, participants will:
+
+-   Use R Markdown to integrate code, text, and visualizations into cohesive documents
+-   Use the `knitr` package to render R Markdown files into different types of output
+-   Publish R Markdown files and output to GitHub and build a reproducible workflow
+
+### Resources
+
+[R Markdown Cookbook](https://bookdown.org/yihui/rmarkdown-cookbook/) - comprehensive overview from the developers of the rmarkdown and knitr packages
+
+[RStudio guide to R Markdown](https://rmarkdown.rstudio.com/lesson-1.html) - covers the basics with lots of detail
+
+### Slides
+
+## Getting started
+
+### Installation
+
+To participate in the workshop, you will need to have R and RStudio installed on your computer. Check to make sure your R version is up to date (at least version 4). You will need the packages `knitr`, and `kableExtra` installed as well. Additionally, to render to PDF output, you will need a LaTeX distribution installed. If you are installing LaTeX for this workshop, please use [TinyTex](https://yihui.org/tinytex/). Install the package `tinytex` and then install the LaTeX distribution TinyTex using the following syntax in R:
+
+`tinytex::install_tinytex()`
+
+During the workshop, we will practice pushing rendered R Markdown output to GitHub as part of a collaborative workflow. You will need to have Git installed on your computer and you will need a GitHub account. You'll also need to configure your Git on your computer to make sure your local computer can communicate with your GitHub account. If you attended the Git and GitHub workshops in this series, you are all set. If not, please follow the instructions under `Setup GitHub Access` [on this page](https://lillian-aoki.github.io/workshop_website/github_collab.html#Set_up_GitHub_access). You can also reference sections 4-14 of the [Happy Git with R website](https://happygitwithr.com/install-intro.html), which has detailed installation and troubleshooting instructions.
+
+### Using RStudio Projects
+
+Before we dive into using R Markdown, we want to set up our collaborative and reproducible workflow. R Markdown outputs interface really well with GitHub, which allows us to have a shareable website with code, visualizations, and other outputs from a project. We can reproduce and iterate these outputs, and continue to share them easily with collaborators through a GitHub repository. The best way to do this is to use RStudio Projects, and to connect the R Project directory to a GitHub repo.
+
+Start on GitHub, and create a new repository. Name the repo something like `markdown-demo-repo`, initiate with a ReadMe, and make the repo public.
+
+Click on the green `Code` button and copy the repo URL, using HTTPS (if you are using a PAT) or SSH keys.
+
+Next, open R Studio. Go to `File --> New Project --> Version Control --> Git`. Paste the URL you copied from your repo. This will automatically fill in the name for the repo on your local machine - note that you could change it but it is best practice to use the same name for your local and remote copies of the same repo. Choose a sensible location to save the new repository. Click `Create Project`.
+
+This will clone your remote repository onto your local machine (i.e. copy all the files and the directory structure) while also creating an R Project file (extension .Rproj). The R Project file stores settings and information specific to the project and is helpful to keep things organized in R. For more info, see this chapter on [project oriented workflows](https://rstats.wtf/project-oriented-workflow.html)
+
+### Committing, pushing, and pulling from RStudio
+
+The ReadMe file you created on GitHub should have been copied into your new R Project. Look in the files pane, and open the `README.md` file. Add a line of text to the file and save it.
+
+Now, we will commit these local changes and push to the remote repo from R Studio. We can use the Terminal window from RStudio, or we can use the Git pane in the upper right. Click on the Git pane, and you'll see that your `README.md` file has been modified. Click the checkbox to stage the file. Then click the `Commit` button. In the dialogue window, you can look at the Diff (changes from the last commit). Add a commit message and click commit. You'll get a message confirming your commit was successful, then close the dialogue window.
+
+The Git pane now tells us that our branch is 1 commit ahead of origin/main (the remote repo). We can push the local changes to the remote, but first we want to pull any remote changes down from the remote. Click the downward arrow to pull. You should receive a message you are already up to date. Then click the upward arrow to push. Remember, it's good to get in the habit of pulling first, then pushing, in case there are existing changes in the remote - from your collaborators, from yourself on a different machine, etc.
+
+Navigate back to your remote repo on GitHub and confirm the the commit propagated by refreshing the page. Edit the README file on GitHub, for example by adding "a line of text from the remote", commit the change, and return to RStudio. Pull the change down, and confirm that the README file has updated with the remote change.
+
+Once we know that RStudio is talking to GitHub and we can commit, push, and pull changes, we are ready to start diving into R Markdown!
+
+## R Markdown basics
+
+### Elements of R Markdown document
+
+In RStudio, open a new file and select R Markdown. Use the default setting of `Document`.
+
+The new document consists of several elements. At the top is a YAML header, indicated by the `---` separators. The header is mainly metadata, including the output format. You can change the specifications, and in fact YAML headers can become quite complex. For now, change the title from "Untitled" to "Sample 1".
+
+```{r, eval=FALSE, purl=FALSE}
+title: "Sample 1"
+author: "LRA"
+date: "4/28/2022"
+output:
+  html_document: default
+```
+
+Below the header, there are code chunks and text. Code chunks open and close with three backticks. Within the curly brackets, the letter `r` indicates the language for the code chunk (other languages like `python` are also supported). The text immediately after the letter `r` is the label for the code chunk. If you click at the bottom of the R Markdown panel, you can see a table of contents and you can use the code chunk labels to navigate the document.
+
+After the label are parameters, for example `echo = FALSE`. This option directs R Markdown not to show the code in that chunk in the rendered output (but R Markdown does show the output of the code). There are lots of options, which you can explore at [this website](https://yihui.org/knitr/options/) or through the vignettes for `knitr`. R Markdown documents include a default `setup` chunk that has the code `knitr::opts_chunk$set(echo = TRUE)` which can set parameters for all code chunks in the document. Note that you can run individual code chunks by clicking the green triangle in the corner. You can also run lines within the chunk using keyboard shortcuts (Ctrl + Enter) or by highlighting the code and clicking `Run` in the upper right.  
+
+Try running the `cars` chunk. Notice that the output is placed inline in the R Markdown document and in the console. 
+
+The final element of the R Markdown document is text, including some lightweight formatting such as headers and bold text. The [R Markdown cheatsheet](https://raw.githubusercontent.com/rstudio/cheatsheets/main/rmarkdown.pdf) is a good reference for basic formatting syntax. R Studio also has a reference sheet for R Markdown under `Help`. Note that the text headers also show up in the TOC at the bottom of the pane, and you can also view the document outline by clicking on the document symbol in the upper right.
+
+### Render output
+
+Let's start rendering output to see how these elements appear in different formats. 
+
+Click the `Knit` button at the top of the page. This will render the document into the output you specified in the header. If there's no output specified, the document will be rendered as HTML. If you haven't saved the file yet, you'll need to save the `.Rmd` file before the output will render. Once you've knitted the document, you'll see the output file appear in the Files pane (lower right of RStudio) and if you look at the Git pane in the upper right, you'll see a new `.html` file that is not tracked by git.  
+
+The HTML output will show up in a pop-up window in RStudio. You can also open in a browser to see how the text formatting transfers and how the table and plots are integrated into the document.  
+
+Notice how the last line of text includes some special formatting for the words `echo = FALSE`? Return to the `.Rmd` file and look at the final line of text. The words `echo = FALSE` are surrounded by single backticks - this syntax indicates verbatim code that R evaluates inline (rather than in a code chunk). You can put more complex code, e.g. functions, into inline code, and R Markdown will render only the output. We'll demo that later on.    
+
+Next, look at the options under `Knit` (click on the small arrow to the right of the Knit button). Try knitting to PDF and to a Word Doc. Take a look at how the different elements of the header and the document appear in these different formats. Make a change to your header (e.g. change your name) and click `Knit`. This will output all the file formats that are specified.
+
+### Render to github_document
+
+To get the most out of integrating R Markdown into a GitHub workflow, it's very helpful to render your document as a `github_document`. This output format will create a `.md` file that GitHub turns into a beautiful website page without any extra effort on your part. 
+
+Update your header so the output is a github document: 
+
+```{r, eval=FALSE, purl=FALSE}
+title: "Sample 1"
+output:
+  github_document
+```
+
+Render the document using the Knit button. Then commit and push the `.md` document to GitHub. Remember to pull first to get in the habit of checking for remote changes.  
+
+Visit your GitHub website and see how the `.md` file appears on the website.  
+
+### Exercises I
+
+#### Practice Markdown formatting 
+
+ 1. Create a new R Markdown document. 
+ 2. Change the output to a github document and rename the document to "My Bio". Delete the default text in the document  
+ 3. Open the Markdown Quick Reference (under `Help`)
+ 4. Write a short bio or CV about yourself, including any info you want such as your current job or research interests.  
+ 5. Use the guidelines in the Markdown Quick Reference to include at least three formatting elements, such as bold or italic text, headers, lists, block quotes, footnotes, etc.  
+ 6. Render the document to a `.md` file. 
+ 7. Commit the document change and push to your remote repo. 
+ 
+#### 
+
+## More R Markdown features
+
+### Adding and configuring images
+
+There are multiple ways to add and configure images to an R Markdown document. We've already seen how plots that are created using code in the file are rendered in the output. We can also control how these plots appear by setting the width, height, and aspect ratio of the plot. 
+
+Return to the `Sample1` default R Markdown. Add the `fig.width` and `fig.height` options to the code chunk `pressure` to create a squre figure that is 8 by 8 inches:
+
+```{r, eval=FALSE, purl=FALSE}
+{r pressure, echo=FALSE, fig.width=8, fig.height=8}
+```
+
+Render the file and take a look at the figure. How does it look?  
+
+Sizing figures in R Markdown output can be a bit of trial and error. In addition to setting the figure height and width, you can set the aspect ratio using `fig.asp` and you can align the figure using `fig.align`. You can also set the size of the figure when it is inserted into the output document, using `out.height` and `out.width`. Typically, it's best not to try and set all the parameters, but to pick 2, e.g width and ratio. 
+
+Some useful thoughts from Hadley Wickham on sizing figures are available in [this chpater from R for Data Science](https://r4ds.had.co.nz/graphics-for-communication.html#learning-more-4).  
+
+Change the size of the figure in the `pressure` code chunk using different options (not `fig.width` or `fig.height`). Render the file, and see how the output looks. Does the size change the way you expect?  
+
+There are other options that we can use to adjust figures, such as `fig.cap` to add a caption. Try using `fig.cap` in the `pressure` code chunk and rendering the output.  
+
+We can also add figures or images directly in the document using a file path. Try first by right-clicking the image below of the R Markdown logo. Save the image into your local repo. Then insert the image into your R Markdown document using the following syntax:
+
+```{r, eval=FALSE, purl=FALSE}
+knitr::include_graphics("path/to/image/file")
+```
+
+```{r image}
+knitr::include_graphics("~/Desktop/teaching/workshops/workshop_website/docs/assets/rmarkdown_logo.png")
+```
+
+Alternatively, you can also incude a link directly to an image by providing the URL. Right-click the 
+
+### Tables
+
+### TOC
+
+### HTML tags
+
+
+### Exercises II
