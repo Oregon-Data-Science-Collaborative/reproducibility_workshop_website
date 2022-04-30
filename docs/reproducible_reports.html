@@ -505,9 +505,10 @@ output:
 <p>There are other options that we can use to adjust figures, such as <code>fig.cap</code> to add a caption. Try using <code>fig.cap</code> in the <code>pressure</code> code chunk and rendering the output.</p>
 <p>We can also add figures or images directly in the document using a file path. Try first by right-clicking the image below of the R Markdown logo. Save the image into your local repo. Then insert the image into your R Markdown document using the following syntax:</p>
 <pre class="r"><code>knitr::include_graphics(&quot;path/to/image/file&quot;)</code></pre>
-<pre class="r"><code>knitr::include_graphics(&quot;~/Desktop/teaching/workshops/workshop_website/docs/assets/rmarkdown_logo.png&quot;)</code></pre>
-<p><img src="/Users/laoki/Desktop/teaching/workshops/workshop_website/docs/assets/rmarkdown_logo.png" style="display: block; margin: auto;" /></p>
-<p>Alternatively, you can also incude a link directly to an image by providing the URL. Right-click the</p>
+<p><img src="/Users/laoki/Desktop/teaching/workshops/workshop_website/docs/assets/rmarkdown_logo.png" width="25%" style="display: block; margin: auto;" /></p>
+<p>Alternatively, you can also incude a link directly to an image by providing the URL. Right-click the image above, and copy the link to the image. Return to your R Markdown file, and include the image using the following syntax:</p>
+<pre class="r"><code>![logo](URL-to-the-file)</code></pre>
+<p>Render the document and see how it looks. Note that you may have to open the <code>.md</code> output in a browser (or commit and push to github) for the image to appear.</p>
 </div>
 <div id="tables" class="section level3">
 <h3>Tables</h3>
@@ -542,19 +543,16 @@ locale:
 attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
-other attached packages:
-[1] workflowr_1.6.2
-
 loaded via a namespace (and not attached):
- [1] Rcpp_1.0.7       knitr_1.36       magrittr_2.0.1   R6_2.5.1        
- [5] rlang_0.4.11     fastmap_1.1.0    fansi_0.5.0      highr_0.9       
- [9] stringr_1.4.0    tools_4.1.1      xfun_0.26        utf8_1.2.2      
-[13] git2r_0.28.0     jquerylib_0.1.4  htmltools_0.5.2  ellipsis_0.3.2  
-[17] rprojroot_2.0.2  yaml_2.2.1       digest_0.6.28    tibble_3.1.5    
-[21] lifecycle_1.0.1  crayon_1.4.1     later_1.3.0      vctrs_0.3.8     
-[25] promises_1.2.0.1 fs_1.5.0         glue_1.4.2       evaluate_0.14   
-[29] rmarkdown_2.11   stringi_1.7.4    compiler_4.1.1   pillar_1.6.4    
-[33] httpuv_1.6.3     pkgconfig_2.0.3 </code></pre>
+ [1] Rcpp_1.0.7       knitr_1.36       magrittr_2.0.1   workflowr_1.6.2 
+ [5] R6_2.5.1         rlang_0.4.11     fastmap_1.1.0    fansi_0.5.0     
+ [9] highr_0.9        stringr_1.4.0    tools_4.1.1      xfun_0.26       
+[13] utf8_1.2.2       git2r_0.28.0     jquerylib_0.1.4  htmltools_0.5.2 
+[17] ellipsis_0.3.2   rprojroot_2.0.2  yaml_2.2.1       digest_0.6.28   
+[21] tibble_3.1.5     lifecycle_1.0.1  crayon_1.4.1     later_1.3.0     
+[25] vctrs_0.3.8      promises_1.2.0.1 fs_1.5.0         glue_1.4.2      
+[29] evaluate_0.14    rmarkdown_2.11   stringi_1.7.4    compiler_4.1.1  
+[33] pillar_1.6.4     httpuv_1.6.3     pkgconfig_2.0.3 </code></pre>
 </div>
 </div>
 </div>

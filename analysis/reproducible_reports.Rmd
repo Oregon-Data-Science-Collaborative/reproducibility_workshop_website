@@ -153,11 +153,18 @@ We can also add figures or images directly in the document using a file path. Tr
 knitr::include_graphics("path/to/image/file")
 ```
 
-```{r image}
+```{r image, out.width='25%', echo=FALSE}
 knitr::include_graphics("~/Desktop/teaching/workshops/workshop_website/docs/assets/rmarkdown_logo.png")
 ```
+  
 
-Alternatively, you can also incude a link directly to an image by providing the URL. Right-click the 
+Alternatively, you can also incude a link directly to an image by providing the URL. Right-click the image above, and copy the link to the image. Return to your R Markdown file, and include the image using the following syntax:
+
+```{r eval=FALSE, purl=FALSE}
+![logo](URL-to-the-file)
+```
+
+Render the document and see how it looks. Note that you may have to open the `.md` output in a browser (or commit and push to github) for the image to appear.  
 
 ### Tables
 
