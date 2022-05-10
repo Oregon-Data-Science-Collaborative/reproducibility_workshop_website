@@ -1,0 +1,122 @@
+---
+output:
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Accessing data repositories
+
+In this workshop, we will cover the landscape of data repositories and discuss best practices for finding, using, and citing publicly available data.  
+
+### Learning objectives
+
+The target audience for the workshp is any researcher looking to improve their skills for finding and using publicly available data. During the workshop, participants will:
+
+- Learn how to navigate different kinds of data repositories
+- Consider how to find and access data to meet research needs
+- Identify different tools to incorporate data access and retrieval in a reproducible workflow
+
+### Resources
+
+[Finding Data tutorial](https://static.lib.calpoly.edu/finding-data-tutorial/) from CalPoly Library
+
+[Downloading data with curl](http://www.compciv.org/recipes/cli/downloading-with-curl/) a brief tutorial
+
+[Guide to curl](https://everything.curl.dev/) a comprehensive yet accessible guide
+
+[rOpenSci packages](https://ropensci.org/packages/data-access/) for accessing data from the Web
+
+[Intro to APIs](https://www.earthdatascience.org/courses/earth-analytics/get-data-using-apis/intro-to-programmatic-data-access-r/) a good intro to another way of accessing data from the Web
+
+## Workshop Materials
+
+### Slides
+
+Slides from the workshop are available [here](https://github.com/lillian-aoki/workshop_website/blob/master/slides/07_accessing_data.pdf)
+
+### Demos
+
+Below are a couple of examples of accessing data from websites. Not all data-rich websites are repositories, and these examples hardly scratch the surface of ways of accessing data on the Web. However, these are just two examples of how to apply computational tools to get the data you need.  
+
+Many data-rich repositories have their own data access tools to make finding and subsetting datasets easier. When you are looking for data, especially once you have identified a useful repository or dataset, it can be helpful to look at the existing tools to see if they will help your process. Many repository maintainers are also available to help with data access, especially for large and public (e.g. government) repos.  
+
+#### Downloading data with curl
+
+We can use the command line to download files from a repository. The `curl` tool is one handy way of accessing data via a URL. 
+
+Open the Terminal (and type `bash` to load the bash shell if needed). They syntax for `curl` is straightforward:  
+
+```{r  eval=FALSE, purl=FALSE}
+$ curl <URL> 
+```
+
+will download the data at the URL into the Terminal. Try this with the following example website:
+
+```{r  eval=FALSE, purl=FALSE}
+$ curl http://example.com/ 
+```
+
+Having the output in the Terminal isn't that useful. We can use the output option (`-o` or `--output`) to send the output somewhere more useful. The output can be a file path (relative or absolute) or the name of the file if you want to save the output in the working directory.  
+
+```{r  eval=FALSE, purl=FALSE}
+$ curl -o example.html http://example.com/ 
+```
+
+You can also download more than one file. If you have only a few files, you can list the files and the outputs. For example, try downloading some National Weather Service records of Oregon weather, [linked on this website](https://www.weather.gov/wrh/climate?wfo=pqr). Remember to output to a reasonable directory.
+
+```{r  eval=FALSE, purl=FALSE}
+$ curl -o portland_weather.csv -o eugene_weather.csv https://www.weather.gov/media/pqr/climate/pastdata/Portland_daily.csv https://www.weather.gov/media/pqr/climate/pastdata/Eugene_daily.csv
+```
+
+You can also create lists of files (e.g. to download many files that have similar URLs), and you can even name the output based on the URL.  
+
+`curl` also supports protocols besides HTTPS. For more details, check out the [comprehensive guide to everything curl](https://everything.curl.dev/)
+
+Using `curl`, especially in a bash script, is one way to make your data download a little more reproducible. Rather than point-and-click downloads, which doesn't leave much of a record, you can have a record of the URL where you located and accessed the data file. If you are downloading from a repository or data portal, that URL might be (relatively) persistent.  
+
+#### Downloading data in R
+
+There are many ways to download data using R. A simple way is to use the `read.csv()` function from base R or the `read_csv()` function from the `readr` package (part of the `tidyverse`) to download directly from a URL. Similar to using `curl` on the command line, these functions will access whatever data is directly accessible from the URL. This works well for things like CSVs that you might want to bring directly into the R environment. For example, to download the same weather data we accessed before using `read_csv()`, use the following syntax:
+
+```{r eval=FALSE, purl=FALSE}
+library(tidyverse) # load the tidyverse package
+portland_weather <- read_csv("https://www.weather.gov/media/pqr/climate/pastdata/Eugene_daily.csv")
+```
+
+The object `portland_weather` is a tibble created from the CSV. To save the data on your computer, you would need to export the object from R, for example using `write.csv()`
+
+```{r eval=FALSE, purl=FALSE}
+write.csv(portland_weather, "/useful/file/path/portland_weather.csv", row.names=FALSE)
+```
+
+Using these functions to have a record of downloads in a script can improve reproducibility. At the same time, especially for large downloads, you want to avoid re-downloading and exporting data every time your revise your analysis. One approach is to split your data download/access scripts and keep them separate from the analysis scripts.  
+
+There are many many other tools to access data from R. For a guide to using API calls, check out the lesson from the [Earth Data Science textbook](https://www.earthdatascience.org/courses/earth-analytics/get-data-using-apis/intro-to-programmatic-data-access-r/) (with additional lessons for Python). The [rOpenSci project](https://ropensci.org/packages/data-access/) also curates packages that can be used to access data from the Web. 
+
+### Exercises
+
+#### Exploring the landscape of data repositories
+
+1. Visit the [Registry of Research Data Repositories](https://www.re3data.org/)  
+2. Browse through the subjects to your field. Can you find a repository that is relevant to your research?  
+3. Follow the link to the repository you identified. Can you find a dataset that is relevant to your research?  
+4. Consider how you would search for relevant data. What information would you use to find relevant data?  
+5. What types of repositories are most likely to house datasets that are relevant to your research?  
+
+#### Tracing datasets from a publication
+
+1. Check out a [recent publication on connecting dog genetics to behavior](https://www-science-org.libproxy.uoregon.edu/doi/10.1126/science.abk0639#)  
+2. Locate the data availability statement at the end of the article.  
+3. Where are the data and code for this paper located? What are some differences between the repositories in use?
+4. Why would the authors use multiple repositories to house their data?  
+
+#### Making data access reproducible
+
+1. Diagram a portion of your research workflow that includes accessing data from an external source.  
+2. When in the research process does data access and retrieval occur?  
+3. What specific steps do you take to make your data access reproducible?  
+4. Could you re-access the same data a year from now?  
+
