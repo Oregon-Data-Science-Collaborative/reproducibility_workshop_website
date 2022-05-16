@@ -23,6 +23,7 @@ navbar:
     - text: "Module 7: Accessing data repositories"
       href: accessing_data.html
     - text: "Module 8: Publishing data and code"
+      href: publishing_data.html
   - text: Resources
     href: resources.html
   - text: Installation

@@ -1,0 +1,58 @@
+---
+output:
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Publishing data and code
+
+In this workshop, we will discuss the process of depositing data and code in a repository and explore the 
+
+### Learning objectives
+
+The target audience for the workshp is any researcher looking to learn more about the nuts and bolts of publishing data and code. During the workshop, participants will:
+
+- Discuss the motivations and barriers to publishing data and code
+- Explore the data sharing standards within their discipline
+- Identify different tools to incorporate data and code publication in a reproducible workflow
+
+### Resources
+
+[Archive your GitHub Repo](https://docs.github.com/en/repositories/archiving-a-github-repository/referencing-and-citing-content) - guide to linking your GitHub repo to a persistent identifier on Zenodo  
+
+[UO guide to data management plans](https://researchguides.uoregon.edu/data-management/dmp) - a brief intro to DMPs, with a link to the DMP tool  
+
+## Workshop Materials
+
+### Slides
+
+Slides from the workshop are available [here]()
+
+### Exercises
+
+#### Data sharing in theory and practice  
+
+*Disciplinary standards in theory*  
+
+1. Look up a scholarly society in your discipline that publishes journals  
+2. What are the guidelines for publishing data and code?  
+3. How easy is it to find that information?  
+
+*Disciplinary standards in practice*  
+
+1. Look up a recent publication from one of the society journals you identified above  
+2. Does the publication have data and code available?  
+3. What repository holds the data and/or code?  
+4. How easy is it to access the data?  
+5. What kind of metadata is available to help interpret the data?  
+
+#### Publisihing code in a reproducible workflow  
+
+1. Diagram your reproducible research workflow (think big picture, not day to day). 
+2. When in the process do you publish or archive code or data? When in the process do you make a plan for publishing data?  
+3. Look at the [UO research guide to data management plans](https://researchguides.uoregon.edu/data-management/dmp). Write a brief description (1-2 sentences) for each of the 5 questions. Take note if it's harder to answer some of the questions than others.  
+4. Align your data management plan with your research workflow. How does each element of the DMP fit into your big picture workflow?  
+5. How does data management fit into your day-to-day workflow? What elements can you put in place early in the research process to make data publication easier later on?

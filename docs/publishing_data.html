@@ -11,7 +11,7 @@
 
 
 
-<title>installation.knit.md</title>
+<title>publishing_data.knit.md</title>
 
 <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -394,61 +394,67 @@ div.tocify {
 </div>
 
 
-<div id="pre-workshop-setup" class="section level2">
-<h2>Pre-workshop setup</h2>
-<p>For the workshop series, we will use specific software, listed below. Please make<br />
-sure to download and install the software before the first workshop. We will have<br />
-a setup/trouble-shooting pre-workshop session in case anyone has issues getting<br />
-set up.</p>
-<div id="the-shell" class="section level3">
-<h3>The shell</h3>
-<p>If you are on a Mac or Linux machine, you probably already have the Bash shell<br />
-installed. The most recent macOS uses zsh as the default shell instead of bash.<br />
-Either zsh or bash will be fine for purposes of this tutorial, but you can switch<br />
-to bash by typing <code>$ bash</code> in the Terminal.</p>
-<p>If you have a Windows machine, you can install the Bash shell and Git together,<br />
-following the instructions from Software Carepntries <a href="https://carpentries.github.io/workshop-template/#shell">here</a></p>
-<p>Step-by-step instructions for installing Git for Windows are also available at<br />
-this <a href="https://github.com/lillian-aoki/workshop_website/blob/master/slides/Download_git_instructions.pdf">link</a>, if you get stuck.</p>
-<p>Check your installation by opening Terminal on Mac (in /<code>Applications/Utilities</code>)<br />
-or by opening the Git Bash program on Windows from the start menu. Type<br />
-<code>echo $SHELL</code> to verify the shell you are using.</p>
+<div id="publishing-data-and-code" class="section level2">
+<h2>Publishing data and code</h2>
+<p>In this workshop, we will discuss the process of depositing data and code in a repository and explore the</p>
+<div id="learning-objectives" class="section level3">
+<h3>Learning objectives</h3>
+<p>The target audience for the workshp is any researcher looking to learn more about the nuts and bolts of publishing data and code. During the workshop, participants will:</p>
+<ul>
+<li>Discuss the motivations and barriers to publishing data and code</li>
+<li>Explore the data sharing standards within their discipline</li>
+<li>Identify different tools to incorporate data and code publication in a reproducible workflow</li>
+</ul>
 </div>
-<div id="text-editor" class="section level3">
-<h3>Text editor</h3>
-<p>We will use the basic text editor nano during the workshop. It should be pre-installed<br />
-on Mac and Linux machines.</p>
-<p>On a Windows machine, when you install Git Bash for Windows (see above), nano<br />
-should also be installed.</p>
-<p>Feel free to use your preferred text editor instead of nano if you feel comfortable!<br />
-The workshops will demonstrate how to open and edit files in nano from the command<br />
-line - once you are familiar with the process, you can go ahead and use another<br />
-editor.</p>
+<div id="resources" class="section level3">
+<h3>Resources</h3>
+<p><a href="https://docs.github.com/en/repositories/archiving-a-github-repository/referencing-and-citing-content">Archive your GitHub Repo</a> - guide to linking your GitHub repo to a persistent identifier on Zenodo</p>
+<p><a href="https://researchguides.uoregon.edu/data-management/dmp">UO guide to data management plans</a> - a brief intro to DMPs, with a link to the DMP tool</p>
 </div>
-<div id="git" class="section level3">
-<h3>Git</h3>
-<p>You can download and install Git for your operating system here: <a href="https://git-scm.com/downloads" class="uri">https://git-scm.com/downloads</a></p>
-<p>On a Windows machine, if you used the bash installer above you will already have<br />
-Git installed.</p>
-<p>After installing, check your git version by typing <code>git --version</code> in the shell.</p>
 </div>
-<div id="github" class="section level3">
-<h3>GitHub</h3>
-<p>You’ll need a free account on <a href="https://github.com/join">GitHub.com</a> for the workshops.<br />
-Be thoughtful about the user name and email you use, as these will be associated<br />
-with your repositories. Some advice on picking a username <a href="https://happygitwithr.com/github-acct.html#username-advice">here</a> and some info<br />
-from GitHub about keeping your email private <a href="https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-user-account/managing-email-preferences/setting-your-commit-email-address">here</a></p>
+<div id="workshop-materials" class="section level2">
+<h2>Workshop Materials</h2>
+<div id="slides" class="section level3">
+<h3>Slides</h3>
+<p>Slides from the workshop are available <a href="">here</a></p>
 </div>
-<div id="git-client" class="section level3">
-<h3>Git client</h3>
-<p>There are many Git clients available (see <a href="https://git-scm.com/downloads/guis">this list</a>), which provide a more visual<br />
-way of interacting with Git. We will demo GitHub Desktop, which is available for<br />
-download <a href="https://desktop.github.com/">here</a>.</p>
+<div id="exercises" class="section level3">
+<h3>Exercises</h3>
+<div id="data-sharing-in-theory-and-practice" class="section level4">
+<h4>Data sharing in theory and practice</h4>
+<p><em>Disciplinary standards in theory</em></p>
+<ol style="list-style-type: decimal">
+<li>Look up a scholarly society in your discipline that publishes journals<br />
+</li>
+<li>What are the guidelines for publishing data and code?<br />
+</li>
+<li>How easy is it to find that information?</li>
+</ol>
+<p><em>Disciplinary standards in practice</em></p>
+<ol style="list-style-type: decimal">
+<li>Look up a recent publication from one of the society journals you identified above<br />
+</li>
+<li>Does the publication have data and code available?<br />
+</li>
+<li>What repository holds the data and/or code?<br />
+</li>
+<li>How easy is it to access the data?<br />
+</li>
+<li>What kind of metadata is available to help interpret the data?</li>
+</ol>
 </div>
-<div id="data-files" class="section level3">
-<h3>Data files</h3>
-<p>For the shell tutorial, we will use some <a href="https://github.com/lillian-aoki/workshop_website/raw/master/data/shell_intro.zip">demo files</a>. Please download the folder<br />
-and save to your Desktop.</p>
+<div id="publisihing-code-in-a-reproducible-workflow" class="section level4">
+<h4>Publisihing code in a reproducible workflow</h4>
+<ol style="list-style-type: decimal">
+<li>Diagram your reproducible research workflow (think big picture, not day to day).</li>
+<li>When in the process do you publish or archive code or data? When in the process do you make a plan for publishing data?<br />
+</li>
+<li>Look at the <a href="https://researchguides.uoregon.edu/data-management/dmp">UO research guide to data management plans</a>. Write a brief description (1-2 sentences) for each of the 5 questions. Take note if it’s harder to answer some of the questions than others.<br />
+</li>
+<li>Align your data management plan with your research workflow. How does each element of the DMP fit into your big picture workflow?<br />
+</li>
+<li>How does data management fit into your day-to-day workflow? What elements can you put in place early in the research process to make data publication easier later on?</li>
+</ol>
 <br>
 <p>
 <button type="button" class="btn btn-default btn-workflowr btn-workflowr-sessioninfo" data-toggle="collapse" data-target="#workflowr-sessioninfo" style="display: block;">
@@ -484,6 +490,7 @@ loaded via a namespace (and not attached):
 [25] fs_1.5.0         glue_1.4.2       evaluate_0.14    rmarkdown_2.11  
 [29] stringi_1.7.4    compiler_4.1.1   pillar_1.6.4     httpuv_1.6.3    
 [33] pkgconfig_2.0.3 </code></pre>
+</div>
 </div>
 </div>
 </div>
