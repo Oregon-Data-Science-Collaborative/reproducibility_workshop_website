@@ -29,7 +29,7 @@ The target audience for the workshp is any researcher looking to learn more abou
 
 ### Slides
 
-Slides from the workshop are available [here]()
+Slides from the workshop are available [here](https://github.com/lillian-aoki/workshop_website/blob/master/slides/08_publishing_data.pdf)
 
 ### Exercises
 
